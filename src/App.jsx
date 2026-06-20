@@ -4,7 +4,7 @@ import { Home } from "./pages/Home";
 import { ResultadosPesquisa } from "./pages/ResultadosPesquisa";
 import { CadastroUsuario } from "./pages/CadastroUsuario";
 import { Login } from "./pages/Login";
-
+import { EditProfile } from "./pages/EditProfile";
 
 function App() {
   return (
@@ -12,11 +12,24 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroUsuario />} />
+        <Route path="/editar-perfil" element={<EditProfile />} />
+
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          {/* Futuramente, novas páginas serão adicionadas aqui */}
-          <Route path="resultados" element={<ResultadosPesquisa />} />
-          <Route path="contact" element={<div className="p-20 text-center text-xl">Contato (Em breve)</div>} />
+
+          <Route
+            path="contact"
+            element={
+              <div className="p-20 text-center text-xl">
+                Contato (Em breve)
+              </div>
+            }
+          />
+
+          <Route
+            path="resultados"
+            element={<ResultadosPesquisa />}
+          />
         </Route>
       </Routes>
     </Router>
