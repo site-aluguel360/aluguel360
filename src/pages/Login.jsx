@@ -104,11 +104,11 @@ export function Login() {
             </button>
 
             <div className="space-y-2 text-[14px] text-[#2D2D2D] sm:text-[16px]">
-              <Link to="#" className="block text-[#1A535C] underline decoration-[#1A535C]/30 underline-offset-4 hover:text-[#2F646C]">
+              <Link to="/recuperar-senha" className="block text-[#1A535C] underline decoration-[#1A535C]/30 underline-offset-4 hover:text-[#2F646C]">
                 Esqueceu a senha?
               </Link>
               <p>
-                Ainda não tem conta?{' '}
+                Ainda não tem conta?{' '} 
                 <Link to="/cadastro" className="font-semibold text-[#1A535C] underline decoration-[#1A535C]/30 underline-offset-4 hover:text-[#2F646C]">
                   Cadastre-se
                 </Link>
