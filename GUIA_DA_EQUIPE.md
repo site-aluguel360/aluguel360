@@ -15,7 +15,7 @@ Para rodar este projeto na sua máquina, você precisa ter o **Node.js** (versã
 2. **Navegue até a pasta do projeto em React:**
    ```bash
    cd emReact
-   ```
+   ```npm
 3. **Instale as dependências** do projeto (isso irá ler o `package.json` e baixar todas as bibliotecas necessárias na pasta `node_modules`):
    ```bash
    npm install

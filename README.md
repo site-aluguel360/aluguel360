@@ -18,6 +18,14 @@ A proposta é reunir em uma única plataforma funcionalidades que normalmente s�
 * Consulta de contratos
 * Controle básico de pagamentos
 * Dashboard com informações gerais
+* **Tela de Perfil do Usuário** com sidebar de navegação
+  - Gerenciamento de endereços
+  - Configurações de segurança
+  - Preferências de privacidade
+  - Avaliação de qualidade de anúncios
+  - Gerenciamento de fotos e mídias
+  - Listagem de imóveis cadastrados
+  - Gerenciamento de anúncios (Ver [PERFIL_USUARIO.md](PERFIL_USUARIO.md) para detalhes)
 
 ### Futuras melhorias
 
