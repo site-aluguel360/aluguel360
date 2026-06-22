@@ -13,18 +13,18 @@ import { PerfilQualidade } from "./pages/PerfilQualidade";
 import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
-// import { RecuperarSenha } from "./pages/RecuperarSenha";
+import { RecuperarSenha } from "./pages/RecuperarSenha";
 
 function App() {
   return (
     <Router>
       <Routes>
-        
+
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<CadastroUsuario />} />
-           
+        <Route path="/recuperar-senha" element={<RecuperarSenha />} />
         <Route path="/" element={<Layout />}>
-        
+
           <Route index element={<Home />} />
           {/* Futuramente, novas páginas serão adicionadas aqui */}
           <Route path="resultados" element={<ResultadosPesquisa />} />
