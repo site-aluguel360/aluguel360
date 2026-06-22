@@ -4,8 +4,9 @@ import { Home } from "./pages/Home";
 import { ResultadosPesquisa } from "./pages/ResultadosPesquisa";
 import { CadastroUsuario } from "./pages/CadastroUsuario";
 import { Login } from "./pages/Login";
+<<<<<<< HEAD
 import { EditProfile } from "./pages/EditProfile";
-
+=======
 import { About } from "./pages/About";
 import { Perfil } from "./pages/Perfil";
 import { PerfilEnderecos } from "./pages/PerfilEnderecos";
@@ -15,6 +16,8 @@ import { PerfilQualidade } from "./pages/PerfilQualidade";
 import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
+
+>>>>>>> 15c36fc0b9ed9ceacdd30d24d9e8613be1d20963
 
 function App() {
   return (
@@ -26,6 +29,7 @@ function App() {
 
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+<<<<<<< HEAD
 
           <Route
             path="contact"
@@ -40,7 +44,10 @@ function App() {
             path="resultados"
             element={<ResultadosPesquisa />}
           />
-
+=======
+          {/* Futuramente, novas páginas serão adicionadas aqui */}
+          <Route path="resultados" element={<ResultadosPesquisa />} />
+          <Route path="contact" element={<div className="p-20 text-center text-xl">Contato (Em breve)</div>} />
           <Route path="about" element={<About />} />
           <Route path="perfil" element={<Perfil />} />
           <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
@@ -48,14 +55,9 @@ function App() {
           <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
           <Route path="perfil/qualidade" element={<PerfilQualidade />} />
           <Route path="perfil/midia" element={<PerfilMidia />} />
-          <Route
-            path="perfil/meus-imoveis"
-            element={<PerfilMeusImoveis />}
-          />
-          <Route
-            path="perfil/meus-anuncios"
-            element={<PerfilMeusAnuncios />}
-          />
+          <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
+          <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
+>>>>>>> 15c36fc0b9ed9ceacdd30d24d9e8613be1d20963
         </Route>
       </Routes>
     </Router>
