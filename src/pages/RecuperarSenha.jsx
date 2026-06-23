@@ -254,7 +254,7 @@ export function RecuperarSenha() {
                     flex
                     flex-col
                     items-center
-                    gap-[20px]
+                    gap-[10px]
                     text-center
                 "
                     >
