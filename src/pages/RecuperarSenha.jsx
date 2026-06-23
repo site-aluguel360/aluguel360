@@ -143,7 +143,7 @@ export function RecuperarSenha() {
                                 shadow-[0_-1px_6.1px_rgba(0,0,0,0.41)]
                             "
                             >
-                                Continuar
+                                Continuar &gt;&gt;
                             </Button>
 
                             <Link
