@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { EyeOff } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ButtonForms } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export function RecuperarSenha() {
@@ -61,18 +61,9 @@ export function RecuperarSenha() {
                         </div>
 
                         <div className="mt-12 flex flex-col items-center gap-4">
-                            <Button onClick={() => setStep(2)} className="
-                                w-[215px]
-                                h-[39px]
-                                rounded-[9px]
-                                bg-[#2C7E7B]
-                                text-[#F0F4F8]
-                                text-[20px]
-                                font-normal
-                                shadow-[0_-1px_6.1px_rgba(0,0,0,0.41)]
-                                ">
+                            <ButtonForms onClick={() => setStep(2)} className="w-[215px] h-[39px] text-[20px]">
                                 Prosseguir &gt;&gt;
-                            </Button>
+                            </ButtonForms>
 
                             <Link to="/" color="--color-primary" className=" text-[16px] font-normal text-[#1A535C] underline underline-offset-[3px]">
                                 Cancelar Operação
@@ -130,21 +121,12 @@ export function RecuperarSenha() {
 
                         <div className="mt-[40px] flex flex-col items-center gap-6">
 
-                            <Button
+                            <ButtonForms
                                 onClick={() => setStep(3)}
-                                className="
-                                w-[215px]
-                                h-[39px]
-                                rounded-[9px]
-                                bg-[#2C7E7B]
-                                text-[#F0F4F8]
-                                text-[20px]
-                                font-normal
-                                shadow-[0_-1px_6.1px_rgba(0,0,0,0.41)]
-                            "
+                                className="w-[215px] h-[39px] text-[20px]"
                             >
                                 Continuar &gt;&gt;
-                            </Button>
+                            </ButtonForms>
 
                             <Link
                                 to="/"
@@ -231,18 +213,9 @@ export function RecuperarSenha() {
                         </div>
 
                         <div className="mt-5 flex justify-center gap-4">
-                            <Button onClick={() => setStep(4)} className="
-                                w-[215px]
-                                h-[39px]
-                                rounded-[9px]
-                                bg-[#2C7E7B]
-                                text-[#F0F4F8]
-                                text-[20px]
-                                font-normal
-                                shadow-[0_-1px_6.1px_rgba(0,0,0,0.41)]
-                            ">
+                            <ButtonForms onClick={() => setStep(4)} className="w-[215px] h-[39px] text-[20px]">
                                 Continuar &gt;&gt;
-                            </Button>
+                            </ButtonForms>
                         </div>
                     </div>
                 )}
@@ -272,23 +245,14 @@ export function RecuperarSenha() {
                             Redefinimos sua senha com sucesso!
                         </p>
 
-                        <Button
+                        <ButtonForms
                             asChild
-                            className="
-                        w-[269px]
-                        h-[42px]
-                        rounded-[9px]
-                        bg-[#2C7E7B]
-                        text-[16px]
-                        font-normal
-                        text-[#F0F4F8]
-                        shadow-[0_-1px_6.1px_rgba(0,0,0,0.41)]
-                    "
+                            className="w-[269px] h-[42px] text-[16px]"
                         >
                             <Link to="/login">
                                 Acessar minha conta
                             </Link>
-                        </Button>
+                        </ButtonForms>
                     </div>
                 )}
 
