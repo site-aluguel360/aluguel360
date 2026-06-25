@@ -114,7 +114,7 @@ function AuthenticatedActions() {
       </div>
 
       <div className="flex items-center justify-end gap-4 pr-1 font-['Inter'] text-[12px] text-[#2D2D2D]/90 w-full lg:w-auto">
-        <Link to="#" className="transition-colors hover:text-primary">
+        <Link to="/perfil/meus-anuncios" className="transition-colors hover:text-primary">
           Meus anúncios
         </Link>
 
@@ -134,15 +134,15 @@ export function SiteHeader({ isAuthenticated = false }) {
     <header className="sticky top-0 z-50 border-b border-[#1A535C]/30 bg-white shadow-[0_2px_2.4px_-1px_rgba(26,83,92,0.6)]">
       {/* Desktop & Mobile Header Container */}
       <div className="mx-auto flex min-h-[92px] max-w-[1037px] items-center justify-between px-4 py-3 lg:py-0">
-        
+
         {/* Left: Brand */}
         <BrandBlock />
 
         {/* Mobile Toggle Button */}
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="text-[#1A535C] lg:hidden" 
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-[#1A535C] lg:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Menu"
         >

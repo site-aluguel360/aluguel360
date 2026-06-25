@@ -1,9 +1,10 @@
 import { Link, Outlet } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { SiteHeader } from "./SiteHeader";
+import { useAuth } from "../contexts/AuthContext";
 
 export function Layout() {
-  const isAuthenticated = false;
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className="flex min-h-screen flex-col font-sans">
@@ -13,7 +14,7 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <footer id = "footer" className="bg-primary px-6 pb-6 pt-16 text-white">
+      <footer id="footer" className="bg-primary px-6 pb-6 pt-16 text-white">
         <div className="mx-auto mb-12 grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-4">
           <div className="flex flex-col">
             <div className="mb-6 inline-block w-max rounded-full bg-secondary px-4 py-1.5 text-lg font-bold text-white">

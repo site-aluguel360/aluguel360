@@ -1,5 +1,6 @@
 import { Edit } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 export function PerfilHeader({ usuario = {} }) {
   const {
@@ -35,13 +36,15 @@ export function PerfilHeader({ usuario = {} }) {
         </div>
 
         {/* Botão de Editar */}
-        <Button 
-          variant="outline" 
-          className="gap-2 border-[#D8E1E7] text-[#2D2D2D]/80 hover:bg-[#F0F4F8] hover:text-[#2D2D2D] rounded-[6px] h-[36px] px-4 font-['Inter'] font-medium"
-        >
-          <Edit className="h-4 w-4" />
-          Editar Perfil
-        </Button>
+        <Link to="/perfil/editar">
+          <Button
+            variant="outline"
+            className="gap-2 border-[#D8E1E7] text-[#2D2D2D]/80 hover:bg-[#F0F4F8] hover:text-[#2D2D2D] rounded-[6px] h-[36px] px-4 font-['Inter'] font-medium"
+          >
+            <Edit className="h-4 w-4" />
+            Editar Perfil
+          </Button>
+        </Link>
       </div>
     </div>
   );
