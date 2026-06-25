@@ -15,18 +15,6 @@ const usuarioMock = {
 export function Perfil() {
   return (
 
-    /*
-      const menuItems = [
-    { label: "Perfil", icon: User, path: "/perfil" },
-    { label: "Endereços", icon: MapPin, path: "/perfil/enderecos" },
-    { label: "Meus Imóveis", icon: Home, path: "/perfil/meus-imoveis" },
-    { label: "Meus Anúncios", icon: FileText, path: "/perfil/meus-anuncios" },
-    { label: "Fotos e Mídias", icon: ImageIcon, path: "/perfil/midia" },
-    { label: "Qualidade dos Anúncios", icon: Star, path: "/perfil/qualidade" },
-    { label: "Segurança", icon: Lock, path: "/perfil/seguranca" },
-    { label: "Configurações", icon: Settings, path: "/perfil/configuracoes" },
-  ];
-    */
     <div className="mx-auto w-full max-w-7xl px-4 py-8 lg:px-8">
       {/* Main Layout Grid */}
       <div className="grid gap-8 min-[1080px]:grid-cols-[200px_minmax(0,1fr)]">
@@ -58,10 +46,12 @@ export function Perfil() {
                   <span className="font-semibold mr-1">Data de Cadastro:</span> 01/02/2023
                 </p>
               </div>
-              <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                <Edit className="h-3.5 w-3.5" />
-                Alterar Dados
-              </button>
+              <Link to="/perfil/editar">
+                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+                  <Edit className="h-3.5 w-3.5" />
+                  Alterar Dados
+                </button>
+              </Link>
             </PerfilCard>
 
             {/* Endereços */}

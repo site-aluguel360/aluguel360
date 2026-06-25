@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 import { Layout } from "./components/Layout.jsx";
 import { Home } from "./pages/Home";
 import { ResultadosPesquisa } from "./pages/ResultadosPesquisa";
@@ -18,47 +19,49 @@ import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<CadastroUsuario />} />
-        <Route path="/editar-perfil" element={<EditProfile />} />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/cadastro" element={<CadastroUsuario />} />
 
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
 
-          <Route
-            path="contact"
-            element={
-              <div className="p-20 text-center text-xl">
-                Contato (Em breve)
-              </div>
-            }
-          />
+            <Route
+              path="contact"
+              element={
+                <div className="p-20 text-center text-xl">
+                  Contato (Em breve)
+                </div>
+              }
+            />
 
-          <Route
-            path="resultados"
-            element={<ResultadosPesquisa />}
-          />
+            <Route
+              path="resultados"
+              element={<ResultadosPesquisa />}
+            />
 
-          <Route path="about" element={<About />} />
-          <Route path="perfil" element={<Perfil />} />
-          <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
-          <Route path="perfil/seguranca" element={<PerfilSeguranca />} />
-          <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
-          <Route path="perfil/qualidade" element={<PerfilQualidade />} />
-          <Route path="perfil/midia" element={<PerfilMidia />} />
-          <Route
-            path="perfil/meus-imoveis"
-            element={<PerfilMeusImoveis />}
-          />
-          <Route
-            path="perfil/meus-anuncios"
-            element={<PerfilMeusAnuncios />}
-          />
-        </Route>
-      </Routes>
-    </Router>
+            <Route path="about" element={<About />} />
+            <Route path="perfil" element={<Perfil />} />
+            <Route path="perfil/editar" element={<EditProfile />} />
+            <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
+            <Route path="perfil/seguranca" element={<PerfilSeguranca />} />
+            <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
+            <Route path="perfil/qualidade" element={<PerfilQualidade />} />
+            <Route path="perfil/midia" element={<PerfilMidia />} />
+            <Route
+              path="perfil/meus-imoveis"
+              element={<PerfilMeusImoveis />}
+            />
+            <Route
+              path="perfil/meus-anuncios"
+              element={<PerfilMeusAnuncios />}
+            />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -1,27 +1,47 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { PerfilHeader } from "../components/PerfilHeader";
+import { PerfilSidebar } from "../components/PerfilSidebar";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { PerfilCard } from "../components/PerfilCard";
+
+const usuarioMock = {
+  nome: "Fulano de Tal",
+  email: "fulanodetal@gmail.com",
+  iniciais: "FT",
+  dataCadastro: "01/02/2023",
+  cpf: "123.***.***-10"
+};
 
 export function EditProfile() {
   const [user, setUser] = useState({
-    nome: "Francieli dos Santos",
-    email: "francieli@email.com",
+    nome: "Fulano de Tal",
+    email: "fulanodetal@gmail.com",
     telefone: "(89) 99999-8888",
     dataNascimento: "2000-01-01",
     cidade: "Floriano",
     estado: "PI",
+    rua: "",
+    numeroCasa: "",
+    cep: "",
+    logradouro: "",
+    bairro: "",
+    complemento: "",
   });
 
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setUser((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  const handleSave = () => {
+  const handleSave = (e) => {
+    e.preventDefault();
     setMessage("Alterações salvas com sucesso!");
 
     setTimeout(() => {
@@ -30,204 +50,191 @@ export function EditProfile() {
   };
 
   return (
-  <div className="min-h-screen bg-gray-100 py-10 px-4">
-    <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-      
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-[#145C63]">
-          Editar Perfil
-        </h1>
-        <p className="text-gray-500 mt-2">
-          Atualize suas informações pessoais e endereço.
-        </p>
-      </div>
+    <div className="mx-auto w-full max-w-7xl px-4 py-8 lg:px-8">
+      {/* Main Layout Grid */}
+      <div className="grid gap-8 min-[1080px]:grid-cols-[200px_minmax(0,1fr)]">
+        {/* Sidebar Left */}
+        <PerfilSidebar />
 
-      <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        {/* Dados pessoais */}
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Nome Completo
-          </label>
-          <input
-            type="text"
-            name="nome"
-            value={user.nome}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
+        {/* Content Right */}
+        <div className="flex flex-col min-w-0">
+          {/* Header */}
+          <PerfilHeader usuario={usuarioMock} />
 
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            E-mail
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={user.email}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-        <div>
-          <label className="block mb-2 font-medium text-gray-700">
-            Data de Nascimento
-         </label>
-
-         <input
-           type="date"
-           name="dataNascimento"
-           value={user.dataNascimento}
-           onChange={handleChange}
-           className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#356F75]"
-         />
-         </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Telefone
-          </label>
-          <input
-            type="text"
-            name="telefone"
-            value={user.telefone}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        
-
-        {/* Endereço */}
-        <div className="md:col-span-2 mt-4">
-          <h2 className="text-xl font-semibold text-[#145C63]">
-            Endereço
-          </h2>
-        </div>
-        <div>
-        <label className="block mb-2 font-medium">
-          Rua
-        </label>
-
-        <input
-          type="text"
-          name="rua"
-          value={user.rua}
-          onChange={handleChange}
-          className="w-full border border-gray-300 rounded-lg p-3"
-       />
-      </div>
-
-      <div>
-      <label className="block mb-2 font-medium">
-        Número
-     </label>
-
-    <input
-      type="text"
-      name="numero"
-      value={user.numeroCasa}
-      onChange={handleChange}
-     className="w-full border border-gray-300 rounded-lg p-3"
-    />
-    </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            CEP
-          </label>
-          <input
-            type="text"
-            name="cep"
-            value={user.cep}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Logradouro
-          </label>
-          <input
-            type="text"
-            name="logradouro"
-            value={user.logradouro}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Bairro
-          </label>
-          <input
-            type="text"
-            name="bairro"
-            value={user.bairro}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Complemento
-          </label>
-          <input
-            type="text"
-            name="complemento"
-            value={user.complemento}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Cidade
-          </label>
-          <input
-            type="text"
-            name="cidade"
-            value={user.cidade}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-2">
-            Estado
-          </label>
-          <input
-            type="text"
-            name="estado"
-            value={user.estado}
-            onChange={handleChange}
-            className="w-full border rounded-lg p-3"
-          />
-        </div>
-
-        <div className="md:col-span-2 flex justify-end mt-4">
-          <button
-            type="button"
-            onClick={handleSave}
-            className="bg-[#145C63] text-white px-6 py-3 rounded-lg hover:opacity-90"
+          <PerfilCard
+            titulo="Editar Perfil"
+            descricao="Atualize suas informações pessoais e endereço."
           >
-            Salvar Alterações
-          </button>
-        </div>
-      </form>
+            <form onSubmit={handleSave} className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+              
+              {/* Dados pessoais */}
+              <div className="md:col-span-2">
+                <h2 className="text-[16px] font-semibold text-[#1A535C] border-b pb-2 mb-2">Dados Pessoais</h2>
+              </div>
 
-      {message && (
-        <div className="mt-6 p-4 rounded-lg bg-green-100 border border-green-300 text-green-700">
-          ✅ {message}
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Nome Completo</label>
+                <Input
+                  type="text"
+                  name="nome"
+                  value={user.nome}
+                  onChange={handleChange}
+                  placeholder="Digite o nome completo"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">E-mail</label>
+                <Input
+                  type="email"
+                  name="email"
+                  value={user.email}
+                  onChange={handleChange}
+                  placeholder="Digite o Email"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Data de Nascimento</label>
+                <Input
+                  type="date"
+                  name="dataNascimento"
+                  value={user.dataNascimento}
+                  onChange={handleChange}
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Telefone</label>
+                <Input
+                  type="text"
+                  name="telefone"
+                  value={user.telefone}
+                  onChange={handleChange}
+                  placeholder="Digite o Telefone"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              {/* Endereço */}
+              <div className="md:col-span-2 mt-4">
+                <h2 className="text-[16px] font-semibold text-[#1A535C] border-b pb-2 mb-2">Endereço</h2>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">CEP</label>
+                <Input
+                  type="text"
+                  name="cep"
+                  value={user.cep}
+                  onChange={handleChange}
+                  placeholder="Digite o CEP"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Estado</label>
+                <Input
+                  type="text"
+                  name="estado"
+                  value={user.estado}
+                  onChange={handleChange}
+                  placeholder="Digite o Estado"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Cidade</label>
+                <Input
+                  type="text"
+                  name="cidade"
+                  value={user.cidade}
+                  onChange={handleChange}
+                  placeholder="Digite a Cidade"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Bairro</label>
+                <Input
+                  type="text"
+                  name="bairro"
+                  value={user.bairro}
+                  onChange={handleChange}
+                  placeholder="Digite o Bairro"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1 md:col-span-2">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Logradouro / Rua</label>
+                <Input
+                  type="text"
+                  name="logradouro"
+                  value={user.logradouro}
+                  onChange={handleChange}
+                  placeholder="Digite o Logradouro/Rua"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Número</label>
+                <Input
+                  type="text"
+                  name="numeroCasa"
+                  value={user.numeroCasa}
+                  onChange={handleChange}
+                  placeholder="Número"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="text-[14px] font-medium text-[#2D2D2D]">Complemento</label>
+                <Input
+                  type="text"
+                  name="complemento"
+                  value={user.complemento}
+                  onChange={handleChange}
+                  placeholder="Ex: Apto 123, Bloco B"
+                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
+                />
+              </div>
+
+              <div className="md:col-span-2 flex justify-end gap-4 mt-6">
+                <Link to="/perfil">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="h-10 px-6 rounded-[9px] border-[#1A535C] text-[#1A535C] hover:bg-[#F0F4F8]"
+                  >
+                    Cancelar
+                  </Button>
+                </Link>
+                <Button
+                  type="submit"
+                  className="h-10 px-8 rounded-[9px] bg-[#1A535C] font-normal text-white hover:bg-[#2F646C]"
+                >
+                  Salvar Alterações
+                </Button>
+              </div>
+            </form>
+
+            {message && (
+              <div className="mt-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-[14px] font-medium flex items-center gap-2">
+                ✅ {message}
+              </div>
+            )}
+          </PerfilCard>
         </div>
-      )}
+      </div>
     </div>
-  </div>
-);
+  );
 }
