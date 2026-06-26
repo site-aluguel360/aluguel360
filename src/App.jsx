@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import { Layout } from "./components/Layout.jsx";
 import { Home } from "./pages/Home";
@@ -28,14 +28,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
 
-            <Route
-              path="contact"
-              element={
-                <div className="p-20 text-center text-xl">
-                  Contato (Em breve)
-                </div>
-              }
-            />
+            <Route path="contact" element={<Navigate to="#footer" replace />} />
 
             <Route
               path="resultados"
