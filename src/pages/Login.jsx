@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Globe, LogIn } from "lucide-react";
 import { Button, ButtonForms } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "../contexts/AuthContext";
 
 function Field({ label, type = "text", placeholder, className = "", ...props }) {
   return (
@@ -20,6 +21,14 @@ function Field({ label, type = "text", placeholder, className = "", ...props }) 
 
 export function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    login(); // Define isAuthenticated = true globalmente
+    navigate("/"); // Redireciona para a página inicial
+  };
 
   return (
     <main className="min-h-screen bg-[#F0F4F8] px-4 py-6 sm:px-6 sm:py-8 lg:p-0 min-[1080px]:px-8 min-[1080px]:py-12">
@@ -35,7 +44,7 @@ export function Login() {
         </aside>
 
         <section className="flex items-center justify-center px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[560px] lg:px-10">
-          <form className="w-full max-w-[472px] space-y-5 rounded-[12px] border border-transparent bg-white p-0">
+          <form onSubmit={handleLogin} className="w-full max-w-[472px] space-y-5 rounded-[12px] border border-transparent bg-white p-0">
             <div className="w-full max-w-[472px] text-[#2D2D2D]/90">
               <h1 className="font-['Poppins'] text-[26px] font-semibold leading-normal sm:text-[32px]">Acessar</h1>
               <p className="font-['Inter'] text-[14px] leading-normal sm:text-[16px]">Entre com seus dados para continuar.</p>
