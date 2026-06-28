@@ -16,6 +16,8 @@ import { PerfilQualidade } from "./pages/PerfilQualidade";
 import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
+import { CadastroImovel } from "./pages/CadastroImovel";
+
 
 function App() {
   return (
@@ -30,10 +32,7 @@ function App() {
 
             <Route path="contact" element={<Navigate to="#footer" replace />} />
 
-            <Route
-              path="resultados"
-              element={<ResultadosPesquisa />}
-            />
+            <Route path="resultados" element={<ResultadosPesquisa />} />
 
             <Route path="about" element={<About />} />
             <Route path="perfil" element={<Perfil />} />
@@ -43,14 +42,9 @@ function App() {
             <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
             <Route path="perfil/qualidade" element={<PerfilQualidade />} />
             <Route path="perfil/midia" element={<PerfilMidia />} />
-            <Route
-              path="perfil/meus-imoveis"
-              element={<PerfilMeusImoveis />}
-            />
-            <Route
-              path="perfil/meus-anuncios"
-              element={<PerfilMeusAnuncios />}
-            />
+            <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
+            <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
+            <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
           </Route>
         </Routes>
       </Router>
