@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import { Heart, Star, SquareDashedBottomCode, BedDouble, MapPin, SlidersHorizontal, Image as ImageIcon, User, ListOrdered, BadgeCheck, Clock, PhoneCall, Pointer, Share2, LogIn } from "lucide-react";
 
 export function Home() {
@@ -7,9 +8,9 @@ export function Home() {
     <>
       {/* HERO SECTION */}
       <section className="relative h-[500px] flex items-center justify-center text-center text-white pb-16">
-        <div 
+        <div
           className="absolute inset-0 bg-black/40 z-0 bg-blend-overlay"
-          style={{ 
+          style={{
             backgroundImage: "url('/assets/hero_bg.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -18,21 +19,25 @@ export function Home() {
         />
         <div className="relative z-10 flex flex-col items-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-            Encontre seu lugar ideal<br/>sem complicações!
+            Encontre seu lugar ideal<br />sem complicações!
           </h1>
           <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl">
             Busque, compare e encontre o lugar perfeito para você.
           </p>
+
           <Button size="lg" className="bg-secondary hover:bg-secondary-hover text-white text-lg px-8">
-            Explorar Imóveis
+            <Link to="/resultados">
+              Explorar Imóveis
+            </Link>
           </Button>
+
         </div>
       </section>
 
       {/* MAIN WRAPPER CONTAINER */}
       <div className="max-w-7xl mx-auto w-full px-6 -mt-16 relative z-20 mb-16">
         <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100">
-          
+
           {/* FILTERS */}
           <div className="flex flex-wrap justify-center gap-4 mb-10">
             {["Casas", "Apartamentos", "Kitnets", "Mobiliado"].map(filter => (
@@ -142,12 +147,16 @@ export function Home() {
                 Em poucos cliques você descobre imóveis, compara preços, e realiza seu primeiro contato.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button variant="outline" className="border-white/40 bg-transparent hover:bg-white/10 text-white gap-2">
-                  <LogIn className="w-4 h-4" /> Acessar minha conta
-                </Button>
-                <Button className="bg-secondary hover:bg-secondary-hover text-white">
-                  Ver mais sobre nós
-                </Button>
+                <Link to="/login">
+                  <Button variant="outline" className="border-white/40 bg-transparent hover:bg-white/10 text-white gap-2">
+                    <LogIn className="w-4 h-4" /> Acessar minha conta
+                  </Button>
+                </Link>
+                <Link to="/about">
+                  <Button className="bg-secondary hover:bg-secondary-hover text-white">
+                    Ver mais sobre nós
+                  </Button>
+                </Link>
               </div>
             </div>
           </section>
@@ -168,7 +177,9 @@ export function Home() {
                 <User className="w-10 h-10" />
               </div>
               <p className="text-muted-foreground text-sm mb-6 h-10">Aproveite ofertas e contate o proprietário</p>
-              <Button size="sm" className="bg-secondary hover:bg-secondary-hover text-white w-full">Acessar minha conta</Button>
+              <Link to="/login">
+                <Button size="sm" className="bg-secondary hover:bg-secondary-hover text-white w-full">Acessar minha conta</Button>
+              </Link>
             </div>
             <div className="p-8 border rounded-2xl hover:border-secondary transition-colors hover:-translate-y-1 duration-300">
               <h4 className="font-semibold text-lg mb-2">Nossas Categorias</h4>
@@ -192,7 +203,7 @@ export function Home() {
           <section className="flex flex-col md:flex-row rounded-3xl overflow-hidden mb-16 bg-primary text-white">
             <div className="md:w-1/2 p-10 lg:p-14 flex flex-col justify-center">
               <h2 className="text-3xl lg:text-4xl font-bold mb-3 leading-tight">
-                Perfeito para Proprietários<br/>e Anfitriões
+                Perfeito para Proprietários<br />e Anfitriões
               </h2>
               <p className="text-xl opacity-90 mb-6">Transforme seu imóvel em renda extra</p>
               <p className="opacity-80 mb-8 leading-relaxed max-w-lg">
@@ -202,9 +213,11 @@ export function Home() {
                 <Button className="bg-secondary hover:bg-secondary-hover text-white">
                   Anunciar meu imóvel
                 </Button>
-                <Button variant="outline" className="border-white/40 bg-transparent hover:bg-white/10 text-white gap-2">
-                  <LogIn className="w-4 h-4" /> Acessar minha conta
-                </Button>
+                <Link to="/login">
+                  <Button variant="outline" className="border-white/40 bg-transparent hover:bg-white/10 text-white gap-2">
+                    <LogIn className="w-4 h-4" /> Acessar minha conta
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="md:w-1/2 min-h-[300px]">
@@ -237,9 +250,9 @@ export function Home() {
 
           {/* BOTTOM BANNER CTA */}
           <section className="relative rounded-3xl overflow-hidden p-12 md:p-16 text-center text-white">
-            <div 
+            <div
               className="absolute inset-0 bg-primary/90 z-0 bg-blend-overlay"
-              style={{ 
+              style={{
                 backgroundImage: "url('/assets/banner_city.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
@@ -247,7 +260,7 @@ export function Home() {
             />
             <div className="relative z-10 flex flex-col items-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                Criamos conexões entre proprietários e<br/>seus clientes
+                Criamos conexões entre proprietários e<br />seus clientes
               </h2>
               <p className="text-xl opacity-90 mb-4">Praticidade para você!</p>
               <p className="opacity-80 mb-8 max-w-2xl">
@@ -257,9 +270,11 @@ export function Home() {
                 <Button className="bg-secondary hover:bg-secondary-hover text-white px-6 py-6 text-base">
                   Anunciar meu imóvel
                 </Button>
-                <Button className="bg-primary hover:bg-primary-light text-white px-6 py-6 text-base">
-                  Encontrar um imóvel
-                </Button>
+                <Link to="/resultados">
+                  <Button className="bg-primary hover:bg-primary-light text-white px-6 py-6 text-base">
+                    Encontrar um imóvel
+                  </Button>
+                </Link>
               </div>
             </div>
           </section>

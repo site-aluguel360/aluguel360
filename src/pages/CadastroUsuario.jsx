@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogIn, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonForms } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const initialForm = {
@@ -87,6 +87,7 @@ const addressFields = [
   },
 ];
 
+
 function LogoPainel() {
   return (
     <div className="flex min-h-[180px] items-center justify-center bg-[#1A535C] px-8 py-10 text-center sm:min-h-[240px] lg:min-h-[560px]">
@@ -122,22 +123,7 @@ function StepTitle({ title }) {
   );
 }
 
-function FormButton({ variant = "primary", className = "", children, ...props }) {
-  const variants = {
-    primary: "bg-[#2F646C] text-[#F0F4F8] hover:bg-[#1A535C]",
-    danger: "bg-[#FF6B6B] text-[#F0F4F8] hover:bg-[#ef5555]",
-    subtle: "bg-[#CAEBEC] text-[#2D2D2D]/90 hover:bg-[#b5dfe1]",
-  };
 
-  return (
-    <Button
-      className={`h-8 gap-[10px] rounded-[9px] px-5 font-['Poppins'] text-[14px] font-normal shadow-[0_-1px_6.1px_0_rgba(0,0,0,0.31)] transition-all duration-200 hover:-translate-y-0.5 sm:text-[16px] ${variants[variant]} ${className}`}
-      {...props}
-    >
-      {children}
-    </Button>
-  );
-}
 
 export function CadastroUsuario() {
   const [step, setStep] = useState(1);
@@ -188,20 +174,20 @@ export function CadastroUsuario() {
               </div>
 
               <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:gap-5">
-                <FormButton
-                  asChild
+                <ButtonForms
+
                   variant="danger"
-                  className="w-full sm:w-[127px]"
+                  className="w-full sm:w-[130px]"
                 >
                   <Link to="/">
-                    <LogIn className="h-[18px] w-[18px]" />
+
                     Cancelar
                   </Link>
-                </FormButton>
-                <FormButton type="submit" className="w-full sm:w-[128px]">
-                  <LogIn className="h-[18px] w-[18px]" />
+                </ButtonForms>
+                <ButtonForms type="submit" className="w-full sm:w-[128px]">
+
                   Próximo &gt;&gt;
-                </FormButton>
+                </ButtonForms>
               </div>
             </form>
           )}
@@ -227,18 +213,17 @@ export function CadastroUsuario() {
               </div>
 
               <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row sm:gap-5">
-                <FormButton
+                <ButtonForms
                   type="button"
                   onClick={() => setStep(1)}
                   variant="subtle"
                   className="w-full sm:w-[173px]"
                 >
                   &lt;&lt; Voltar
-                </FormButton>
-                <FormButton type="submit" className="w-full sm:w-[173px]">
-                  <LogIn className="h-[18px] w-[18px]" />
+                </ButtonForms>
+                <ButtonForms type="submit" className="w-full sm:w-[173px]">
                   Concluir Cadastro
-                </FormButton>
+                </ButtonForms>
               </div>
             </form>
           )}
@@ -255,15 +240,15 @@ export function CadastroUsuario() {
               <p className="font-['Inter'] text-[14px] text-[#2D2D2D]/90 sm:text-[16px]">
                 Cadastro realizado com sucesso!
               </p>
-              <FormButton
+              <Button
                 asChild
-                className="mt-5 h-[42px] w-full sm:w-[269px]"
+                className="h-10 mt-8 gap-2 rounded-[9px] bg-[#1A535C] font-['Poppins'] text-[16px] font-normal text-[#F0F4F8] shadow-[0_0_6.1px_0_rgba(0,0,0,0.41)] hover:bg-[#2F646C]"
               >
-                <Link to="/">
-                  <LogIn className="h-[18px] w-[18px]" />
-                  Acessar minha conta
+                <Link to="/login">
+                  <LogIn className="h-5 w-5" /> Acessar minha conta
                 </Link>
-              </FormButton>
+              </Button>
+              
             </div>
           )}
         </div>

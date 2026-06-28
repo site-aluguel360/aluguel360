@@ -19,6 +19,7 @@ export function CardImovel({
   quartos,
   rooms = [],
   endereco,
+  className = "",
 }) {
 
   const [favorito, setFavorito] = useState(false);
@@ -45,19 +46,21 @@ export function CardImovel({
     : roomItems;
 
   return (
-   <Card
-  className="
-    rounded-xl
-    overflow-hidden
-    hover:shadow-lg
-    transition-all
-    hover:-translate-y-1
-    duration-300
-    border-border
-    group
-    relative
-  "
->
+    <Card
+      className={`
+        w-full
+        rounded-xl
+        overflow-hidden
+        hover:shadow-lg
+        transition-all
+        hover:-translate-y-1
+        duration-300
+        border-border
+        group
+        relative
+        ${className}
+      `}
+    >
 
       <div className="relative h-64 overflow-hidden">
 

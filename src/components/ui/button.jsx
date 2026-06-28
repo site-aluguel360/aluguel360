@@ -34,6 +34,31 @@ const buttonVariants = cva(
   }
 )
 
+const ButtonForms = React.forwardRef(({ className, variant = "primary", children, asChild = false, ...props }, ref) => {
+  const variants = {
+    primary: "bg-[#2F646C] text-[#F0F4F8] hover:bg-[#1A535C]",
+    danger: "bg-[#FF6B6B] text-[#F0F4F8] hover:bg-[#ef5555]",
+    subtle: "bg-[#CAEBEC] text-[#2D2D2D]/90 hover:bg-[#b5dfe1]",
+  };
+
+  const Comp = asChild ? Slot : "button";
+
+  return (
+    <Comp
+      ref={ref}
+      className={cn(
+        "h-8 gap-[10px] rounded-[9px] px-5 font-normal shadow-[0_-1px_6.1px_0_rgba(0,0,0,0.31)] transition-all duration-200 hover:-translate-y-0.5 sm:text-[16px]",
+        variants[variant],
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </Comp>
+  );
+})
+ButtonForms.displayName = "ButtonForms"
+
 const Button = React.forwardRef(({ className, variant, size, asChild = false, ...props }, ref) => {
   const Comp = asChild ? Slot : "button"
   return (
@@ -45,4 +70,5 @@ const Button = React.forwardRef(({ className, variant, size, asChild = false, ..
 })
 Button.displayName = "Button"
 
-export { Button, buttonVariants }
+
+export { Button, ButtonForms, buttonVariants }
