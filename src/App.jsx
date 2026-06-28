@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<CadastroUsuario />} />
         <Route path="/cadastro" element={<CadastroUsuario />} />
-          <Route path="/cadastro-imovel" element={<CadastroImovel />} />
+        <Route path="/cadastro-imovel" element={<CadastroImovel />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           {/* Futuramente, novas páginas serão adicionadas aqui */}
