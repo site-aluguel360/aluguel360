@@ -80,8 +80,7 @@ function GuestActions() {
           </Link>
         </Button>
       </div>
-      <Link
-        to="#"
+      <Link to="#"
         className="font-['Inter'] text-[12px] text-[#2D2D2D]/90 transition-colors hover:text-primary pr-2"
       >
         Quero anunciar
@@ -94,13 +93,15 @@ function AuthenticatedActions() {
   return (
     <div className="flex shrink-0 flex-col items-end gap-2 w-full lg:w-auto">
       <div className="flex items-center gap-3 w-full justify-end lg:w-auto">
-        <Button
-          variant="ghost"
-          className="h-8 gap-1 rounded-[9px] px-2 font-['Poppins'] text-[12px] text-[#1A535C] hover:bg-accent"
-        >
-          <IconeAnunciar />
-          Quero Anunciar
-        </Button>
+        <Link to="perfil/cadastro-imovel">
+          <Button
+            variant="ghost"
+            className="h-8 gap-1 rounded-[9px] px-2 font-['Poppins'] text-[12px] text-[#1A535C] hover:bg-accent"
+          >
+            <IconeAnunciar />
+            Quero Anunciar
+          </Button>
+        </Link>
 
         <Button
           asChild

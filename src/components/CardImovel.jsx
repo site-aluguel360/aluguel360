@@ -2,6 +2,14 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heart, BedDouble, Ruler } from "lucide-react";
 
+const singularMap = {
+  "Quartos": "Quarto",
+  "Salas": "Sala",
+  "Varandas": "Varanda",
+  "Suítes": "Suíte",
+  "Banheiros": "Banheiro",
+};
+
 export function CardImovel({
   imagem,
   titulo,
@@ -9,11 +17,33 @@ export function CardImovel({
   preco,
   area,
   quartos,
+  rooms = [],
   endereco,
   className = "",
 }) {
 
   const [favorito, setFavorito] = useState(false);
+
+  // Build items for room info grid
+  const roomItems = [];
+  if (area) roomItems.push({ label: `${area}m²`, hasIcon: true });
+
+  if (rooms.length > 0) {
+    rooms.forEach((room) => {
+      const displayLabel =
+        room.value === 1
+          ? (singularMap[room.label] || room.label)
+          : room.label;
+      roomItems.push({ label: `${room.value} ${displayLabel}` });
+    });
+  } else if (quartos) {
+    roomItems.push({ label: `${quartos} quartos`, hasIcon: true, isBed: true });
+  }
+
+  const hasMore = roomItems.length > 6;
+  const displayItems = hasMore
+    ? [...roomItems.slice(0, 5), { label: "Saiba mais", isMore: true }]
+    : roomItems;
 
   return (
     <Card
@@ -94,16 +124,25 @@ export function CardImovel({
           R$ {preco}
         </p>
 
-       <div className="flex gap-4 mt-4 text-sm text-muted-foreground border-b pb-4 mb-4">
-        <div className="flex items-center gap-1">
-            <Ruler className="w-4 h-4" />
-             <span>{area}m²</span>
-        </div>
-
-        <div className="flex items-center gap-1">
-         <BedDouble className="w-4 h-4" />
-          <span>{quartos} quartos</span>
-        </div>
+       <div className="grid grid-cols-3 gap-x-4 gap-y-2 mt-4 text-sm text-muted-foreground border-b pb-4 mb-4">
+          {displayItems.map((item, i) => (
+            <div
+              key={i}
+              className={`flex items-center gap-1 ${
+                item.isMore
+                  ? "text-secondary cursor-pointer font-medium underline underline-offset-2"
+                  : ""
+              }`}
+            >
+              {item.hasIcon && !item.isBed && (
+                <Ruler className="w-4 h-4 shrink-0" />
+              )}
+              {item.isBed && (
+                <BedDouble className="w-4 h-4 shrink-0" />
+              )}
+              <span className="truncate">{item.label}</span>
+            </div>
+          ))}
         </div>
 
         <div className="mt-4 text-sm text-gray-500">
