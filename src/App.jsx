@@ -6,6 +6,7 @@ import { ResultadosPesquisa } from "./pages/ResultadosPesquisa";
 import { CadastroUsuario } from "./pages/CadastroUsuario";
 import { Login } from "./pages/Login";
 import { EditProfile } from "./pages/EditProfile";
+import { RecuperarSenha } from "./pages/RecuperarSenha";
 
 import { About } from "./pages/About";
 import { Perfil } from "./pages/Perfil";
@@ -17,6 +18,7 @@ import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
 import { CadastroImovel } from "./pages/CadastroImovel";
+
 
 
 function App() {
@@ -31,10 +33,10 @@ function App() {
             <Route index element={<Home />} />
 
             <Route path="contact" element={<Navigate to="#footer" replace />} />
-
             <Route path="resultados" element={<ResultadosPesquisa />} />
-
             <Route path="about" element={<About />} />
+            <Route path="recuperar-senha" element={<RecuperarSenha />} />
+
             <Route path="perfil" element={<Perfil />} />
             <Route path="perfil/editar" element={<EditProfile />} />
             <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
