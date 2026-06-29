@@ -348,7 +348,7 @@ function CardPrivacidade({ alertas, permissaoLocalizacao }) {
 }
 
 //Página principal
-export default function Perfil() {
+export function PerfilAnunciante() {
   const [paginaAtiva, setPaginaAtiva] = useState("perfil");
   const u = mockAnunciante;
 
@@ -428,9 +428,4 @@ export default function Perfil() {
       </div>
     </div>
   );
-}
-
-//para configurar a rota 
-import PerfilAnunciante from "@/pages/PerfilAnunciante";
-
-<Route path="/perfil-anunciante" element={<PerfilAnunciante />} />
+}

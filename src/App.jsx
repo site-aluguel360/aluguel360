@@ -8,6 +8,10 @@ import { Login } from "./pages/Login";
 import { EditProfile } from "./pages/EditProfile";
 import { RecuperarSenha } from "./pages/RecuperarSenha";
 
+import { InformacoesAnunciantes } from "./pages/InformacoesAnunciantes";
+import { PerfilAnunciante } from "./pages/PerfilAnunciante";
+import { VisualizarImoveis } from "./pages/VisualizarImoveis";
+
 import { About } from "./pages/About";
 import { Perfil } from "./pages/Perfil";
 import { PerfilEnderecos } from "./pages/PerfilEnderecos";
@@ -36,6 +40,10 @@ function App() {
             <Route path="resultados" element={<ResultadosPesquisa />} />
             <Route path="about" element={<About />} />
             <Route path="recuperar-senha" element={<RecuperarSenha />} />
+
+            <Route path="visualizar-imoveis" element={<VisualizarImoveis />} />
+            <Route path="informacoes-anunciantes" element={<InformacoesAnunciantes />} />
+            <Route path="perfil-anunciante" element={<PerfilAnunciante />} />
 
             <Route path="perfil" element={<Perfil />} />
             <Route path="perfil/editar" element={<EditProfile />} />

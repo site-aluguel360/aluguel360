@@ -2,6 +2,9 @@ import { useState } from "react";
 import {
   MapPin,Star,Heart,MessageCircle,Mail,Phone,Wifi,Car,Dumbbell,ShieldCheck,ChevronLeft,ChevronRight,BedDouble,Bath,Maximize2,Search,Menu,X,Send,PlayCircle,
 } from "lucide-react"; //ícones
+// cores
+const G = "#0d9488"; // teal-600
+const GL = "#e5e7eb"; // gray-200
 
 // dados
 const imovel = {
@@ -182,7 +185,7 @@ function CardRelacionado({ im }) {
 }
 
 // Componente principal da página
-export default function ImovelDetalhes() {
+export function VisualizarImoveis() {
   const [midiaAtiva, setMidiaAtiva]       = useState(1); // começa na primeira foto (index 1)
   const [favoritado, setFavoritado]       = useState(false);
   const [menuAberto, setMenuAberto]       = useState(false);
@@ -680,8 +683,4 @@ export default function ImovelDetalhes() {
       `}</style>
     </div>
   );
-}
-
-import VisualisarImoveis from "@/pages/VisualizarImoveis";
-
-<Route path="/visualizar-imoveis" element={<VisualisarImoveis />} />
+}
