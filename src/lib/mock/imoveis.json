@@ -78,6 +78,10 @@
       {
         "icon": "ShieldCheck",
         "label": "Portaria 24h"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
       }
     ],
     "imoveisRelacionados": [
@@ -120,6 +124,17 @@
         "endereco": "Rua Ipê Amarelo, 125 - Jardim das Flores",
         "foto": "https://images.unsplash.com/photo-1560185008-a33f5c7b1844?w=500&q=80",
         "avaliacao": 4
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 1
       }
     ]
   },
@@ -230,7 +245,14 @@
       }
     ],
     "totalAvaliacoes": 25,
-    "avaliacaoMedia": "4.2"
+    "avaliacaoMedia": "4.2",
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
   },
   {
     "id": 3,
@@ -339,7 +361,18 @@
       }
     ],
     "totalAvaliacoes": 37,
-    "avaliacaoMedia": "4.9"
+    "avaliacaoMedia": "4.9",
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 3
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
   },
   {
     "id": 4,
@@ -402,6 +435,10 @@
       {
         "icon": "ShieldCheck",
         "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
       }
     ],
     "imoveisRelacionados": [
@@ -447,7 +484,14 @@
       }
     ],
     "totalAvaliacoes": 67,
-    "avaliacaoMedia": "4.1"
+    "avaliacaoMedia": "4.1",
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
   },
   {
     "id": 5,
@@ -555,7 +599,18 @@
       }
     ],
     "totalAvaliacoes": 65,
-    "avaliacaoMedia": "3.1"
+    "avaliacaoMedia": "3.1",
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
   },
   {
     "id": 6,
@@ -663,7 +718,14 @@
       }
     ],
     "totalAvaliacoes": 87,
-    "avaliacaoMedia": "3.6"
+    "avaliacaoMedia": "3.6",
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
   },
   {
     "id": 7,
@@ -726,6 +788,10 @@
       {
         "icon": "ShieldCheck",
         "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
       }
     ],
     "imoveisRelacionados": [
@@ -771,7 +837,18 @@
       }
     ],
     "totalAvaliacoes": 94,
-    "avaliacaoMedia": "4.3"
+    "avaliacaoMedia": "4.3",
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 3
+      }
+    ]
   },
   {
     "id": 8,
@@ -881,6 +958,13 @@
         "endereco": "Rua Defalla atem, Centro 117",
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
       }
     ]
   },
@@ -993,6 +1077,17 @@
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
       }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
     ]
   },
   {
@@ -1061,6 +1156,10 @@
       {
         "icon": "ShieldCheck",
         "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
       }
     ],
     "imoveisRelacionados": [
@@ -1103,6 +1202,13 @@
         "endereco": "Rua Defalla atem, Centro 117",
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
       }
     ]
   },
@@ -1215,6 +1321,17 @@
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
       }
+    ],
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
     ]
   },
   {
@@ -1325,6 +1442,13 @@
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
       }
+    ],
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
     ]
   },
   {
@@ -1393,6 +1517,10 @@
       {
         "icon": "ShieldCheck",
         "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
       }
     ],
     "imoveisRelacionados": [
@@ -1435,6 +1563,17 @@
         "endereco": "Rua Defalla atem, Centro 117",
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
       }
     ]
   },
@@ -1547,6 +1686,13 @@
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
       }
+    ],
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 3
+      }
     ]
   },
   {
@@ -1658,6 +1804,17 @@
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
       }
+    ],
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
     ]
   },
   {
@@ -1726,6 +1883,10 @@
       {
         "icon": "ShieldCheck",
         "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
       }
     ],
     "imoveisRelacionados": [
@@ -1768,6 +1929,13 @@
         "endereco": "Rua Defalla atem, Centro 117",
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 3
       }
     ]
   },
@@ -1879,6 +2047,17 @@
         "endereco": "Rua Defalla atem, Centro 117",
         "foto": "/assets/property5.jpg",
         "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 3
       }
     ]
   }

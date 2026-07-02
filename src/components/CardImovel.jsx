@@ -24,6 +24,7 @@ export function CardImovel({
   fotoPrincipal,
   imagem, // fallback for legacy prop
   avaliacaoMedia,
+  banheiros,
   className = "",
 }) {
   const [favorito, setFavorito] = useState(false);
@@ -38,6 +39,14 @@ export function CardImovel({
       const displayLabel = room.value === 1 ? (singularMap[room.label] || room.label) : room.label;
       roomItems.push({ label: `${room.value} ${displayLabel}` });
     });
+  } else if (variant !== "compact") {
+    if (quartos) roomItems.push({ label: `${quartos} ${quartos === 1 ? 'Quarto' : 'Quartos'}` });
+    roomItems.push({ label: `1 Sala` });
+    roomItems.push({ label: `1 Garagem` });
+    roomItems.push({ label: `1 Varanda` });
+    if (banheiros) roomItems.push({ label: `${banheiros} ${banheiros === 1 ? 'Banheiro' : 'Banheiros'}` });
+    else roomItems.push({ label: `1 Banheiro` });
+    roomItems.push({ label: `Extra` }); // triggers "Saiba mais"
   } else if (quartos) {
     roomItems.push({ label: `${quartos} quartos`, hasIcon: true, isBed: true });
   }

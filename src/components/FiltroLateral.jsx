@@ -1,6 +1,20 @@
 import { Card } from "@/components/ui/card";
 
-export function FiltroLateral() {
+export function FiltroLateral({ filtros, setFiltros }) {
+  const toggleTipo = (tipo) => {
+    setFiltros(prev => {
+      const isSelected = prev.tipos.includes(tipo);
+      return {
+        ...prev,
+        tipos: isSelected 
+          ? prev.tipos.filter(t => t !== tipo)
+          : [...prev.tipos, tipo]
+      };
+    });
+  };
+
+  const tipos = ["Casa", "Apartamento", "Kitnet", "Casa de Condomínio"];
+
   return (
     <Card className="w-full p-5 border border-gray-300 rounded-lg font-medium">
       <h2 className="text-primary text-lg mb-4">
@@ -8,29 +22,17 @@ export function FiltroLateral() {
       </h2>
 
       <div className="flex flex-col gap-3 font-light">
-
-        <label>
-          <input type="checkbox" />
-          <span className="ml-2 ">Casa</span>
-        </label>
-
-        <label>
-          <input type="checkbox" />
-          <span className="ml-2">Apartamento</span>
-        </label>
-
-        <label>
-          <input type="checkbox" />
-          <span className="ml-2">Kitnet</span>
-        </label>
-
-        <label>
-          <input type="checkbox" />
-          <span className="ml-2">Casa de Condomínio</span>
-        </label>
-
+        {tipos.map(tipo => (
+          <label key={tipo}>
+            <input 
+              type="checkbox" 
+              checked={filtros?.tipos.includes(tipo) || false}
+              onChange={() => toggleTipo(tipo)}
+            />
+            <span className="ml-2">{tipo}</span>
+          </label>
+        ))}
       </div>
-
     </Card>
   );
 }
