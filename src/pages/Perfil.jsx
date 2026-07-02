@@ -4,13 +4,9 @@ import { PerfilCard } from "../components/PerfilCard";
 import { Edit } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const usuarioMock = {
-  nome: "Fulano de Tal",
-  email: "fulanodetal@gmail.com",
-  iniciais: "FT",
-  dataCadastro: "01/02/2023",
-  cpf: "123.***.***-10"
-};
+import perfilMock from "../lib/mock/perfil.json";
+
+const usuarioMock = perfilMock;
 
 export function Perfil() {
   return (
@@ -36,18 +32,18 @@ export function Perfil() {
               descricao="Acesse seus dados pessoais"
             >
               <div className="flex flex-col gap-2.5 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
+                <p className="font-['Inter'] text-[13px] text-foreground">
                   <span className="font-semibold mr-1">Nome:</span> Fulano de Tal
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
+                <p className="font-['Inter'] text-[13px] text-foreground">
                   <span className="font-semibold mr-1">CPF:</span> 123.***.***-10
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
+                <p className="font-['Inter'] text-[13px] text-foreground">
                   <span className="font-semibold mr-1">Data de Cadastro:</span> 01/02/2023
                 </p>
               </div>
               <Link to="/perfil/editar">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   <Edit className="h-3.5 w-3.5" />
                   Alterar Dados
                 </button>
@@ -60,20 +56,20 @@ export function Perfil() {
               descricao="Endereços associados à sua conta"
             >
               <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
+                <p className="font-['Inter'] text-[13px] text-foreground">
                   2 endereços cadastrados
                 </p>
                 <div>
-                  <p className="font-['Inter'] text-[13px] font-semibold text-[#2D2D2D] mb-0.5">
+                  <p className="font-['Inter'] text-[13px] font-semibold text-foreground mb-0.5">
                     Endereço Principal
                   </p>
-                  <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80 leading-relaxed">
+                  <p className="font-['Inter'] text-[13px] text-foreground/80 leading-relaxed">
                     Rua Elias Oka 1354, 123, Irapuã- Floriano- PI<br />CEP:64800-971
                   </p>
                 </div>
               </div>
               <Link to="/perfil/enderecos">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   <Edit className="h-3.5 w-3.5" />
                   Gerenciar Endereços
                 </button>
@@ -86,21 +82,21 @@ export function Perfil() {
               descricao="Configurações de segurança da sua conta"
             >
               <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   1 Método de verificação da conta
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   0 dispositivos vinculados
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   0 Alertas de Segurança
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   Permissão de localização: Ativada
                 </p>
               </div>
               <Link to="/perfil/seguranca">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   <Edit className="h-3.5 w-3.5" />
                   Ver mais detalhes
                 </button>
@@ -114,29 +110,29 @@ export function Perfil() {
               descricao="Imóveis associados à sua conta"
             >
               <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   3 imóveis cadastrados
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   2 imóveis Anunciados
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   1 cadastro em rascunho
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   1 Alugado
                 </p>
               </div>
 
               <div className="flex flex-col gap-2">
                 <Link to="/perfil/meus-imoveis">
-                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition w-fit">
+                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition w-fit">
                     <Edit className="h-3.5 w-3.5" />
                     Gerenciar imóveis
                   </button>
                 </Link>
                 <Link to="/perfil/meus-anuncios">
-                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition w-fit">
+                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition w-fit">
                     <Edit className="h-3.5 w-3.5" />
                     Gerenciar Anuncios
                   </button>
@@ -150,19 +146,19 @@ export function Perfil() {
               descricao="Avaliação dos seus anúncios"
             >
               <div className="flex flex-col mb-6">
-                <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70 mb-5 leading-relaxed">
+                <p className="font-['Inter'] text-[12px] text-foreground/70 mb-5 leading-relaxed">
                   A nota de desempenho é calculada usando a qualidade e detalhes das informações fornecidas e pelos usuários que acessaram seu anuncios
                 </p>
 
-                <p className="font-['Inter'] text-[13px] font-semibold text-[#2D2D2D] mb-3">
+                <p className="font-['Inter'] text-[13px] font-semibold text-foreground mb-3">
                   Nota média de desempenho
                 </p>
 
                 <div className="relative pt-1">
                   <div className="h-2 w-full bg-[#E5E7EB] rounded-full overflow-hidden">
-                    <div className="h-full bg-[#1A535C] rounded-full" style={{ width: '85%' }}></div>
+                    <div className="h-full bg-primary rounded-full" style={{ width: '85%' }}></div>
                   </div>
-                  <div className="flex justify-between mt-1 font-['Inter'] text-[11px] text-[#2D2D2D]/60">
+                  <div className="flex justify-between mt-1 font-['Inter'] text-[11px] text-foreground/60">
                     <span>0</span>
                     <span className="ml-[70%]">8.5</span>
                     <span>10</span>
@@ -170,7 +166,7 @@ export function Perfil() {
                 </div>
               </div>
               <Link to="/perfil/qualidade">
-                <button className="font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+                <button className="font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   Ver mais detalhes&gt;&gt;
                 </button>
               </Link>
@@ -182,20 +178,20 @@ export function Perfil() {
               descricao="Preferências e controle do uso de seus dados"
             >
               <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   Dados de localização essenciais para gestão
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   Informações sobre a navegação na plataforma
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   0 Alertas de Segurança
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   Permissão de localização: Ativada
                 </p>
               </div>
-              <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+              <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                 <Edit className="h-3.5 w-3.5" />
                 Gerenciar permissões
               </button>
@@ -208,15 +204,15 @@ export function Perfil() {
               descricao="Mídias enviadas para seus imóveis"
             >
               <div className="flex flex-col gap-2 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   12 Fotos enviadas
                 </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[13px] text-foreground/80">
                   3 vídeos enviados
                 </p>
               </div>
               <Link to="/perfil/midia">
-                <button className="font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
+                <button className="font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   Ver mais detalhes&gt;&gt;
                 </button>
               </Link>

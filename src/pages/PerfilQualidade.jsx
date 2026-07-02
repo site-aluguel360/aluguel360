@@ -3,12 +3,9 @@ import { PerfilSidebar } from "../components/PerfilSidebar";
 import { PerfilCard } from "../components/PerfilCard";
 import { Star, TrendingUp, AlertCircle } from "lucide-react";
 
-const usuarioMock = {
-  nome: "Fulano de Tal",
-  email: "fulanodetal@gmail.com",
-  iniciais: "FT",
-  dataCadastro: "01/02/2023",
-};
+import perfilMock from "../lib/mock/perfil.json";
+
+const usuarioMock = perfilMock;
 
 export function PerfilQualidade() {
   return (
@@ -25,7 +22,7 @@ export function PerfilQualidade() {
           >
             <div className="space-y-6">
               {/* Score Principal */}
-              <div className="rounded-lg bg-gradient-to-r from-[#4ECDC4] to-[#2C7E7B] p-6 text-white">
+              <div className="rounded-lg bg-gradient-to-r from-teal-light to-secondary p-6 text-white">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-['Inter'] text-[14px] opacity-90">Nota de Desempenho</p>
@@ -38,37 +35,37 @@ export function PerfilQualidade() {
               {/* Métricas */}
               <div className="grid gap-4 sm:grid-cols-3">
                 <div className="rounded-lg border border-[#D8E1E7] p-4">
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mb-2">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mb-2">
                     Tempo de resposta
                   </p>
-                  <p className="font-['Poppins'] text-[24px] font-semibold text-[#2C7E7B]">
+                  <p className="font-['Poppins'] text-[24px] font-semibold text-secondary">
                     2h
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-2">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mt-2">
                     Excelente
                   </p>
                 </div>
 
                 <div className="rounded-lg border border-[#D8E1E7] p-4">
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mb-2">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mb-2">
                     Taxa de conclusão
                   </p>
-                  <p className="font-['Poppins'] text-[24px] font-semibold text-[#2C7E7B]">
+                  <p className="font-['Poppins'] text-[24px] font-semibold text-secondary">
                     85%
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-2">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mt-2">
                     Acima da média
                   </p>
                 </div>
 
                 <div className="rounded-lg border border-[#D8E1E7] p-4">
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mb-2">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mb-2">
                     Anúncios ativos
                   </p>
-                  <p className="font-['Poppins'] text-[24px] font-semibold text-[#2C7E7B]">
+                  <p className="font-['Poppins'] text-[24px] font-semibold text-secondary">
                     3
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-2">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mt-2">
                     Bom
                   </p>
                 </div>
@@ -81,37 +78,37 @@ export function PerfilQualidade() {
             descricao="Recomendações para aumentar a qualidade dos anúncios"
           >
             <div className="space-y-3">
-              <div className="flex gap-3 rounded-lg bg-[#F0F4F8] p-4">
-                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#1A535C]" />
+              <div className="flex gap-3 rounded-lg bg-accent p-4">
+                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div className="flex-1">
-                  <h4 className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
+                  <h4 className="font-['Poppins'] text-[14px] font-semibold text-foreground/90">
                     Adicione mais fotos de alta qualidade
                   </h4>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70 mt-1">
+                  <p className="font-['Inter'] text-[12px] text-foreground/70 mt-1">
                     Anúncios com 5+ fotos têm 3x mais visualizações
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 rounded-lg bg-[#F0F4F8] p-4">
-                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#1A535C]" />
+              <div className="flex gap-3 rounded-lg bg-accent p-4">
+                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div className="flex-1">
-                  <h4 className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
+                  <h4 className="font-['Poppins'] text-[14px] font-semibold text-foreground/90">
                     Complete todas as informações
                   </h4>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70 mt-1">
+                  <p className="font-['Inter'] text-[12px] text-foreground/70 mt-1">
                     Informações completas aumentam a confiança dos usuários
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 rounded-lg bg-[#F0F4F8] p-4">
-                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#1A535C]" />
+              <div className="flex gap-3 rounded-lg bg-accent p-4">
+                <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                 <div className="flex-1">
-                  <h4 className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
+                  <h4 className="font-['Poppins'] text-[14px] font-semibold text-foreground/90">
                     Responda rapidamente às mensagens
                   </h4>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70 mt-1">
+                  <p className="font-['Inter'] text-[12px] text-foreground/70 mt-1">
                     Respostas rápidas melhoram sua classificação
                   </p>
                 </div>
@@ -125,18 +122,18 @@ export function PerfilQualidade() {
           >
             <div className="space-y-4">
               <div className="flex items-center gap-4 rounded-lg border border-[#D8E1E7] p-4">
-                <TrendingUp className="h-5 w-5 text-[#4ECDC4]" />
+                <TrendingUp className="h-5 w-5 text-teal-light" />
                 <div className="flex-1">
-                  <p className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
+                  <p className="font-['Poppins'] text-[14px] font-semibold text-foreground/90">
                     Últimos 30 dias
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60">
                     +15% visualizações comparado ao mês anterior
                   </p>
                 </div>
               </div>
 
-              <button className="font-['Inter'] text-[14px] font-semibold text-[#1A535C] hover:underline">
+              <button className="font-['Inter'] text-[14px] font-semibold text-primary hover:underline">
                 Ver análise detalhada
               </button>
             </div>

@@ -4,13 +4,13 @@ import { Input } from "@/components/ui/input";
 export function FiltroPreco() {
   return (
     <Card className="w-72 p-5 border border-gray-300 rounded-lg font-medium">
-      <h2 className="text-[#1A535C] text-lg mb-4">
+      <h2 className="text-primary text-lg mb-4">
         Faixa de Preço
       </h2>
 
       <div className="flex gap-2 mb-4">
         <div className="flex-1">
-          <label className="text-xs text-[#1A535C] mb-1 block">
+          <label className="text-xs text-primary mb-1 block">
             De
           </label>
           <Input
@@ -21,7 +21,7 @@ export function FiltroPreco() {
         </div>
 
         <div className="flex-1">
-          <label className="text-xs text-[#1A535C] mb-1 block">
+          <label className="text-xs text-primary mb-1 block">
             Até
           </label>
           <Input

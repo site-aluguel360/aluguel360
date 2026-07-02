@@ -41,7 +41,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="recuperar-senha" element={<RecuperarSenha />} />
 
-            <Route path="visualizar-imoveis" element={<VisualizarImoveis />} />
+            <Route path="visualizar-imoveis/:id" element={<VisualizarImoveis />} />
             <Route path="informacoes-anunciantes" element={<InformacoesAnunciantes />} />
             <Route path="perfil-anunciante" element={<PerfilAnunciante />} />
 

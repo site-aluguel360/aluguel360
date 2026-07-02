@@ -29,7 +29,7 @@ export function RecuperarSenha() {
     };
 
     return (
-        <main className="flex min-h-screen items-center justify-center bg-[#F0F4F8] p-6">
+        <main className="flex min-h-screen items-center justify-center bg-accent p-6">
 
             <section className="flex w-[605px] h-[754px] flex-col rounded-[8px] bg-white px-[45px] py-[51px]">
                 {/* Logo */}
@@ -57,7 +57,7 @@ export function RecuperarSenha() {
                                 E-mail
                             </label>
 
-                            <Input placeholder="Digite o email" className=" h-[60px] rounded-[9px] border-[#1A535C] px-[8px] pr-[20px]text-[15px] font-light placeholder:text-[15px] placeholder:font-light placeholder:text-black/60" />
+                            <Input placeholder="Digite o email" className=" h-[60px] rounded-[9px] border-primary px-[8px] pr-[20px]text-[15px] font-light placeholder:text-[15px] placeholder:font-light placeholder:text-black/60" />
                         </div>
 
                         <div className="mt-12 flex flex-col items-center gap-4">
@@ -65,7 +65,7 @@ export function RecuperarSenha() {
                                 Prosseguir &gt;&gt;
                             </ButtonForms>
 
-                            <Link to="/" color="--color-primary" className=" text-[16px] font-normal text-[#1A535C] underline underline-offset-[3px]">
+                            <Link to="/" color="--color-primary" className=" text-[16px] font-normal text-primary underline underline-offset-[3px]">
                                 Cancelar Operação
                             </Link>
                         </div>
@@ -97,7 +97,7 @@ export function RecuperarSenha() {
                                     onKeyDown={(e) =>
                                         handleOtpBackspace(e, index)
                                     }
-                                    className=" h-[42px] w-[42px] rounded-[8px] border-[#4ECDC4] text-center text-[18px] font-normal " />
+                                    className=" h-[42px] w-[42px] rounded-[8px] border-teal-light text-center text-[18px] font-normal " />
                             ))}
                         </div>
 
@@ -110,7 +110,7 @@ export function RecuperarSenha() {
                                 className="
                                     text-[12px]
                                     font-semibold
-                                    text-[#1A535C]
+                                    text-primary
                                     underline
                                     underline-offset-[1.5px]
                                 "
@@ -133,7 +133,7 @@ export function RecuperarSenha() {
                                 className="
                                 text-[16px]
                                 font-normal
-                                text-[#1A535C]
+                                text-primary
                                 underline
                                 underline-offset-[3px]
                             "
@@ -166,7 +166,7 @@ export function RecuperarSenha() {
                                 className="
                                 h-[56px]
                                 rounded-[9px]
-                                border-[#1A535C]
+                                border-primary
                                 pr-12
                                 pl-[8px]
                                 text-[15px]
@@ -183,7 +183,7 @@ export function RecuperarSenha() {
                                 h-6
                                 w-6
                                 -translate-y-1/2
-                                text-[#1A535C]
+                                text-primary
                             "
                             />
                         </div>
@@ -200,7 +200,7 @@ export function RecuperarSenha() {
                                 className="
                                 h-[56px]
                                 rounded-[9px]
-                                border-[#1A535C]
+                                border-primary
                                 pr-12
                                 pl-[8px]
                                 text-[15px]
@@ -209,7 +209,7 @@ export function RecuperarSenha() {
                             "
                             />
 
-                            <EyeOff className=" absolute right-3 top-3/4 h-6 w-6 -translate-y-3/4 text-[#1A535C] " />
+                            <EyeOff className=" absolute right-3 top-3/4 h-6 w-6 -translate-y-3/4 text-primary " />
                         </div>
 
                         <div className="mt-5 flex justify-center gap-4">
