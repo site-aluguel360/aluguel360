@@ -50,7 +50,7 @@ export function CardImovel({
   const innerCard = (
     <Card
       className={`
-        w-full rounded-xl overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative
+        w-full h-full flex flex-col rounded-xl overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative
         ${className}
       `}
     >
@@ -67,7 +67,7 @@ export function CardImovel({
         </button>
       </div>
 
-      <CardContent className="p-5">
+      <CardContent className="p-5 flex-1 flex flex-col">
         <h3 className={`font-semibold text-foreground mb-2 ${variant === "compact" ? "text-lg line-clamp-2 h-14" : "text-lg"}`}>
           {titulo}
         </h3>
@@ -115,7 +115,7 @@ export function CardImovel({
         )}
 
         {/* Address */}
-        <div className={`text-sm text-muted-foreground ${variant === "compact" ? "flex items-start gap-2 line-clamp-2" : "mt-4"}`}>
+        <div className={`text-sm text-muted-foreground mt-auto ${variant === "compact" ? "flex items-start gap-2 line-clamp-2" : "pt-2"}`}>
           {variant === "compact" && <MapPin className="w-4 h-4 mt-0.5 shrink-0" />}
           <span className={variant === "compact" ? "" : "truncate block"}>{endereco}</span>
         </div>
@@ -125,7 +125,7 @@ export function CardImovel({
 
   if (id) {
     return (
-      <Link to={`/visualizar-imoveis/${id}`} className="block">
+      <Link to={`/visualizar-imoveis/${id}`} className="block h-full">
         {innerCard}
       </Link>
     );

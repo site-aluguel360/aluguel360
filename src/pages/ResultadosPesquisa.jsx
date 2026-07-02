@@ -24,7 +24,7 @@ export function ResultadosPesquisa() {
       </div>
 
       <div className="grid gap-8 min-[1080px]:grid-cols-[280px_minmax(0,1fr)]">
-        <aside className="hidden flex-col gap-4 self-start min-[1080px]:flex min-[1080px]:sticky min-[1080px]:top-6">
+        <aside className="hidden flex-col gap-4 self-start min-[1080px]:flex min-[1080px]:sticky min-[1080px]:top-[120px]">
           <FiltroLateral />
           <FiltroPreco />
         </aside>

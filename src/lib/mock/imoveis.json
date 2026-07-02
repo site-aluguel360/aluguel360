@@ -24,7 +24,8 @@
     "midia": [
       {
         "tipo": "video",
-        "thumb": null
+        "thumb": null,
+        "url": "https://media.w3.org/2010/05/sintel/trailer.mp4"
       },
       {
         "tipo": "foto",
@@ -145,7 +146,8 @@
     "midia": [
       {
         "tipo": "video",
-        "thumb": null
+        "thumb": null,
+        "url": "https://www.w3schools.com/html/mov_bbb.mp4"
       },
       {
         "tipo": "foto",
@@ -253,7 +255,8 @@
     "midia": [
       {
         "tipo": "video",
-        "thumb": null
+        "thumb": null,
+        "url": "https://www.w3schools.com/html/mov_bbb.mp4"
       },
       {
         "tipo": "foto",

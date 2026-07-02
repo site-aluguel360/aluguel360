@@ -46,6 +46,7 @@ export function VisualizarImoveis() {
   const [midiaAtiva, setMidiaAtiva] = useState(1);
   const [favoritado, setFavoritado] = useState(false);
   const [videoAberto, setVideoAberto] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   
   const [novaAvaliacao, setNovaAvaliacao] = useState("");
   const [avaliacoes, setAvaliacoes] = useState([]);
@@ -89,9 +90,11 @@ export function VisualizarImoveis() {
   const itemAtivo = midias[midiaAtiva] || {};
 
   function anterior() {
+    setIsPlaying(false);
     setMidiaAtiva((p) => (p === 0 ? midias.length - 1 : p - 1));
   }
   function proximo() {
+    setIsPlaying(false);
     setMidiaAtiva((p) => (p === midias.length - 1 ? 0 : p + 1));
   }
   function enviarAvaliacao() {
@@ -118,7 +121,7 @@ export function VisualizarImoveis() {
                 return (
                   <button
                     key={i}
-                    onClick={() => { setMidiaAtiva(i); setVideoAberto(true); }}
+                    onClick={() => { setIsPlaying(false); setMidiaAtiva(i); if(!item.url) setVideoAberto(true); }}
                     className={`w-16 h-16 shrink-0 rounded-lg overflow-hidden flex items-center justify-center bg-teal-600 transition-all ${ativo ? "border-2 border-teal-600 scale-[1.02]" : "border-2 border-transparent opacity-80"}`}
                     aria-label="Abrir vídeo"
                   >
@@ -129,7 +132,7 @@ export function VisualizarImoveis() {
               return (
                 <button
                   key={i}
-                  onClick={() => setMidiaAtiva(i)}
+                  onClick={() => { setIsPlaying(false); setMidiaAtiva(i); }}
                   className={`w-16 h-16 shrink-0 rounded-lg overflow-hidden transition-all ${ativo ? "border-2 border-teal-600 scale-[1.02]" : "border-2 border-transparent opacity-60 hover:opacity-100"}`}
                   aria-label={`Visualizar foto ${i}`}
                 >
@@ -142,13 +145,28 @@ export function VisualizarImoveis() {
           {/* Foto Principal */}
           <div className="relative flex-1 rounded-xl overflow-hidden bg-gray-900 w-full order-1 lg:order-2 h-[340px] md:h-[420px] shadow-sm">
             {itemAtivo.tipo === "video" ? (
-              <div
-                className="w-full h-full flex flex-col items-center justify-center cursor-pointer bg-teal-700 hover:bg-teal-800 transition"
-                onClick={() => setVideoAberto(true)}
-              >
-                <PlayCircle size={72} className="text-white mb-4 opacity-90" strokeWidth={1.5} />
-                <span className="text-white font-semibold">Assistir ao vídeo do imóvel</span>
-              </div>
+              itemAtivo.url ? (
+                isPlaying ? (
+                  <video src={itemAtivo.url} controls autoPlay className="w-full h-full bg-black object-contain" />
+                ) : (
+                  <div
+                    className="w-full h-full flex flex-col items-center justify-center cursor-pointer bg-black/40 transition relative group"
+                    onClick={() => setIsPlaying(true)}
+                  >
+                    <img src={itemAtivo.thumb || imovel.fotoPrincipal || imovel.imagem} className="w-full h-full object-cover absolute inset-0 -z-10 brightness-50 group-hover:brightness-40 transition" alt="Video thumb" />
+                    <PlayCircle size={72} className="text-white mb-4 opacity-90 group-hover:scale-110 transition-transform" strokeWidth={1.5} />
+                    <span className="text-white font-semibold shadow-black drop-shadow-md">Reproduzir Tour Virtual</span>
+                  </div>
+                )
+              ) : (
+                <div
+                  className="w-full h-full flex flex-col items-center justify-center cursor-pointer bg-teal-700 hover:bg-teal-800 transition"
+                  onClick={() => setVideoAberto(true)}
+                >
+                  <PlayCircle size={72} className="text-white mb-4 opacity-90" strokeWidth={1.5} />
+                  <span className="text-white font-semibold">Assistir ao vídeo do imóvel</span>
+                </div>
+              )
             ) : (
               <img src={itemAtivo.thumb} alt={imovel.titulo || imovel.nome || "Foto do imóvel"} className="w-full h-full object-cover" />
             )}
