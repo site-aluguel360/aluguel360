@@ -1240,7 +1240,7 @@ function StepSixPanel({ setStep, form }) {
   );
 }
 
-export function CadastroImovel() {
+export function CadastroImovel1() {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState(initialForm);
 

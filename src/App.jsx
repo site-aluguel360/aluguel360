@@ -22,11 +22,13 @@ import { PerfilQualidade } from "./pages/PerfilQualidade";
 import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
-import { CadastroImovel } from "./pages/CadastroImovel";
+// import { CadastroImovel } from "./pages/CadastroImovel";
 import { EditProfile } from "./pages/EditProfile";
 
 import { VisualizacaoContatos } from "./pages/VisualizacaoContatos";
 import { ContatoAnunciante } from "./pages/ContatoAnunciante";
+import { CadastroImovel } from "./pages/CadastroImovel_2/index";
+import { CadastroImovel1 } from "./pages/CadastroImovel";
 
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
           {/* Rotas publicas */}
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+
+            <Route path="cadastro-imovel2" element={<CadastroImovel />} />
 
             <Route path="contact" element={<Navigate to="#footer" replace />} />
             <Route path="resultados" element={<ResultadosPesquisa />} />
@@ -60,7 +64,7 @@ function App() {
               <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
               <Route path="perfil/qualidade" element={<PerfilQualidade />} />
               <Route path="perfil/midia" element={<PerfilMidia />} />
-              <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
+              <Route path="perfil/cadastro-imovel" element={<CadastroImovel1 />} />
               <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
               <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
 
