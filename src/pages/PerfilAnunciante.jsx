@@ -3,63 +3,9 @@ import {
   User, MapPin, Home, Megaphone, Image, Star, ShieldCheck, Settings, Pencil, AlertCircle,Phone, Mail, Building2, TrendingUp, Clock, CheckCircle2,
 } from "lucide-react";
 
-// Dados mockados 
-const mockAnunciante = {
-  nome: "Carlos Alberto Silva",
-  email: "carlos.silva@imobiliaria.com.br",
-  telefone: "(86) 99812-3456",
-  cpf: "123.***.**-10",
-  creci: "CRECI-PI 12.345-F",
-  dataCadastro: "01/02/2023",
-  iniciais: "CA",
-  cadastroCompleto: false,
-  tipo: "Corretor Autônomo",
+import usuariosMock from "../lib/mock/usuarios.json";
 
-  enderecos: {
-    total: 2,
-    principal: {
-      rua: "Rua Elias Oka, 1354 - Sala 3",
-      bairro: "Irapuá",
-      cidade: "Floriano",
-      estado: "PI",
-      cep: "64800-971",
-    },
-  },
-
-  anuncios: {
-    ativos: 8,
-    pausados: 2,
-    encerrados: 5,
-    visualizacoesTotal: 1420,
-    contatosRecebidos: 73,
-    notaMedia: 8.5,
-    notaMaxima: 10,
-  },
-
-  imoveis: {
-    total: 15,
-    alugados: 6,
-    disponíveis: 7,
-    rascunho: 2,
-  },
-
-  midias: {
-    fotos: 94,
-    videos: 11,
-  },
-
-  seguranca: {
-    metodosVerificacao: 1,
-    dispositivosVinculados: 0,
-    alertas: 0,
-    permissaoLocalizacao: true,
-  },
-
-  privacidade: {
-    alertas: 0,
-    permissaoLocalizacao: true,
-  },
-};
+const mockAnunciante = usuariosMock;
 
 // Sidebar 
 const menuItems = [
@@ -348,7 +294,7 @@ function CardPrivacidade({ alertas, permissaoLocalizacao }) {
 }
 
 //Página principal
-export default function Perfil() {
+export function PerfilAnunciante() {
   const [paginaAtiva, setPaginaAtiva] = useState("perfil");
   const u = mockAnunciante;
 
@@ -428,9 +374,4 @@ export default function Perfil() {
       </div>
     </div>
   );
-}
-
-//para configurar a rota 
-import PerfilAnunciante from "@/pages/PerfilAnunciante";
-
-<Route path="/perfil-anunciante" element={<PerfilAnunciante />} />
+}

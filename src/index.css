@@ -7,8 +7,8 @@
   --color-primary-light: #2F646C;
   --color-primary-foreground: #f8fafc;
   --color-secondary: #2C7E7B;
-  --color-secondary-hover: #1A535C;
   --color-secondary-foreground: #020617;
+  --color-teal-light: #4ECDC4;
   --color-background: #f9fafb;
   --color-foreground: #2D2D2D;
   --color-card: #ffffff;
@@ -17,6 +17,7 @@
   --color-popover-foreground: #2D2D2D;
   --color-muted: #f1f5f9;
   --color-muted-foreground: #64748b;
+  --color-neutral: #9c9c9c;
   --color-accent: #F0F4F8;
   --color-accent-foreground: #2D2D2D;
   --color-destructive: #FF6B6B;
@@ -24,11 +25,24 @@
   --color-border: #e2e8f0;
   --color-input: #e2e8f0;
   --color-ring: #1A535C;
-  --color-action: #FF6B6B;
-  --color-action-foreground: #F0F4F8;
-  --radius-lg: 0.5rem;
-  --radius-md: calc(0.5rem - 2px);
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+
+  --shadow-card: 0 1px 6px rgba(0,0,0,0.06);
+  --shadow-header: 0 1px 6px rgba(0,0,0,0.07);
+  --shadow-popup: 0 2px 12px rgba(0,0,0,0.08);
+
+  --radius-xs: 0.25rem;
   --radius-sm: calc(0.5rem - 4px);
+  --radius-md: calc(0.5rem - 2px);
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
 }
 
 @layer base {

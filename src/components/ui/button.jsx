@@ -36,9 +36,9 @@ const buttonVariants = cva(
 
 const ButtonForms = React.forwardRef(({ className, variant = "primary", children, asChild = false, ...props }, ref) => {
   const variants = {
-    primary: "bg-[#2F646C] text-[#F0F4F8] hover:bg-[#1A535C]",
-    danger: "bg-[#FF6B6B] text-[#F0F4F8] hover:bg-[#ef5555]",
-    subtle: "bg-[#CAEBEC] text-[#2D2D2D]/90 hover:bg-[#b5dfe1]",
+    primary: "bg-primary-light text-accent hover:bg-primary",
+    danger: "bg-destructive text-accent hover:bg-[#ef5555]",
+    subtle: "bg-[#CAEBEC] text-foreground/90 hover:bg-[#b5dfe1]",
   };
 
   const Comp = asChild ? Slot : "button";

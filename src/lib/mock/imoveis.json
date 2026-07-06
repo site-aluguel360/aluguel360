@@ -1,0 +1,2064 @@
+[
+  {
+    "id": 1,
+    "imagem": "/assets/property_1.png",
+    "titulo": "Apartamento Moderno - Centro",
+    "descricao": "Um apartamento com 1 dormitório, sala com varanda, cozinha americana e área de serviço. Condomínio com portaria 24h e academia. Próximo ao metrô.",
+    "preco": 1900,
+    "area": 60,
+    "quartos": 1,
+    "banheiros": 1,
+    "endereco": "Rua Barão do Rio Branco, Bairro Cidade Nova, 476",
+    "cidade": "Cidade Curitiba-Paraná, 83540-000",
+    "tag": "Novo | A opção mais recomendada pelos usuários.",
+    "informacoesRelevantes": "Condomínio localizado no 3º andar. Limpeza das áreas comuns, inspeção no horário de silêncio e portaria 24h. Além disso, o locatário deve zelar pela manutenção e conservação do apartamento, preservando portas, janelas, pinturas e instalações.",
+    "despesas": {
+      "iptu": 230,
+      "garantia": "Caução",
+      "agua": 45,
+      "energia": 120,
+      "condominio": 390,
+      "manutencao": 100,
+      "seguroIncendio": 30
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null,
+        "url": "https://media.w3.org/2010/05/sintel/trailer.mp4"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=900&q=80"
+      }
+    ],
+    "fotoPrincipal": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80",
+    "avaliacaoMedia": 4,
+    "totalAvaliacoes": 1490,
+    "distribuicaoEstrelas": {
+      "1": 8,
+      "2": 15,
+      "3": 30,
+      "4": 55,
+      "5": 60
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "Dumbbell",
+        "label": "Academia"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Portaria 24h"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Apartamento no Centro de floriano com dois qua",
+        "preco": 2900,
+        "area": 80,
+        "quartos": 1,
+        "endereco": "Rua Ipê Amarelo, 125 - Jardim das Flores",
+        "foto": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80",
+        "avaliacao": 4
+      },
+      {
+        "id": 3,
+        "nome": "Apartamento no Centro de floriano com dois qua",
+        "preco": 2900,
+        "area": 80,
+        "quartos": 1,
+        "endereco": "Rua Ipê Amarelo, 125 - Jardim das Flores",
+        "foto": "https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?w=500&q=80",
+        "avaliacao": 4
+      },
+      {
+        "id": 4,
+        "nome": "Apartamento no Centro de floriano com dois qua",
+        "preco": 2900,
+        "area": 80,
+        "quartos": 1,
+        "endereco": "Rua Ipê Amarelo, 125 - Jardim das Flores",
+        "foto": "https://images.unsplash.com/photo-1432889490240-84df33d47091?w=500&q=80",
+        "avaliacao": 4
+      },
+      {
+        "id": 5,
+        "nome": "Apartamento no Centro de floriano com dois qua",
+        "preco": 2900,
+        "area": 80,
+        "quartos": 1,
+        "endereco": "Rua Ipê Amarelo, 125 - Jardim das Flores",
+        "foto": "https://images.unsplash.com/photo-1560185008-a33f5c7b1844?w=500&q=80",
+        "avaliacao": 4
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "imagem": "/assets/property_2.png",
+    "titulo": "Casa Rústica no Campo",
+    "descricao": "Ambiente tranquilo cercado pela natureza",
+    "preco": 3800,
+    "area": 140,
+    "quartos": 3,
+    "endereco": "Estrada das Palmeiras, km 12",
+    "fotoPrincipal": "/assets/property_2.png",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 81,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 137,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null,
+        "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "/assets/property_2.png"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "totalAvaliacoes": 25,
+    "avaliacaoMedia": "4.2",
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "imagem": "/assets/property_3.png",
+    "titulo": "Casa Moderna com Design Minimalista",
+    "descricao": "Ambientes amplos e iluminação natural",
+    "preco": 5200,
+    "area": 180,
+    "quartos": 4,
+    "endereco": "Alameda Horizonte, 220",
+    "fotoPrincipal": "/assets/property_3.png",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 183,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 189,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null,
+        "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "/assets/property_3.png"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "totalAvaliacoes": 37,
+    "avaliacaoMedia": "4.9",
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 3
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "imagem": "/assets/property_4.jpg",
+    "titulo": "Casa simples para estudantes",
+    "descricao": "Ambientes seguro e localização proximo a ponto de onibus",
+    "preco": 950,
+    "area": 180,
+    "quartos": 4,
+    "endereco": "Rua Amarante, Centro 220",
+    "fotoPrincipal": "/assets/property_4.jpg",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 162,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 156,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "/assets/property_4.jpg"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "totalAvaliacoes": 67,
+    "avaliacaoMedia": "4.1",
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "imagem": "/assets/property5.jpg",
+    "titulo": "Casa forrada ",
+    "descricao": "localização proximo a farmacia globo",
+    "preco": 900,
+    "area": 95,
+    "quartos": 2,
+    "endereco": "Rua Defalla atem, Centro 117",
+    "fotoPrincipal": "/assets/property5.jpg",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 191,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 103,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "/assets/property5.jpg"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "totalAvaliacoes": 65,
+    "avaliacaoMedia": "3.1",
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "imagem": "/assets/property_6.jpg",
+    "titulo": "Kitnet ",
+    "descricao": "Ambientes seguro e localização proximo supermercado Jorge",
+    "preco": 600,
+    "area": 70,
+    "quartos": 1,
+    "endereco": "Rua Mauro neiva, 120",
+    "fotoPrincipal": "/assets/property_6.jpg",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 90,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 314,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "/assets/property_6.jpg"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "totalAvaliacoes": 87,
+    "avaliacaoMedia": "3.6",
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "imagem": "/assets/property_7.jpg",
+    "titulo": "Casa Forrada e murada ",
+    "descricao": "localização proximo supermercado Jorge",
+    "preco": 2000,
+    "area": 160,
+    "quartos": 6,
+    "endereco": "Rua Elisa Santana, 120",
+    "fotoPrincipal": "/assets/property_7.jpg",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 109,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 223,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "/assets/property_7.jpg"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "totalAvaliacoes": 94,
+    "avaliacaoMedia": "4.3",
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "imagem": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80",
+    "titulo": "Cobertura Duplex - Bela Vista",
+    "descricao": "Luxuosa cobertura duplex com piscina privativa, churrasqueira e vista panorâmica para o parque.",
+    "preco": 8500,
+    "area": 220,
+    "quartos": 3,
+    "banheiros": 4,
+    "endereco": "Av. Paulista, 1500 - Bela Vista",
+    "cidade": "São Paulo - SP",
+    "tag": "Exclusivo",
+    "avaliacaoMedia": 5,
+    "totalAvaliacoes": 42,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 249,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 373,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "imagem": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80",
+    "titulo": "Mansão com Jardim e Piscina",
+    "descricao": "Casa espetacular em bairro nobre, com amplo jardim, piscina aquecida e arquitetura moderna.",
+    "preco": 15000,
+    "area": 450,
+    "quartos": 5,
+    "banheiros": 6,
+    "endereco": "Rua das Rosas, 200 - Morumbi",
+    "cidade": "São Paulo - SP",
+    "tag": "Alto Padrão",
+    "avaliacaoMedia": 4.8,
+    "totalAvaliacoes": 15,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 126,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 317,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "imagem": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=900&q=80",
+    "titulo": "Studio Mobiliado - Vila Madalena",
+    "descricao": "Studio compacto e moderno, totalmente mobiliado, ideal para estudantes e jovens profissionais.",
+    "preco": 2800,
+    "area": 35,
+    "quartos": 1,
+    "banheiros": 1,
+    "endereco": "Rua Fradique Coutinho, 500",
+    "cidade": "São Paulo - SP",
+    "tag": "Pronto para morar",
+    "avaliacaoMedia": 4.5,
+    "totalAvaliacoes": 89,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 102,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 267,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "imagem": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80",
+    "titulo": "Apartamento Família - Copacabana",
+    "descricao": "Apartamento espaçoso a duas quadras da praia. Ótima iluminação natural e ventilação cruzada.",
+    "preco": 4200,
+    "area": 110,
+    "quartos": 3,
+    "banheiros": 2,
+    "endereco": "Rua Barata Ribeiro, 800",
+    "cidade": "Rio de Janeiro - RJ",
+    "tag": "Perto do Mar",
+    "avaliacaoMedia": 4.2,
+    "totalAvaliacoes": 56,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 242,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 123,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 20
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "imagem": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80",
+    "titulo": "Casa Geminada - Bairro Universitário",
+    "descricao": "Casa prática e aconchegante, próxima ao campus principal da universidade federal.",
+    "preco": 1800,
+    "area": 85,
+    "quartos": 2,
+    "banheiros": 1,
+    "endereco": "Rua dos Estudantes, 120",
+    "cidade": "Campinas - SP",
+    "avaliacaoMedia": 3.9,
+    "totalAvaliacoes": 120,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 204,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 110,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 40,
+      "5": 20
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "imagem": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=900&q=80",
+    "titulo": "Sobrado Reformado - Zona Sul",
+    "descricao": "Sobrado com acabamento fino, piso em porcelanato e quintal com espaço gourmet.",
+    "preco": 3200,
+    "area": 130,
+    "quartos": 3,
+    "banheiros": 3,
+    "endereco": "Av. Jabaquara, 3000",
+    "cidade": "São Paulo - SP",
+    "tag": "Recém-reformado",
+    "avaliacaoMedia": 4.7,
+    "totalAvaliacoes": 33,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 64,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 246,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "imagem": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=900&q=80",
+    "titulo": "Loft Industrial - Batel",
+    "descricao": "Loft com design industrial, pé direito duplo e amplas janelas de vidro.",
+    "preco": 3500,
+    "area": 70,
+    "quartos": 1,
+    "banheiros": 1,
+    "endereco": "Al. D. Pedro II, 250",
+    "cidade": "Curitiba - PR",
+    "tag": "Design",
+    "avaliacaoMedia": 4.9,
+    "totalAvaliacoes": 78,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 188,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 183,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Apartamento",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "imagem": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80",
+    "titulo": "Chácara para Temporada",
+    "descricao": "Lugar perfeito para descansar aos finais de semana, com lago e pomar.",
+    "preco": 2500,
+    "area": 1000,
+    "quartos": 4,
+    "banheiros": 3,
+    "endereco": "Rodovia BR 116, KM 45",
+    "cidade": "Juquitiba - SP",
+    "tag": "Natureza",
+    "avaliacaoMedia": 4.6,
+    "totalAvaliacoes": 24,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 145,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 181,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Kitnet",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 1
+      },
+      {
+        "label": "Banheiros",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "imagem": "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=900&q=80",
+    "titulo": "Flat Executivo - Itaim Bibi",
+    "descricao": "Flat com serviço de camareira, recepção bilíngue e restaurante no prédio.",
+    "preco": 5500,
+    "area": 45,
+    "quartos": 1,
+    "banheiros": 1,
+    "endereco": "Rua Joaquim Floriano, 800",
+    "cidade": "São Paulo - SP",
+    "tag": "Serviços inclusos",
+    "avaliacaoMedia": 4.3,
+    "totalAvaliacoes": 110,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 102,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 295,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 20
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      },
+      {
+        "icon": "Sofa",
+        "label": "Mobiliado"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa de Condomínio",
+    "rooms": [
+      {
+        "label": "Banheiros",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "imagem": "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?w=900&q=80",
+    "titulo": "Apartamento Garden - Savassi",
+    "descricao": "Apartamento térreo com área externa privativa, ideal para quem tem pets.",
+    "preco": 3100,
+    "area": 95,
+    "quartos": 2,
+    "banheiros": 2,
+    "endereco": "Rua Antônio de Albuquerque, 400",
+    "cidade": "Belo Horizonte - MG",
+    "tag": "Pet Friendly",
+    "avaliacaoMedia": 4.8,
+    "totalAvaliacoes": 91,
+    "fotoPrincipal": "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?w=900&q=80",
+    "informacoesRelevantes": "Regras do condomínio aplicáveis. Necessário manter o ambiente limpo e organizado. Permitido pets de pequeno porte.",
+    "despesas": {
+      "iptu": 234,
+      "garantia": "Caução",
+      "agua": 50,
+      "energia": 100,
+      "condominio": 276,
+      "manutencao": 80,
+      "seguroIncendio": 25
+    },
+    "midia": [
+      {
+        "tipo": "video",
+        "thumb": null
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=900&q=80"
+      },
+      {
+        "tipo": "foto",
+        "thumb": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=900&q=80"
+      }
+    ],
+    "distribuicaoEstrelas": {
+      "1": 2,
+      "2": 5,
+      "3": 10,
+      "4": 30,
+      "5": 50
+    },
+    "amenidades": [
+      {
+        "icon": "Wifi",
+        "label": "Wi-Fi"
+      },
+      {
+        "icon": "Car",
+        "label": "Garagem"
+      },
+      {
+        "icon": "ShieldCheck",
+        "label": "Segurança"
+      }
+    ],
+    "imoveisRelacionados": [
+      {
+        "id": 2,
+        "nome": "Casa Rústica no Campo",
+        "preco": 3800,
+        "area": 140,
+        "quartos": 3,
+        "endereco": "Estrada das Palmeiras, km 12",
+        "foto": "/assets/property_2.png",
+        "avaliacao": 4.5
+      },
+      {
+        "id": 3,
+        "nome": "Casa Moderna com Design Minimalista",
+        "preco": 5200,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Alameda Horizonte, 220",
+        "foto": "/assets/property_3.png",
+        "avaliacao": 4.8
+      },
+      {
+        "id": 4,
+        "nome": "Casa simples para estudantes",
+        "preco": 950,
+        "area": 180,
+        "quartos": 4,
+        "endereco": "Rua Amarante, Centro 220",
+        "foto": "/assets/property_4.jpg",
+        "avaliacao": 3.8
+      },
+      {
+        "id": 5,
+        "nome": "Casa forrada",
+        "preco": 900,
+        "area": 95,
+        "quartos": 2,
+        "endereco": "Rua Defalla atem, Centro 117",
+        "foto": "/assets/property5.jpg",
+        "avaliacao": 4.2
+      }
+    ],
+    "tipo": "Casa",
+    "rooms": [
+      {
+        "label": "Vagas",
+        "value": 2
+      },
+      {
+        "label": "Banheiros",
+        "value": 3
+      }
+    ]
+  }
+]

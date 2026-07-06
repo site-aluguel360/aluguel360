@@ -1,7 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import { MapPin } from "lucide-react";
 import { SiteHeader } from "./SiteHeader";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../lib/hooks/useAuth";
 
 export function Layout() {
   const { isAuthenticated } = useAuth();

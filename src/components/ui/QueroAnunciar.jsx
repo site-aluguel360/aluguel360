@@ -10,11 +10,11 @@ export function QueroAnunciar() {
          items-center
           justify-center
         rounded-[9px]
-        bg-[#1A535C]
-        text-[#F0F4F8]
+        bg-primary
+        text-accent
         text-[16px]
         font-normal
-        hover:bg-[#2F646C]
+        hover:bg-primary-light
       "
    >
   Quero anunciar
