@@ -32,27 +32,27 @@ export function PerfilMidia() {
             <div className="space-y-4">
               {/* Estatísticas */}
               <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                  <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
+                <div className="rounded-lg bg-accent p-4 text-center">
+                  <p className="font-['Poppins'] text-[32px] font-semibold text-secondary">
                     12
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mt-1">
                     Fotos enviadas
                   </p>
                 </div>
-                <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                  <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
+                <div className="rounded-lg bg-accent p-4 text-center">
+                  <p className="font-['Poppins'] text-[32px] font-semibold text-secondary">
                     3
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mt-1">
                     Vídeos
                   </p>
                 </div>
-                <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                  <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
+                <div className="rounded-lg bg-accent p-4 text-center">
+                  <p className="font-['Poppins'] text-[32px] font-semibold text-secondary">
                     156 MB
                   </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
+                  <p className="font-['Inter'] text-[12px] text-foreground/60 mt-1">
                     Armazenado
                   </p>
                 </div>
@@ -72,26 +72,26 @@ export function PerfilMidia() {
                 >
                   <div className="flex items-center gap-3">
                     {midia.tipo === "foto" ? (
-                      <ImageIcon className="h-5 w-5 text-[#2C7E7B]" />
+                      <ImageIcon className="h-5 w-5 text-secondary" />
                     ) : (
-                      <Play className="h-5 w-5 text-[#FF6B6B]" />
+                      <Play className="h-5 w-5 text-destructive" />
                     )}
                     <div>
-                      <p className="font-['Inter'] text-[14px] font-semibold text-[#2D2D2D]/90">
+                      <p className="font-['Inter'] text-[14px] font-semibold text-foreground/90">
                         {midia.nome}
                       </p>
-                      <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60">
+                      <p className="font-['Inter'] text-[12px] text-foreground/60">
                         {midia.tamanho}
                       </p>
                     </div>
                   </div>
-                  <button className="font-['Inter'] text-[12px] font-semibold text-[#FF6B6B] hover:underline">
+                  <button className="font-['Inter'] text-[12px] font-semibold text-destructive hover:underline">
                     Deletar
                   </button>
                 </div>
               ))}
 
-              <button className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#D8E1E7] py-4 font-['Inter'] text-[14px] font-semibold text-[#1A535C] transition hover:border-[#1A535C] hover:bg-[#F0F4F8]">
+              <button className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#D8E1E7] py-4 font-['Inter'] text-[14px] font-semibold text-primary transition hover:border-primary hover:bg-accent">
                 <Plus className="h-4 w-4" /> Adicionar mais mídias
               </button>
             </div>
@@ -104,22 +104,22 @@ export function PerfilMidia() {
             <div className="space-y-4">
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="font-['Inter'] text-[14px] font-medium text-[#2D2D2D]/80">
+                  <span className="font-['Inter'] text-[14px] font-medium text-foreground/80">
                     Uso de armazenamento
                   </span>
-                  <span className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
+                  <span className="font-['Poppins'] text-[14px] font-semibold text-foreground/90">
                     156 MB / 1 GB
                   </span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-[#D8E1E7]">
                   <div
-                    className="h-full bg-gradient-to-r from-[#4ECDC4] to-[#2C7E7B]"
+                    className="h-full bg-gradient-to-r from-teal-light to-secondary"
                     style={{ width: "15.6%" }}
                   ></div>
                 </div>
               </div>
 
-              <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70">
+              <p className="font-['Inter'] text-[12px] text-foreground/70">
                 Você está usando 15.6% do seu armazenamento. Você pode fazer upload de até 843 MB de conteúdo adicional.
               </p>
             </div>

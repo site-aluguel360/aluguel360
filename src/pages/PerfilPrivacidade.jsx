@@ -23,44 +23,44 @@ export function PerfilPrivacidade() {
             descricao="Controle o uso dos seus dados pessoais"
           >
             <div className="space-y-3">
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
                   defaultChecked
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Dados de localização essenciais para gestão
                 </span>
               </label>
 
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Alertas de Segurança
                 </span>
               </label>
 
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
                   defaultChecked
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Permissão de localização: Ativada
                 </span>
               </label>
 
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Receber newsletter com dicas e promoções
                 </span>
               </label>
@@ -72,11 +72,11 @@ export function PerfilPrivacidade() {
             descricao="Gerencie como seus dados de localização são usados"
           >
             <div className="space-y-4">
-              <div className="rounded-lg bg-[#F0F4F8] p-4">
-                <p className="font-['Inter'] text-[14px] text-[#2D2D2D]/80 mb-4">
+              <div className="rounded-lg bg-accent p-4">
+                <p className="font-['Inter'] text-[14px] text-foreground/80 mb-4">
                   Seus dados de localização ajudam a fornecer anúncios mais relevantes e melhorar a experiência. Você pode controlar isso a qualquer momento.
                 </p>
-                <button className="w-full rounded-[9px] border border-[#1A535C] px-4 py-3 font-['Inter'] text-[14px] font-semibold text-[#1A535C] hover:bg-[#F0F4F8] transition">
+                <button className="w-full rounded-[9px] border border-primary px-4 py-3 font-['Inter'] text-[14px] font-semibold text-primary hover:bg-accent transition">
                   Ajustar Permissões
                 </button>
               </div>
@@ -88,33 +88,33 @@ export function PerfilPrivacidade() {
             descricao="Escolha que tipos de comunicação você deseja receber"
           >
             <div className="space-y-3">
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
                   defaultChecked
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Notificações de anúncios relevantes
                 </span>
               </label>
 
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Notificações de mensagens
                 </span>
               </label>
 
-              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#F0F4F8] cursor-pointer transition">
+              <label className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent cursor-pointer transition">
                 <input
                   type="checkbox"
-                  className="h-4 w-4 rounded border-[#1A535C] text-[#1A535C] focus:ring-[#1A535C]"
+                  className="h-4 w-4 rounded border-primary text-primary focus:ring-primary"
                 />
-                <span className="font-['Inter'] text-[14px] text-[#2D2D2D]/90">
+                <span className="font-['Inter'] text-[14px] text-foreground/90">
                   Emails de marketing
                 </span>
               </label>
@@ -127,12 +127,12 @@ export function PerfilPrivacidade() {
           >
             <div className="space-y-4">
               <div className="rounded-lg bg-[#FFF5F5] border border-[#FFE8E8] p-4">
-                <p className="font-['Inter'] text-[14px] text-[#2D2D2D]/80">
+                <p className="font-['Inter'] text-[14px] text-foreground/80">
                   Se desejar remover sua conta e todos os seus dados, você pode solicitar a exclusão permanente. Esta ação é irreversível.
                 </p>
               </div>
 
-              <button className="w-full rounded-[9px] bg-[#FF6B6B] px-4 py-3 font-['Inter'] text-[14px] font-semibold text-white hover:bg-[#ef5555] transition">
+              <button className="w-full rounded-[9px] bg-destructive px-4 py-3 font-['Inter'] text-[14px] font-semibold text-white hover:bg-[#ef5555] transition">
                 Solicitar Exclusão de Dados
               </button>
             </div>
