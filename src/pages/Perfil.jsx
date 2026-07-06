@@ -43,7 +43,7 @@ export function Perfil() {
                 </p>
               </div>
               <Link to="/perfil/editar">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
+                <button className="cursor-pointer flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   <Edit className="h-3.5 w-3.5" />
                   Alterar Dados
                 </button>
@@ -69,7 +69,7 @@ export function Perfil() {
                 </div>
               </div>
               <Link to="/perfil/enderecos">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
+                <button className="cursor-pointer flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   <Edit className="h-3.5 w-3.5" />
                   Gerenciar Endereços
                 </button>
@@ -96,7 +96,7 @@ export function Perfil() {
                 </p>
               </div>
               <Link to="/perfil/seguranca">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
+                <button className="cursor-pointer flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   <Edit className="h-3.5 w-3.5" />
                   Ver mais detalhes
                 </button>
@@ -126,13 +126,13 @@ export function Perfil() {
 
               <div className="flex flex-col gap-2">
                 <Link to="/perfil/meus-imoveis">
-                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition w-fit">
+                  <button className="cursor-pointer flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition w-fit">
                     <Edit className="h-3.5 w-3.5" />
                     Gerenciar imóveis
                   </button>
                 </Link>
                 <Link to="/perfil/meus-anuncios">
-                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition w-fit">
+                  <button className="cursor-pointer flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition w-fit">
                     <Edit className="h-3.5 w-3.5" />
                     Gerenciar Anuncios
                   </button>
@@ -166,7 +166,7 @@ export function Perfil() {
                 </div>
               </div>
               <Link to="/perfil/qualidade">
-                <button className="font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
+                <button className="cursor-pointer font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   Ver mais detalhes&gt;&gt;
                 </button>
               </Link>
@@ -191,7 +191,7 @@ export function Perfil() {
                   Permissão de localização: Ativada
                 </p>
               </div>
-              <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
+              <button className="cursor-pointer flex items-center gap-1.5 font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                 <Edit className="h-3.5 w-3.5" />
                 Gerenciar permissões
               </button>
@@ -212,7 +212,7 @@ export function Perfil() {
                 </p>
               </div>
               <Link to="/perfil/midia">
-                <button className="font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
+                <button className="cursor-pointer font-['Inter'] text-[13px] text-primary hover:text-primary-light transition">
                   Ver mais detalhes&gt;&gt;
                 </button>
               </Link>

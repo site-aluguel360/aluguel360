@@ -2,6 +2,8 @@ import { PerfilHeader } from "../components/PerfilHeader";
 import { PerfilSidebar } from "../components/PerfilSidebar";
 import { PerfilCard } from "../components/PerfilCard";
 import { Eye, MessageCircle, Heart, Edit, Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 import perfilMock from "../lib/mock/perfil.json";
 import anunciosMockData from "../lib/mock/anuncios.json";
@@ -22,6 +24,15 @@ export function PerfilMeusAnuncios() {
             titulo="Meus Anúncios"
             descricao="Gerencie todos os seus anúncios"
           >
+
+            <div className="cursor-pointer mb-4 flex items-center gap-2 rounded-lg bg-accent p-2 border border-[#D8E1E7]">
+              <MessageCircle className="h-4 w-4 text-secondary" />
+              <Link to={"/visualizacao-contatos"} className="font-['Inter'] text-[12px] text-foreground/80 hover:text-secondary hover:underline">
+                Ver Mensagens recebidas nos Anúncios
+              </Link>
+            </div>
+
+
             <div className="space-y-4">
               {anunciosMock.map((anuncio) => (
                 <div
@@ -58,12 +69,14 @@ export function PerfilMeusAnuncios() {
                         {anuncio.visualizacoes} visualizações
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 rounded-lg bg-accent p-2">
-                      <MessageCircle className="h-4 w-4 text-secondary" />
-                      <span className="font-['Inter'] text-[12px] text-foreground/80">
-                        {anuncio.mensagens} mensagens
-                      </span>
-                    </div>
+                    <Link to={"/visualizacao-contatos"}>
+                      <div className="flex items-center gap-2 rounded-lg bg-accent p-2">
+                        <MessageCircle className="h-4 w-4 text-secondary" />
+                        <span className="font-['Inter'] text-[12px] text-foreground/80">
+                          {anuncio.mensagens} mensagens
+                        </span>
+                      </div>
+                    </Link>
                     <div className="flex items-center gap-2 rounded-lg bg-accent p-2">
                       <Heart className="h-4 w-4 text-secondary" />
                       <span className="font-['Inter'] text-[12px] text-foreground/80">

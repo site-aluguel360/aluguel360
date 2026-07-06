@@ -80,7 +80,7 @@ function GuestActions() {
           </Link>
         </Button>
       </div>
-      <Link to="#"
+      <Link to="perfil/cadastro-imovel"
         className="font-['Inter'] text-[12px] text-foreground/90 transition-colors hover:text-primary pr-2"
       >
         Quero anunciar

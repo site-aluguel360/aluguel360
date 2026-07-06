@@ -47,7 +47,7 @@ export function VisualizarImoveis() {
   const [favoritado, setFavoritado] = useState(false);
   const [videoAberto, setVideoAberto] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  
+
   const [novaAvaliacao, setNovaAvaliacao] = useState("");
   const [avaliacoes, setAvaliacoes] = useState([]);
 
@@ -55,7 +55,7 @@ export function VisualizarImoveis() {
     setLoading(true);
     // Fallback para 1 caso o id venha nulo no debug
     const imovelId = id || 1;
-    
+
     getImovelById(imovelId)
       .then(data => {
         setImovel(data);
@@ -63,9 +63,9 @@ export function VisualizarImoveis() {
           // A API mocada já traz o array inteiro nos mockados, ou IDs. 
           // Se trouxer objetos inteiros, a gente seta direto:
           if (typeof data.imoveisRelacionados[0] === 'object') {
-             setImoveisRelacionados(data.imoveisRelacionados);
+            setImoveisRelacionados(data.imoveisRelacionados);
           } else {
-             getImoveisRelacionados(data.imoveisRelacionados).then(setImoveisRelacionados);
+            getImoveisRelacionados(data.imoveisRelacionados).then(setImoveisRelacionados);
           }
         }
         setAvaliacoes(avaliacoesMock.filter(a => a.imovelId == imovelId));
@@ -109,10 +109,10 @@ export function VisualizarImoveis() {
   return (
     <div className="min-h-screen font-sans pb-16 bg-gray-50/30">
       <main className="max-w-7xl mx-auto px-5 py-8">
-        
+
         {/* ── GALERIA E CARD ── */}
         <div className="flex flex-col lg:flex-row gap-6 items-start">
-          
+
           {/* Thumbnails */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible shrink-0 pb-2 lg:pb-0 order-2 lg:order-1 w-full lg:w-auto scrollbar-hide">
             {midias.map((item, i) => {
@@ -121,7 +121,7 @@ export function VisualizarImoveis() {
                 return (
                   <button
                     key={i}
-                    onClick={() => { setIsPlaying(false); setMidiaAtiva(i); if(!item.url) setVideoAberto(true); }}
+                    onClick={() => { setIsPlaying(false); setMidiaAtiva(i); if (!item.url) setVideoAberto(true); }}
                     className={`w-16 h-16 shrink-0 rounded-lg overflow-hidden flex items-center justify-center bg-teal-600 transition-all ${ativo ? "border-2 border-teal-600 scale-[1.02]" : "border-2 border-transparent opacity-80"}`}
                     aria-label="Abrir vídeo"
                   >
@@ -170,14 +170,14 @@ export function VisualizarImoveis() {
             ) : (
               <img src={itemAtivo.thumb} alt={imovel.titulo || imovel.nome || "Foto do imóvel"} className="w-full h-full object-cover" />
             )}
-            
+
             <button onClick={anterior} className="absolute top-1/2 -translate-y-1/2 left-4 w-9 h-9 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-md transition" aria-label="Anterior">
               <ChevronLeft size={20} className="text-gray-800" />
             </button>
             <button onClick={proximo} className="absolute top-1/2 -translate-y-1/2 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-white/90 hover:bg-white shadow-md transition" aria-label="Próxima">
               <ChevronRight size={20} className="text-gray-800" />
             </button>
-            
+
             <div className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-medium">
               {midiaAtiva} / {midias.length - 1}
             </div>
@@ -194,7 +194,7 @@ export function VisualizarImoveis() {
               </button>
             </div>
             {imovel.tag && <p className="text-xs text-teal-600 font-medium mb-3">{imovel.tag}</p>}
-            
+
             <p className="text-[28px] font-black text-foreground mb-5 tracking-tight">
               R$ <span className="text-teal-600">{(imovel.preco || 0).toLocaleString("pt-BR")}</span>
               <span className="text-sm font-medium text-muted-foreground ml-1">/mês</span>
@@ -214,13 +214,15 @@ export function VisualizarImoveis() {
             <div className="flex flex-col gap-2.5">
               <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white gap-2 font-semibold">
                 <svg viewBox="0 0 24 24" width="20" height="20" className="fill-current" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                 </svg>
-                 WhatsApp
+                WhatsApp
               </Button>
-              <Button variant="outline" className="w-full gap-2 font-semibold text-teal-700 border-teal-200 hover:bg-teal-50">
-                <MessageCircle size={16} /> Chat Interno
-              </Button>
+              <Link to={"/contato-anunciante"}>
+                <Button variant="outline" className="w-full gap-2 font-semibold text-teal-700 border-teal-200 hover:bg-teal-50">
+                  <MessageCircle size={16} /> Chat no Aluguel360
+                </Button>
+              </Link>
               <Button variant="outline" className="w-full gap-2 font-semibold text-gray-600">
                 <Mail size={16} /> Enviar E-mail
               </Button>
@@ -235,7 +237,7 @@ export function VisualizarImoveis() {
             <p className="font-bold text-foreground mb-4 flex items-center gap-2">
               <MapPin size={18} className="text-teal-600" /> Detalhes & Custos
             </p>
-            
+
             <div className="flex justify-between font-semibold text-gray-800 mb-2 bg-gray-50 p-2 rounded-md">
               <span>IPTU:</span><span>R$ {imovel.despesas?.iptu || 0},00</span>
             </div>
@@ -309,8 +311,8 @@ export function VisualizarImoveis() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {imoveisRelacionados.map((im) => (
-                <CardImovel 
-                  key={im.id} 
+                <CardImovel
+                  key={im.id}
                   id={im.id}
                   titulo={im.titulo || im.nome}
                   preco={im.preco}
@@ -319,7 +321,7 @@ export function VisualizarImoveis() {
                   endereco={im.endereco}
                   imagem={im.imagem || im.fotoPrincipal || im.foto}
                   avaliacaoMedia={im.avaliacaoMedia || im.avaliacao}
-                  variant="compact" 
+                  variant="compact"
                 />
               ))}
             </div>
@@ -329,7 +331,7 @@ export function VisualizarImoveis() {
         {/* ── AVALIAÇÕES ── */}
         <div className="mt-10">
           <h2 className="text-xl font-bold text-foreground mb-5">Comentários dos Hóspedes</h2>
-          
+
           <div className="flex gap-3 mb-6 items-center max-w-2xl bg-white p-2 rounded-xl shadow-sm border border-border">
             <input
               className="flex-1 bg-transparent px-3 py-2 text-sm outline-none placeholder:text-gray-400"

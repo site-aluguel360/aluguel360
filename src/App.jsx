@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ProtectedRoute } from "./contexts/ProtectedRoute";
 import { Layout } from "./components/Layout.jsx";
 import { Home } from "./pages/Home";
 import { ResultadosPesquisa } from "./pages/ResultadosPesquisa";
 import { CadastroUsuario } from "./pages/CadastroUsuario";
 import { Login } from "./pages/Login";
-import { EditProfile } from "./pages/EditProfile";
 import { RecuperarSenha } from "./pages/RecuperarSenha";
 
 import { InformacoesAnunciantes } from "./pages/InformacoesAnunciantes";
 import { PerfilAnunciante } from "./pages/PerfilAnunciante";
 import { VisualizarImoveis } from "./pages/VisualizarImoveis";
 
-import { About } from "./pages/About";
+import { About } from "./pages/about";
 import { Perfil } from "./pages/Perfil";
 import { PerfilEnderecos } from "./pages/PerfilEnderecos";
 import { PerfilSeguranca } from "./pages/PerfilSeguranca";
@@ -23,7 +23,10 @@ import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
 import { CadastroImovel } from "./pages/CadastroImovel";
+import { EditProfile } from "./pages/EditProfile";
 
+import { VisualizacaoContatos } from "./pages/VisualizacaoContatos";
+import { ContatoAnunciante } from "./pages/ContatoAnunciante";
 
 
 function App() {
@@ -35,6 +38,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<CadastroUsuario />} />
 
+          {/* Rotas publicas */}
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
 
@@ -45,19 +49,30 @@ function App() {
 
             <Route path="visualizar-imoveis/:id" element={<VisualizarImoveis />} />
             <Route path="informacoes-anunciantes" element={<InformacoesAnunciantes />} />
-            <Route path="perfil-anunciante" element={<PerfilAnunciante />} />
 
-            <Route path="perfil" element={<Perfil />} />
-            <Route path="perfil/editar" element={<EditProfile />} />
-            <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
-            <Route path="perfil/seguranca" element={<PerfilSeguranca />} />
-            <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
-            <Route path="perfil/qualidade" element={<PerfilQualidade />} />
-            <Route path="perfil/midia" element={<PerfilMidia />} />
-            <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
-            <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
-            <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
+
+            {/* Rotas privadas */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="perfil" element={<Perfil />} />
+              <Route path="perfil/editar" element={<EditProfile />} />
+              <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
+              <Route path="perfil/seguranca" element={<PerfilSeguranca />} />
+              <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
+              <Route path="perfil/qualidade" element={<PerfilQualidade />} />
+              <Route path="perfil/midia" element={<PerfilMidia />} />
+              <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
+              <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
+              <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
+
+              <Route path="visualizacao-contatos" element={<VisualizacaoContatos />} />
+              <Route path="contato-anunciante" element={<ContatoAnunciante />} />
+
+              <Route path="perfil-anunciante" element={<PerfilAnunciante />} />
+            </Route>
+
           </Route>
+
+
         </Routes>
       </Router>
     </AuthProvider>

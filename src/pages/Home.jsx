@@ -122,12 +122,16 @@ export function Home() {
               </Link>
             </div>
             <div className="p-8 border rounded-2xl hover:border-secondary transition-colors hover:-translate-y-1 duration-300">
+
               <h4 className="font-semibold text-lg mb-2">Nossas Categorias</h4>
+
               <div className="w-20 h-20 mx-auto my-6 rounded-full bg-teal-50 text-secondary flex items-center justify-center">
                 <ListOrdered className="w-10 h-10" />
               </div>
               <p className="text-muted-foreground text-sm mb-6 h-10">Filtre os resultados e encontre o melhor para você</p>
-              <Button size="sm" className="bg-secondary hover:bg-primary text-white w-full">Mostrar Catálogo</Button>
+              <Link to="/resultados">
+                <Button size="sm" className="bg-secondary hover:bg-primary text-white w-full">Mostrar Catálogo</Button>
+              </Link>
             </div>
             <div className="p-8 border rounded-2xl hover:border-secondary transition-colors hover:-translate-y-1 duration-300">
               <h4 className="font-semibold text-lg mb-2">Mais acessados</h4>
@@ -150,9 +154,11 @@ export function Home() {
                 Anunciar é simples e rápido. Você controla disponibilidade, preço e regras para quem busca exatamente o que você oferece.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-secondary hover:bg-primary text-white">
-                  Anunciar meu imóvel
-                </Button>
+                <Link to="perfil/cadastro-imovel">
+                  <Button className="bg-secondary hover:bg-primary text-white">
+                    Anunciar meu imóvel
+                  </Button>
+                </Link>
                 <Link to="/login">
                   <Button variant="outline" className="border-white/40 bg-transparent hover:bg-white/10 text-white gap-2">
                     <LogIn className="w-4 h-4" /> Acessar minha conta
@@ -207,9 +213,11 @@ export function Home() {
                 Nossa missão é tornar mais fácil e acessível para as pessoas encontrarem um lugar para chamar de lar, mesmo que por alguns dias.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-secondary hover:bg-primary text-white px-6 py-6 text-base">
-                  Anunciar meu imóvel
-                </Button>
+                <Link to="/perfil/cadastro-imovel">
+                  <Button className="bg-secondary hover:bg-primary text-white px-6 py-6 text-base">
+                    Anunciar meu imóvel
+                  </Button>
+                </Link>
                 <Link to="/resultados">
                   <Button className="bg-primary hover:bg-primary-light text-white px-6 py-6 text-base">
                     Encontrar um imóvel
