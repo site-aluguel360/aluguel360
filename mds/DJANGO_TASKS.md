@@ -414,7 +414,7 @@ Ao final devem existir:
 
 ### 3.1 Validadores Compartilhados
 
-#### T-3.1.1 — Implementar `common/validators.py` [PENDENTE]
+#### T-3.1.1 — Implementar `common/validators.py` [PENDENTE — IMPLEMENTADO; TESTE ESPECÍFICO PENDENTE]
 - **Arquivo:** `common/validators.py`
 - **Dependencia:** T-2.4.2
 - **Acoes:** Criar funcoes:
@@ -427,7 +427,7 @@ Ao final devem existir:
 
 ### 3.2 App `authentication` — Serializers, Tasks e Views
 
-#### T-3.2.1 — Implementar `apps/authentication/serializers.py` [PENDENTE]
+#### T-3.2.1 — Implementar `apps/authentication/serializers.py` [CONCLUÍDO]
 - **Arquivo:** `apps/authentication/serializers.py`
 - **Dependencia:** T-3.1.1
 - **Acoes:** Criar com conteudo exato da secao "apps/authentication/serializers.py" de `django_fase3_api_views.md`:
@@ -450,7 +450,7 @@ Ao final devem existir:
   - `cleanup_expired_otps()` — para Celery Beat
 - **Criterio de conclusao:** `celery -A config inspect registered` lista as tasks
 
-#### T-3.2.3 — Implementar `apps/authentication/views.py` [PENDENTE]
+#### T-3.2.3 — Implementar `apps/authentication/views.py` [CONCLUÍDO]
 - **Arquivo:** `apps/authentication/views.py`
 - **Dependencias:** T-3.2.1, T-3.2.2
 - **Acoes:** Criar com conteudo da secao "apps/authentication/views.py" de `django_fase4_seguranca_deploy.md`:
@@ -464,7 +464,7 @@ Ao final devem existir:
 - **DECISAO CRITICA:** `ForgotPasswordView` SEMPRE retorna 200 independente de o email existir
 - **Criterio de conclusao:** Todos os 7 views importam sem erro
 
-#### T-3.2.4 — Configurar `apps/authentication/urls.py` [PENDENTE]
+#### T-3.2.4 — Configurar `apps/authentication/urls.py` [CONCLUÍDO]
 - **Arquivo:** `apps/authentication/urls.py`
 - **Dependencia:** T-3.2.3
 - **Acoes:** Criar com conteudo exato da secao "apps/authentication/urls.py" de `django_fase3_api_views.md`
@@ -501,7 +501,7 @@ Ao final devem existir:
 
 ### 3.4 Apps `properties` e `listings`
 
-#### T-3.4.1 — Implementar `apps/listings/filters.py` [PENDENTE]
+#### T-3.4.1 — Implementar `apps/listings/filters.py` [CONCLUÍDO]
 - **Arquivo:** `apps/listings/filters.py`
 - **Dependencia:** T-2.3.2
 - **Acoes:** Criar `ListingFilter` com conteudo exato da secao "apps/listings/filters.py" de `django_fase3_api_views.md`, incluindo:
@@ -512,7 +512,7 @@ Ao final devem existir:
   - Filtro geoespacial: lat, lng, raio_km (PostGIS Distance)
 - **Criterio de conclusao:** `GET /api/v1/listings/?tipo=CASA` filtra corretamente
 
-#### T-3.4.2 — Implementar serializers, views e URLs de listings e properties [PENDENTE]
+#### T-3.4.2 — Implementar serializers, views e URLs de listings e properties [PENDENTE — LISTINGS TESTADO; PROPERTIES TESTE PENDENTE]
 - **Arquivos:**
   - `apps/listings/serializers.py`, `apps/listings/views.py`, `apps/listings/urls.py`
   - `apps/properties/serializers.py`, `apps/properties/views.py`, `apps/properties/urls.py`
@@ -601,7 +601,7 @@ Ao final devem existir:
 
 ### 3.8 Testes de Integracao
 
-#### T-3.8.1 — Testes de autenticacao [PENDENTE]
+#### T-3.8.1 — Testes de autenticacao [CONCLUÍDO]
 - **Arquivos:** `apps/authentication/tests/test_register.py`, `test_login.py`, `test_otp.py`
 - **Dependencia:** T-3.2.4
 - **Verificacoes obrigatorias:**
@@ -616,7 +616,7 @@ Ao final devem existir:
   - `POST /auth/verify-otp/` com OTP expirado -> 400
 - **Criterio de conclusao:** `pytest apps/authentication/tests/` retorna 0 falhas
 
-#### T-3.8.2 — Testes de listagem publica [PENDENTE]
+#### T-3.8.2 — Testes de listagem publica [CONCLUÍDO]
 - **Arquivo:** `apps/listings/tests/test_listings_api.py`
 - **Dependencia:** T-3.4.2
 - **Verificacoes obrigatorias:**
@@ -815,3 +815,24 @@ Ao final devem existir:
 ---
 
 *DJANGO_TASKS v1.0.0 | Aluguel360 Mobile Backend | 23/09/2026*
+
+
+## REGISTRO DE EXECUÇÃO — FASE 3
+
+Data: 23/09/2026
+
+A Fase 3 foi implementada no backend local autorizado, incluindo validadores compartilhados, autenticação JWT/OTP e devices, serializers separados, endpoints de usuários, properties, listings com filtros PostGIS, upload seguro de mídia, notificações, busca, tasks Celery e configuração Beat.
+
+A decisão de privacidade do CPF registrada em `auditorias_md/arquitetura_djando/documentacao_projeto/inconsistencia_cpf_serializer.txt` foi aplicada: o serializer valida e repassa o CPF bruto; somente o `UserManager` calcula e persiste o hash SHA-256.
+
+Validações realizadas no Docker Desktop:
+- `docker compose up -d postgres redis`: PostgreSQL/PostGIS e Redis ativos.
+- `python manage.py check`: sem problemas.
+- `python manage.py makemigrations --check --dry-run`: nenhuma alteração pendente.
+- Migrações: nenhuma migração pendente.
+- Suíte existente: 10 testes aprovados.
+- Testes de integração adicionados para autenticação e listings; suíte completa final: 18 testes aprovados.
+
+Tarefas implementadas, mas mantidas como pendentes por ainda não terem o teste específico do critério completo: T-3.2.2 (worker Celery real), T-3.3.1/T-3.3.2 (endpoints de users), T-3.4.3 (execução real da task no worker), T-3.5.1/T-3.5.2 (Cloudinary real), T-3.6.1 (Firebase/notifications) e T-3.7.1 (inspeção do Beat/worker).
+
+Pendências deliberadas para a Fase 4: hardening de produção, HTTPS/HSTS/CSP, integração Cloudinary/Firebase com credenciais reais e deploy.

@@ -1,0 +1,19 @@
+AUDITORIA DE IMPLEMENTAÇÃO — CPF NO FLUXO DE CADASTRO
+Projeto: Aluguel360 Mobile Backend Django
+Data: 23/09/2026
+
+INCONSISTÊNCIA IDENTIFICADA
+A especificação inicial do RegisterSerializer calculava cpf_hash e, depois, chamava User.objects.create_user() passando esse hash no parâmetro cpf. O UserManager, entretanto, também calcula o hash do valor recebido. Isso produziria hash duplo e faria o valor armazenado não corresponder ao hash do CPF informado pelo usuário.
+
+SOLUÇÃO ADOTADA
+O UserManager é o único responsável por calcular o hash SHA-256 do CPF. O RegisterSerializer:
+1. valida o formato e os dígitos verificadores do CPF;
+2. verifica duplicidade usando User.hash_cpf(cpf), sem armazenar o CPF bruto;
+3. repassa o CPF bruto para User.objects.create_user(..., cpf=cpf, ...);
+4. não inclui cpf nem cpf_hash na resposta da API.
+
+IMPACTO NAS FASES
+A decisão não altera a estrutura dos models, migrações, tabelas ou índices da Fase 2. Ela corrige o contrato de implementação da tarefa T-3.2.1 da Fase 3. Os testes de models da Fase 2 permanecem válidos porque continuam exercitando o UserManager como responsável pelo hash.
+
+CRITÉRIO DE AUDITORIA
+Para um CPF formatado e seu equivalente somente com dígitos, User.objects.create_user() deve armazenar exatamente User.hash_cpf(cpf), uma única vez, e nunca o CPF bruto.

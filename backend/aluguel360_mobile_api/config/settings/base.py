@@ -167,6 +167,14 @@ DEFAULT_FROM_EMAIL = config('EMAIL_FROM', default='noreply@aluguel360.com.br')
 # ── Firebase (Push Notifications)
 FIREBASE_CREDENTIALS_PATH = config('FIREBASE_CREDENTIALS_PATH', default='firebase_credentials.json')
 
+# ── Limites de OTP e Upload
+OTP_EXPIRY_MINUTES = config('OTP_EXPIRY_MINUTES', default=10, cast=int)
+OTP_MAX_ATTEMPTS = config('OTP_MAX_ATTEMPTS', default=3, cast=int)
+MAX_PHOTO_MB = config('MAX_PHOTO_MB', default=10, cast=int)
+MAX_VIDEO_MB = config('MAX_VIDEO_MB', default=100, cast=int)
+MAX_PHOTOS_PER_USER = config('MAX_PHOTOS_PER_USER', default=50, cast=int)
+MAX_VIDEOS_PER_USER = config('MAX_VIDEOS_PER_USER', default=5, cast=int)
+
 # ── Internacionalização
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Sao_Paulo'
