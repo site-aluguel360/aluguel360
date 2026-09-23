@@ -1,0 +1,19 @@
+-r base.txt
+
+# Testes
+pytest==8.3.4
+pytest-django==4.9.0
+pytest-cov==6.0.0
+factory-boy==3.3.1         # Fixtures de test
+model-bakery==1.20.0       # Fixtures simplificadas
+
+# Debug
+django-debug-toolbar==4.4.6
+ipython==8.28.0
+django-shell-plus          # Shell com auto-imports
+
+# Qualidade de Código
+black==24.10.0
+isort==5.13.2
+flake8==7.1.1
+pre-commit==4.0.1

@@ -31,27 +31,27 @@ Ao final desta fase devem existir:
 
 ### 1.1 Ambiente Python
 
-#### T-1.1.1 — Criar virtualenv Python 3.12 [PENDENTE]
+#### T-1.1.1 — Criar virtualenv Python 3.12 [CONCLUIDA]
 - **Objetivo:** Criar ambiente Python isolado em `backend/`
 - **Arquivos:** `backend/venv/`
 - **Acoes:** `cd backend && python3.12 -m venv venv` (Windows: `py -3.12 -m venv venv`)
 - **Decisao arquitetural:** Python 3.12 exato. Nao usar 3.11 ou 3.13.
 - **Criterio de conclusao:** `venv/pyvenv.cfg` contem `version = 3.12.x`
 
-#### T-1.1.2 — Criar `requirements/base.txt` [PENDENTE]
+#### T-1.1.2 — Criar `requirements/base.txt` [CONCLUIDA]
 - **Dependencia:** T-1.1.1
 - **Arquivo:** `backend/aluguel360_mobile_api/requirements/base.txt`
 - **Acoes:** Criar com conteudo exato da secao "requirements/base.txt" do documento `django_fase4_seguranca_deploy.md`
 - **Decisao arquitetural:** Versoes sao fixas. Nao atualizar sem aprovacao.
 - **Criterio de conclusao:** Arquivo existe com todos os pacotes listados na Fase 4
 
-#### T-1.1.3 — Criar `requirements/development.txt` [PENDENTE]
+#### T-1.1.3 — Criar `requirements/development.txt` [CONCLUIDA]
 - **Dependencia:** T-1.1.2
 - **Arquivo:** `backend/aluguel360_mobile_api/requirements/development.txt`
 - **Acoes:** Criar com `-r base.txt` na linha 1 + pacotes de dev (pytest-django, factory-boy, model-bakery, django-debug-toolbar, black, isort)
 - **Criterio de conclusao:** Arquivo existe e inclui `-r base.txt`
 
-#### T-1.1.4 — Instalar dependencias [PENDENTE]
+#### T-1.1.4 — Instalar dependencias [CONCLUIDA]
 - **Dependencias:** T-1.1.1, T-1.1.2
 - **Acoes:** Ativar venv + `pip install -r requirements/development.txt`
 - **Criterio de conclusao:** `pip list | grep Django` retorna `Django 5.1.x`
@@ -61,13 +61,13 @@ Ao final desta fase devem existir:
 
 ### 1.2 Estrutura do Projeto Django
 
-#### T-1.2.1 — Inicializar projeto Django [PENDENTE]
+#### T-1.2.1 — Inicializar projeto Django [CONCLUIDA]
 - **Dependencia:** T-1.1.4
 - **Acoes:** `cd backend/aluguel360_mobile_api && django-admin startproject config .`
 - **DECISAO CRITICA:** O ponto final e obrigatorio. O projeto fica em `aluguel360_mobile_api/`, nao na raiz de `backend/`
 - **Criterio de conclusao:** `manage.py` existe em `backend/aluguel360_mobile_api/`
 
-#### T-1.2.2 — Criar `config/settings/` como pacote [PENDENTE]
+#### T-1.2.2 — Criar `config/settings/` como pacote [CONCLUIDA]
 - **Dependencia:** T-1.2.1
 - **Arquivos:**
   - REMOVER: `config/settings.py`
@@ -78,7 +78,7 @@ Ao final desta fase devem existir:
 - **ALERTA CRITICO:** `AUTH_USER_MODEL = 'users.User'` DEVE estar em `base.py` ANTES da primeira migration. Se omitido, o projeto precisara ser recriado do zero.
 - **Criterio de conclusao:** Tres arquivos em `config/settings/`
 
-#### T-1.2.3 — Criar os 7 apps Django [PENDENTE]
+#### T-1.2.3 — Criar os 7 apps Django [CONCLUIDA]
 - **Dependencia:** T-1.2.1
 - **Acoes:**
   ```
@@ -94,7 +94,7 @@ Ao final desta fase devem existir:
 - **Decisao arquitetural:** Apps ficam em `apps/`. O `apps.py` de cada app deve ter `name = 'apps.<nome>'`
 - **Criterio de conclusao:** 7 diretorios com `models.py` em `apps/`
 
-#### T-1.2.4 — Criar diretorio `common/` [PENDENTE]
+#### T-1.2.4 — Criar diretorio `common/` [CONCLUIDA]
 - **Dependencia:** T-1.2.1 (pode executar em paralelo com T-1.2.3)
 - **Arquivos a criar:**
   - `common/__init__.py`
@@ -110,13 +110,13 @@ Ao final desta fase devem existir:
 
 ### 1.3 Variaveis de Ambiente
 
-#### T-1.3.1 — Criar `.env.example` [PENDENTE]
+#### T-1.3.1 — Criar `.env.example` [CONCLUIDA]
 - **Dependencia:** T-1.2.2
 - **Arquivo:** `backend/aluguel360_mobile_api/.env.example`
 - **Acoes:** Criar com conteudo exato da secao "Variaveis de Ambiente" de `django_fase1_fundacao.md`
 - **Criterio de conclusao:** Arquivo existe com todas as variaveis listadas
 
-#### T-1.3.2 — Criar `.env` de desenvolvimento [PENDENTE]
+#### T-1.3.2 — Criar `.env` de desenvolvimento [CONCLUIDA]
 - **Dependencia:** T-1.3.1
 - **Arquivo:** `backend/aluguel360_mobile_api/.env`
 - **ALERTA DE SEGURANCA:** Este arquivo NAO deve ser commitado. Verificar `.gitignore`
@@ -127,14 +127,14 @@ Ao final desta fase devem existir:
 
 ### 1.4 Docker
 
-#### T-1.4.1 — Criar `docker-compose.yml` [PENDENTE]
+#### T-1.4.1 — Criar `docker-compose.yml` [CONCLUIDA]
 - **Dependencia:** Nenhuma (pode executar em paralelo)
 - **Arquivo:** `backend/aluguel360_mobile_api/docker-compose.yml`
 - **Acoes:** Criar com conteudo exato de `django_fase1_fundacao.md`, secao "Docker Compose"
 - **Decisao arquitetural:** Imagem DEVE ser `postgis/postgis:16-3.4`, NAO `postgres:16`
 - **Criterio de conclusao:** Arquivo contem servicos postgres, redis, django, celery, celery-beat
 
-#### T-1.4.2 — Subir servicos Docker [PENDENTE]
+#### T-1.4.2 — Subir servicos Docker [CONCLUIDA]
 - **Dependencia:** T-1.4.1
 - **Acoes:** `docker-compose up -d postgres redis`
 - **Criterio de conclusao:**
@@ -145,20 +145,20 @@ Ao final desta fase devem existir:
 
 ### 1.5 Settings e URLs Raiz
 
-#### T-1.5.1 — Corrigir `apps.py` de cada app [PENDENTE]
+#### T-1.5.1 — Corrigir `apps.py` de cada app [CONCLUIDA]
 - **Dependencia:** T-1.2.3
 - **Arquivos:** `apps/*/apps.py` (todos os 7)
 - **Acoes:** Em cada `apps.py`, alterar o atributo `name` de `'<nome>'` para `'apps.<nome>'`
 - **Criterio de conclusao:** Todos os 7 `apps.py` tem `name = 'apps.<nome_do_app>'`
 
-#### T-1.5.2 — Configurar `config/urls.py` [PENDENTE]
+#### T-1.5.2 — Configurar `config/urls.py` [CONCLUIDA]
 - **Dependencia:** T-1.2.3
 - **Arquivo:** `config/urls.py`
 - **Acoes:** Substituir pelo conteudo exato de `django_fase1_fundacao.md`, secao "Roteamento Raiz"
 - **Decisao arquitetural:** Prefixo e `api/v1/`. Nao alterar.
 - **Criterio de conclusao:** Arquivo tem importacao de `drf_spectacular` e 7 rotas de apps
 
-#### T-1.5.3 — Configurar `config/wsgi.py` e `config/asgi.py` [PENDENTE]
+#### T-1.5.3 — Configurar `config/wsgi.py` e `config/asgi.py` [CONCLUIDA]
 - **Dependencia:** T-1.5.2
 - **Acoes:** Garantir `DJANGO_SETTINGS_MODULE=config.settings.development` em ambos os arquivos
 - **Criterio de conclusao:** Ambos referenciam `config.settings.development`
@@ -167,26 +167,26 @@ Ao final desta fase devem existir:
 
 ### 1.6 Verificacao e Migracao Inicial
 
-#### T-1.6.1 — Executar verificacao do Django [PENDENTE]
+#### T-1.6.1 — Executar verificacao do Django [CONCLUIDA]
 - **Dependencias:** T-1.5.3, T-1.3.2, T-1.4.2
 - **Acoes:** `python manage.py check`
 - **Criterio de conclusao:** "System check identified no issues"
 - **ALERTA:** Se erros relacionados a AUTH_USER_MODEL, verificar se `AUTH_USER_MODEL = 'users.User'` esta em `base.py`
 
-#### T-1.6.2 — Executar migracoes iniciais [PENDENTE]
+#### T-1.6.2 — Executar migracoes iniciais [CONCLUIDA]
 - **Dependencia:** T-1.6.1
 - **Acoes:** `python manage.py migrate`
 - **Criterio de conclusao:** Migrations executam sem erros
 - **ALERTA:** Se falhar por PostGIS, executar no banco: `CREATE EXTENSION postgis;`
 
-#### T-1.6.3 — Criar superusuario inicial [PENDENTE]
+#### T-1.6.3 — Criar superusuario inicial [CONCLUIDA]
 - **Dependencia:** T-1.6.2
 - **Acoes:** `python manage.py createsuperuser`
 - **Decisao arquitetural:** Campo de login e `email`, nao `username`
 - **ALERTA:** Se pedir `username`, AUTH_USER_MODEL nao esta configurado. Revisar T-1.2.2.
 - **Criterio de conclusao:** Login em `/admin/` bem-sucedido
 
-#### T-1.6.4 — Verificar Swagger UI [PENDENTE]
+#### T-1.6.4 — Verificar Swagger UI [CONCLUIDA]
 - **Dependencia:** T-1.6.2
 - **Acoes:** `python manage.py runserver`, acessar `http://localhost:8000/api/docs/`
 - **Criterio de conclusao:** Pagina Swagger carrega sem erro 500

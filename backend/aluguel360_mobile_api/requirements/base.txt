@@ -1,0 +1,61 @@
+# ─── Django Core
+Django==5.1.4
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.6.0
+django-filter==24.3
+python-decouple==3.8
+
+# ─── Banco de Dados
+psycopg2-binary==2.9.10
+django-extensions==3.2.3
+
+# ─── GeoDjango (PostGIS)
+# GDAL e GEOS devem ser instalados no SO:
+# Ubuntu: apt-get install gdal-bin python3-gdal libgeos-dev libproj-dev
+# Docker: usar imagem postgis/postgis que já inclui
+
+# ─── Autenticação Social
+django-allauth==64.2.1
+dj-rest-auth==6.0.0
+
+# ─── Upload e Armazenamento de Mídia
+cloudinary==1.41.0
+django-cloudinary-storage==0.3.0
+django-storages==1.14.4
+Pillow==10.4.0
+python-magic==0.4.27       # Validação de MIME real
+boto3==1.35.80             # Compatibilidade S3 (backup)
+
+# ─── Cache e Filas
+django-redis==5.4.0
+celery==5.4.0
+redis==5.2.1
+flower==2.0.1              # Monitoramento Celery (dev/staging)
+
+# ─── Push Notifications
+firebase-admin==6.6.0
+
+# ─── Email
+# Usa django.core.mail nativo (configurado via SMTP)
+sendgrid==6.11.0           # Opcional: SDK SendGrid
+
+# ─── Full-Text Search
+django-watson==1.6.3
+
+# ─── Documentação API
+drf-spectacular==0.27.2
+
+# ─── Rate Limiting
+django-ratelimit==4.1.0
+
+# ─── Logs Estruturados
+django-structlog==8.1.0
+structlog==24.4.0
+
+# ─── Validação e Segurança
+bcrypt==4.2.0
+cryptography==43.0.3
+
+# ─── Utilitários
+Faker==30.0.0              # Dados de teste
