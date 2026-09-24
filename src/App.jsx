@@ -18,6 +18,7 @@ import { PerfilMidia } from "./pages/PerfilMidia";
 import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
 import { CadastroImovel } from "./pages/CadastroImovel";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 
 
@@ -37,16 +38,18 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="recuperar-senha" element={<RecuperarSenha />} />
 
-            <Route path="perfil" element={<Perfil />} />
-            <Route path="perfil/editar" element={<EditProfile />} />
-            <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
-            <Route path="perfil/seguranca" element={<PerfilSeguranca />} />
-            <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
-            <Route path="perfil/qualidade" element={<PerfilQualidade />} />
-            <Route path="perfil/midia" element={<PerfilMidia />} />
-            <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
-            <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
-            <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="perfil" element={<Perfil />} />
+              <Route path="perfil/editar" element={<EditProfile />} />
+              <Route path="perfil/enderecos" element={<PerfilEnderecos />} />
+              <Route path="perfil/seguranca" element={<PerfilSeguranca />} />
+              <Route path="perfil/privacidade" element={<PerfilPrivacidade />} />
+              <Route path="perfil/qualidade" element={<PerfilQualidade />} />
+              <Route path="perfil/midia" element={<PerfilMidia />} />
+              <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
+              <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
+              <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
+            </Route>
           </Route>
         </Routes>
       </Router>

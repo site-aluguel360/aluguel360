@@ -43,8 +43,13 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    await authApi.logout();
-    setUser(null);
+    try {
+      await authApi.logout();
+    } catch {
+      // A sessão local deve ser encerrada mesmo se a API estiver indisponível.
+    } finally {
+      setUser(null);
+    }
   };
 
   return (

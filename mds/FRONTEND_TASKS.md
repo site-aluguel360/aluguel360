@@ -112,17 +112,23 @@ Ao final desta fase devem existir:
 - **Critério de conclusão:** login não utiliza dados mockados nem apenas estado local.
 - **Validação:** teste manual com usuário existente e lint específico.
 
-### T-1.1.5 — Criar `ProtectedRoute` [PENDENTE]
+### T-1.1.5 — Criar `ProtectedRoute` [CONCLUÍDA]
 - **Arquivos:** `src/components/ProtectedRoute.jsx`, `src/App.jsx` ou arquivo de rotas equivalente.
 - **Dependência:** T-1.1.3
 - **Ações:** bloquear `/perfil/*` e `/perfil/cadastro-imovel`, mostrar loading durante restauração e redirecionar anônimos para `/login`.
 - **Critério de conclusão:** acesso anônimo às rotas protegidas não renderiza dados privados.
 
-### T-1.1.6 — Integrar logout e limpeza de sessão [PENDENTE]
-- **Arquivos:** `src/components/Layout.jsx`, `src/components/SiteHeader.jsx` ou componente efetivamente responsável pelo logout.
+### T-1.1.6 — Integrar logout e limpeza de sessão [CONCLUÍDA]
+- **Arquivos:** `src/contexts/AuthContext.jsx`, `src/components/Layout.jsx`, `src/components/SiteHeader.jsx`.
 - **Dependência:** T-1.1.3
 - **Ações:** chamar `POST /auth/logout/`, limpar tokens mesmo quando a chamada falhar e atualizar o contexto.
-- **Critério de conclusão:** após logout, refresh token, usuário armazenado e acesso às rotas protegidas são removidos.
+- **Critério de conclusão:** logout visual conectado, limpeza em `finally` e ausência de rejeição não tratada.
+
+### Registro de implementação — 24/09/2026
+
+T-1.1.5 e T-1.1.6 foram implementadas e validadas por ESLint específico, build e inspeção de código. O registro detalhado está em `auditorias_md/arquitetura_djando/documentacao_projeto/frontend/fase1_protected_route_logout.md`.
+
+O teste manual do navegador foi informado como aprovado pelo usuário em 24/09/2026.
 
 ### CHECKPOINT — FASE I
 
@@ -138,6 +144,8 @@ Ao final desta fase devem existir:
 | 8 | Logout | navegador autenticado | tokens removidos e rota privada bloqueada |
 
 > **PARE.** Não avance para a Fase II sem verificar os itens acima e registrar as evidências.
+
+> **CHECKPOINT APROVADO EM 24/09/2026.** A Fase II está liberada.
 
 ---
 
@@ -172,7 +180,7 @@ Ao final desta fase devem existir:
 - **Ações:** implementar `toRegisterPayload` com normalização de CEP, UF e campos de endereço.
 - **Critério de conclusão:** a tela não monta o payload final espalhando regras de conversão.
 
-### T-2.2.1 — Integrar recuperação de senha [PENDENTE]
+### T-2.2.1 — Integrar recuperação de senha [EM PROGRESSO]
 - **Arquivo:** `src/pages/RecuperarSenha.jsx`
 - **Dependência:** T-1.1.1
 - **Ações:** implementar solicitação de OTP, verificação do código e redefinição de senha com limpeza dos dados sensíveis ao concluir.
@@ -217,22 +225,28 @@ Ao final desta fase devem existir:
 - **Critério de conclusão:** tela não depende exclusivamente da lista fixa anterior.
 - **Validação:** build e lint específico aprovados.
 
-### T-3.1.3 — Integrar Home [PENDENTE]
+### T-3.1.3 — Integrar Home [CONCLUÍDA]
 - **Arquivo:** `src/pages/Home.jsx`
 - **Dependência:** T-3.1.1
 - **Ações:** substituir cards mockados por listings reais e preservar estado vazio quando não houver anúncios.
 - **Critério de conclusão:** cards da Home refletem o banco local.
 
-### T-3.2.1 — Integrar filtros e busca [PENDENTE]
+**Implementação concluída em 24/09/2026:** `Home.jsx` consulta `GET /listings/?ordering=-views_count`, adapta os resultados com `adaptListings` e exibe estados de carregamento, erro e catálogo vazio. ESLint e build aprovados.
+
+### T-3.2.1 — Integrar filtros e busca [CONCLUÍDA]
 - **Arquivos:** `src/components/BarraFiltros.*`, `src/components/FiltroLateral.*`, `src/pages/ResultadosPesquisa.jsx`.
 - **Dependência:** T-3.1.2
 - **Ações:** converter tipo, cidade, estado, preço, quartos, banheiros, garagem e localização para os parâmetros documentados.
 - **Critério de conclusão:** filtro `tipo=CASA` e filtros financeiros alteram a requisição sem reload manual.
 
-### T-3.2.2 — Integrar paginação cursor [PENDENTE]
+**Implementação concluída em 24/09/2026:** tipo, preço mínimo, preço máximo, mobiliado, ordenação, cidade, estado, bairro, quartos, banheiros, garagem e metragem são controlados pela tela e enviados como query params em cada alteração. Os contratos `tipo`, `preco_min`, `preco_max`, `mobiliado`, `cidade`, `estado`, `bairro`, `quartos_min`, `banheiros_min`, `garagem_min`, `area_min` e `area_max` foram verificados contra o backend.
+
+### T-3.2.2 — Integrar paginação cursor [CONCLUÍDA]
 - **Dependência:** T-3.2.1
 - **Ações:** usar `next`/`previous` devolvidos pelo backend sem offset e impedir registros duplicados.
 - **Critério de conclusão:** navegar entre páginas não duplica cards e preserva os filtros atuais.
+
+**Implementação concluída em 24/09/2026:** links opacos `next` e `previous` são consumidos diretamente pelo cliente HTTP. A troca de filtros reinicia a navegação na primeira página; a troca de página substitui a coleção atual, sem concatenação ou duplicação.
 
 ### CHECKPOINT — FASE III
 
@@ -250,6 +264,8 @@ Ao final desta fase devem existir:
 
 ## FASE IV — Perfil, Endereços, Imóveis e Anúncios
 
+**Checkpoint da Fase III aprovado manualmente pelo usuário em 24/09/2026.** A Fase IV está liberada.
+
 ### Objetivo
 Ao final desta fase devem existir:
 - perfil carregado de `/users/me/`;
@@ -260,11 +276,13 @@ Ao final desta fase devem existir:
 - atualização após mutações e refresh da página;
 - isolamento visual de recursos privados.
 
-### T-4.1.1 — Integrar perfil e estatísticas [PENDENTE]
+### T-4.1.1 — Integrar perfil e estatísticas [CONCLUÍDA]
 - **Arquivos:** `src/pages/Perfil.jsx` e componentes relacionados.
 - **Dependência:** Fase I concluída.
 - **Endpoints:** `GET /users/me/`, `GET /users/me/stats/`.
 - **Critério de conclusão:** dados exibidos são recuperados da API e permanecem após refresh.
+
+**Implementação concluída em 24/09/2026:** `Perfil.jsx` consulta `/users/me/` e `/users/me/stats/`, apresenta loading/erro e remove os valores pessoais e estatísticos fictícios da tela principal.
 
 ### T-4.1.2 — Bloquear edição de email [CONCLUÍDA]
 - **Arquivo:** `src/pages/EditProfile.jsx`
@@ -272,23 +290,31 @@ Ao final desta fase devem existir:
 - **Ações:** manter email somente leitura/desabilitado e permitir apenas campos suportados pelo `UserUpdateSerializer`.
 - **Critério de conclusão:** nenhum PATCH envia email.
 
-### T-4.2.1 — Integrar CRUD de endereços [PENDENTE]
+**Implementação real concluída em 24/09/2026:** `EditProfile.jsx` carrega o usuário, envia somente `nome`, `telefone` e `data_nascimento` por `userApi.updateMe` e mantém o email desabilitado e ausente do payload.
+
+### T-4.2.1 — Integrar CRUD de endereços [CONCLUÍDA]
 - **Arquivo:** `src/pages/PerfilEnderecos.jsx`
 - **Dependência:** T-2.1.1
 - **Endpoints:** `/users/me/addresses/` e `/users/me/addresses/{id}/`.
 - **Critério de conclusão:** criar, editar, excluir e definir endereço sem dados mockados.
 
-### T-4.3.1 — Integrar imóveis próprios [PENDENTE]
+**Implementação concluída em 24/09/2026:** `PerfilEnderecos.jsx` usa os serviços reais de listagem, criação, edição e exclusão, com formulário controlado, endereço principal e estados de loading/erro/sucesso. ESLint, build e verificação de contrato aprovados.
+
+### T-4.3.1 — Integrar imóveis próprios [CONCLUÍDA]
 - **Arquivo:** `src/pages/PerfilMeusImoveis.jsx`
 - **Dependência:** T-4.1.1
 - **Ações:** listar properties do usuário, atualizar e solicitar soft delete conforme API.
 - **Critério de conclusão:** usuário não visualiza recursos de outro proprietário.
 
-### T-4.3.2 — Integrar anúncios próprios [PENDENTE]
+**Implementação concluída em 24/09/2026:** `PerfilMeusImoveis.jsx` consulta `/properties/`, exibe somente a coleção devolvida para o usuário autenticado e usa soft delete via `DELETE /properties/{id}/`. ESLint, build, contrato e proteção HTTP aprovados.
+
+### T-4.3.2 — Integrar anúncios próprios [CONCLUÍDA]
 - **Arquivo:** `src/pages/PerfilMeusAnuncios.jsx`
 - **Dependência:** T-4.3.1
 - **Ações:** listar, publicar, pausar e editar listings conforme actions reais do ViewSet.
 - **Critério de conclusão:** ações refletem no catálogo após recarregar.
+
+**Implementação concluída em 24/09/2026:** `PerfilMeusAnuncios.jsx` consulta `/listings/mine/`, filtra por status e usa as actions reais `publish`, `pause` e `DELETE`. ESLint, build, contrato e proteção HTTP aprovados.
 
 ### CHECKPOINT — FASE IV
 
@@ -305,6 +331,8 @@ Ao final desta fase devem existir:
 
 ## FASE V — Cadastro de Imóvel e Mídia
 
+**Fase IV tecnicamente concluída; Fase V iniciada em 24/09/2026.**
+
 ### Objetivo
 Ao final desta fase devem existir:
 - mapeamento explícito das seis etapas para Property e Listing;
@@ -314,28 +342,36 @@ Ao final desta fase devem existir:
 - validação de tamanho e tipo antes do envio;
 - quota e remoção de mídia visíveis.
 
-### T-5.1.1 — Mapear formulário para Property [PENDENTE]
+### T-5.1.1 — Mapear formulário para Property [CONCLUÍDA]
 - **Arquivo:** `src/pages/CadastroImovel.jsx`, `src/lib/adapters.js` ou módulo de formulário definido antes da implementação.
 - **Dependência:** Fase IV concluída.
 - **Ações:** mapear endereço, tipo, área, características e cômodos para os campos reais do model.
 - **Regra:** não enviar o estado inteiro da tela diretamente para a API.
 - **Critério de conclusão:** POST de Property em rascunho aceita somente campos documentados.
 
-### T-5.1.2 — Criar e publicar Listing [PENDENTE]
+**Implementação concluída em 24/09/2026:** adicionados `toPropertyPayload` e `toListingPayload` em `src/lib/adapters.js`; o cadastro preserva `File` separado das URLs de preview. A localização da etapa 3 consulta ViaCEP. O backend foi corrigido para delegar a atribuição do proprietário ao serializer sem duplicidade.
+
+### T-5.1.2 — Criar e publicar Listing [CONCLUÍDA]
 - **Dependência:** T-5.1.1
 - **Ações:** criar Listing associado ao Property e separar ações de salvar rascunho, publicar e pausar.
 - **Critério de conclusão:** a publicação não ocorre implicitamente antes da confirmação do usuário.
 
-### T-5.2.1 — Integrar upload seguro de mídia [PENDENTE]
+**Implementação concluída em 24/09/2026:** `CadastroImovel.jsx` agora conecta rascunho e publicação ao backend. Salvar rascunho cria o Property e o Listing mas não chama `publish`. Publicar executa a sequência completa e invoca `listingApi.publish`.
+
+### T-5.2.1 — Integrar upload seguro de mídia [CONCLUÍDA]
 - **Arquivos:** `src/pages/PerfilMidia.jsx`, `src/lib/api.js`, adaptadores.
 - **Dependência:** T-5.1.1
 - **Ações:** enviar `FormData`, não sobrescrever `Content-Type`, mostrar progresso/erro, respeitar limites do backend e atualizar lista.
 - **Critério de conclusão:** JPEG/PNG/WebP permitido conforme backend; arquivo inválido é rejeitado visualmente.
 
-### T-5.2.2 — Integrar quota e remoção [PENDENTE]
+**Implementação concluída em 24/09/2026:** upload multipart integrado no cadastro (após rascunho/publicação) e na tela de mídias. O frontend valida MIME type e tamanho (10MB fotos, 100MB vídeos) antes do envio.
+
+### T-5.2.2 — Integrar quota e remoção [CONCLUÍDA]
 - **Dependência:** T-5.2.1
 - **Endpoints:** `/media/quota/`, `/media/{id}/`.
 - **Critério de conclusão:** quota e mídia são atualizadas após upload ou remoção.
+
+**Implementação concluída em 24/09/2026:** `PerfilMidia.jsx` integrada ao `mediaApi.list`, `upload`, `remove` e `quota`. O gráfico de uso e as estatísticas refletem os dados reais do backend.
 
 ### CHECKPOINT — FASE V
 

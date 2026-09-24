@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Camera,
   ChevronLeft,
@@ -6,12 +6,8 @@ import {
   Check,
   CirclePlus,
   House,
-  Heart,
-  MapPin,
   PencilLine,
   Play,
-  Ruler,
-  Sofa,
   SquareCheckBig,
   Trash2,
   X,
@@ -23,6 +19,9 @@ import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { CardImovel } from "../components/CardImovel";
 import { MenuLogin } from "../components/MenuLogin";
+import { lookupCep } from "../lib/viacep";
+import { listingApi, mediaApi, propertyApi, toApiError } from "../lib/api";
+import { toListingPayload, toPropertyPayload } from "../lib/adapters";
 
 const maxStep = 6;
 
@@ -71,6 +70,8 @@ const initialForm = {
   cep: "",
   street: "",
   neighborhood: "",
+  city: "",
+  state: "",
   reference: "",
   complement: "",
   number: "",
@@ -87,8 +88,11 @@ const initialForm = {
   description: "",
   extraInfo: "",
   photos: {},
+  photoFiles: {},
   extraPhotos: [],
+  extraPhotoFiles: [],
   video: null,
+  videoFile: null,
 };
 
 const SIDEBAR_STEP_GRID = "grid min-w-0 gap-1 lg:grid-cols-[1fr_minmax(180px,240px)]";
@@ -549,6 +553,7 @@ function StepTwoPanel({ form, setForm }) {
       setForm((current) => ({
         ...current,
         photos: { ...current.photos, [activeSlot]: url },
+        photoFiles: { ...current.photoFiles, [activeSlot]: file },
       }));
     }
     setActiveSlot(null);
@@ -561,7 +566,9 @@ function StepTwoPanel({ form, setForm }) {
         URL.revokeObjectURL(newPhotos[slotKey]);
         delete newPhotos[slotKey];
       }
-      return { ...current, photos: newPhotos };
+      const newPhotoFiles = { ...current.photoFiles };
+      delete newPhotoFiles[slotKey];
+      return { ...current, photos: newPhotos, photoFiles: newPhotoFiles };
     });
   };
 
@@ -578,7 +585,7 @@ function StepTwoPanel({ form, setForm }) {
       const url = URL.createObjectURL(file);
       setForm((current) => {
         if (current.video) URL.revokeObjectURL(current.video);
-        return { ...current, video: url };
+        return { ...current, video: url, videoFile: file };
       });
     }
   };
@@ -586,7 +593,7 @@ function StepTwoPanel({ form, setForm }) {
   const handleRemoveVideo = () => {
     setForm((current) => {
       if (current.video) URL.revokeObjectURL(current.video);
-      return { ...current, video: null };
+      return { ...current, video: null, videoFile: null };
     });
   };
 
@@ -596,6 +603,7 @@ function StepTwoPanel({ form, setForm }) {
     setForm((current) => ({
       ...current,
       extraPhotos: [...(current.extraPhotos || []), ...urls],
+      extraPhotoFiles: [...(current.extraPhotoFiles || []), ...files],
     }));
     if (extraPhotoInputRef.current) extraPhotoInputRef.current.value = "";
   };
@@ -603,9 +611,11 @@ function StepTwoPanel({ form, setForm }) {
   const handleRemoveExtraPhoto = (index) => {
     setForm((current) => {
       const newExtra = [...(current.extraPhotos || [])];
+      const newExtraFiles = [...(current.extraPhotoFiles || [])];
       URL.revokeObjectURL(newExtra[index]);
       newExtra.splice(index, 1);
-      return { ...current, extraPhotos: newExtra };
+      newExtraFiles.splice(index, 1);
+      return { ...current, extraPhotos: newExtra, extraPhotoFiles: newExtraFiles };
     });
   };
 
@@ -790,6 +800,16 @@ function StepThreePanel({ form, setForm }) {
   ]);
 
   const [editing, setEditing] = useState(false);
+  useEffect(() => {
+    const cep = String(form.cep || "").replace(/\D/g, "");
+    if (cep.length !== 8) return undefined;
+    const controller = new AbortController();
+    lookupCep(cep, controller.signal)
+      .then((address) => address && setForm((current) => ({ ...current, street: address.logradouro, neighborhood: address.bairro, city: address.cidade, state: address.estado })))
+      .catch((error) => { if (error.name !== "AbortError") console.error(error); });
+    return () => controller.abort();
+  }, [form.cep, setForm]);
+
   return (
     <div className={SIDEBAR_STEP_GRID}>
       <Shell className="p-2 sm:p-3">
@@ -820,6 +840,11 @@ function StepThreePanel({ form, setForm }) {
                   setForm((current) => ({ ...current, neighborhood: event.target.value }))
                 }
               />
+
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                <TextField label="Cidade" value={form.city} readOnly />
+                <TextField label="Estado" value={form.state} readOnly />
+              </div>
 
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <TextField
@@ -1243,6 +1268,67 @@ function StepSixPanel({ setStep, form }) {
 export function CadastroImovel() {
   const [step, setStep] = useState(0);
   const [form, setForm] = useState(initialForm);
+  const [propertyId, setPropertyId] = useState(null);
+  const [listingId, setListingId] = useState(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState("");
+  const [saveError, setSaveError] = useState("");
+
+  const uploadFiles = async (createdPropertyId, createdListingId) => {
+    const files = [
+      ...Object.values(form.photoFiles || {}).map((file) => ({ file, tipo: "FOTO" })),
+      ...(form.extraPhotoFiles || []).map((file) => ({ file, tipo: "FOTO" })),
+      ...(form.videoFile ? [{ file: form.videoFile, tipo: "VIDEO" }] : []),
+    ];
+    for (const item of files) {
+      await mediaApi.upload(item.file, { tipo: item.tipo, propertyId: createdPropertyId, listingId: createdListingId });
+    }
+  };
+
+  const saveDraft = async () => {
+    setIsSaving(true);
+    setSaveError("");
+    setSaveMessage("");
+    try {
+      const createdProperty = propertyId ? { id: propertyId } : await propertyApi.create(toPropertyPayload(form));
+      setPropertyId(createdProperty.id);
+      const listingPayload = toListingPayload(form, createdProperty.id);
+      const createdListing = listingId ? await listingApi.update(listingId, listingPayload) : await listingApi.create(listingPayload);
+      setListingId(createdListing.id);
+      await uploadFiles(createdProperty.id, createdListing.id);
+      setForm((current) => ({ ...current, photoFiles: {}, extraPhotoFiles: [], videoFile: null }));
+      setSaveMessage("Rascunho salvo com sucesso. O anúncio ainda não foi publicado.");
+    } catch (requestError) {
+      setSaveError(toApiError(requestError));
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const publishListing = async () => {
+    setIsSaving(true);
+    setSaveError("");
+    setSaveMessage("");
+    try {
+      if (!propertyId || !listingId) {
+        const createdProperty = propertyId ? { id: propertyId } : await propertyApi.create(toPropertyPayload(form));
+        const createdListing = await listingApi.create(toListingPayload(form, createdProperty.id));
+        setPropertyId(createdProperty.id);
+        setListingId(createdListing.id);
+        await uploadFiles(createdProperty.id, createdListing.id);
+        setForm((current) => ({ ...current, photoFiles: {}, extraPhotoFiles: [], videoFile: null }));
+        await listingApi.publish(createdListing.id);
+      } else {
+        await listingApi.update(listingId, toListingPayload(form, propertyId));
+        await listingApi.publish(listingId);
+      }
+      setSaveMessage("Anúncio publicado com sucesso.");
+    } catch (requestError) {
+      setSaveError(toApiError(requestError));
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const goBack = () => setStep((current) => Math.max(0, current - 1));
   const goNext = () => {
@@ -1405,12 +1491,21 @@ export function CadastroImovel() {
               <div className={`relative mt-${step === 0 ? '2' : '0.5'} pb-1 sm:pb-2`}>
                 {step === 6 ? (
                   <div className="mb-6 flex justify-center">
+                    <div className="flex w-full max-w-lg flex-col items-center gap-2">
+                    {saveError && <p className="text-center text-sm text-red-600" role="alert">{saveError}</p>}
+                    {saveMessage && <p className="text-center text-sm text-green-700">{saveMessage}</p>}
+                    <div className="flex flex-wrap justify-center gap-3">
+                    <Button type="button" variant="outline" disabled={isSaving} onClick={saveDraft}>{isSaving ? "Salvando..." : "Salvar rascunho"}</Button>
                     <Button
                       type="button"
+                      disabled={isSaving}
+                      onClick={publishListing}
                       className="mx-auto mt-2 flex h-9 lg:h-10 w-full max-w-xs sm:w-auto sm:min-w-[200px] items-center justify-center gap-2 rounded-[6px] bg-secondary px-6 font-['Poppins'] text-[15px] font-semibold text-white shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-colors hover:bg-secondary-hover"
                     >
                       Publicar Anúncio
                     </Button>
+                    </div>
+                    </div>
                   </div>
                 ) : null}
                 <ProgressBar step={step} />

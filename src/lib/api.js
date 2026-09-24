@@ -32,6 +32,15 @@ function getErrorMessage(payload, fallback) {
   return first || fallback;
 }
 
+function unwrapApiData(payload) {
+  let current = payload;
+  for (let depth = 0; depth < 4; depth += 1) {
+    if (!current || typeof current !== "object" || current.success !== true || !("data" in current)) return current;
+    current = current.data;
+  }
+  return current;
+}
+
 async function parseResponse(response) {
   const payload = response.status === 204 ? null : await response.json().catch(() => null);
   if (!response.ok) {
@@ -40,7 +49,7 @@ async function parseResponse(response) {
     error.payload = payload;
     throw error;
   }
-  return payload?.data ?? payload;
+  return unwrapApiData(payload);
 }
 
 async function refreshAccessToken() {
@@ -68,7 +77,10 @@ export async function apiFetch(path, options = {}, retry = true) {
   const token = getAccessToken();
   if (token) requestHeaders.Authorization = `Bearer ${token}`;
 
-  const response = await fetch(`${API_URL}${path.startsWith("/") ? path : `/${path}`}`, {
+  const requestUrl = /^https?:\/\//i.test(path)
+    ? path
+    : `${API_URL}${path.startsWith("/") ? path : `/${path}`}`;
+  const response = await fetch(requestUrl, {
     ...rest,
     headers: requestHeaders,
     body: isFormData || typeof body === "string" ? body : body === undefined ? undefined : JSON.stringify(body),
@@ -103,8 +115,20 @@ export function getRememberedUser() {
 }
 
 export function normalizeApiList(payload) {
-  if (Array.isArray(payload)) return payload;
-  return payload?.results || payload?.items || payload?.data || [];
+  return normalizeApiPage(payload).results;
+}
+
+export function normalizeApiPage(payload) {
+  let current = payload;
+  for (let depth = 0; depth < 4; depth += 1) {
+    if (Array.isArray(current)) return { results: current, next: null, previous: null };
+    if (!current || typeof current !== "object") return { results: [], next: null, previous: null };
+    if (Array.isArray(current.results)) {
+      return { results: current.results, next: current.next || null, previous: current.previous || null };
+    }
+    current = current.data || current.items;
+  }
+  return { results: [], next: null, previous: null };
 }
 
 export function toApiError(error) {
@@ -148,23 +172,44 @@ export const userApi = {
   me: () => api.get("/users/me/"),
   updateMe: (payload) => api.patch("/users/me/", payload),
   addresses: () => api.get("/users/me/addresses/"),
+  createAddress: (payload) => api.post("/users/me/addresses/", payload),
+  updateAddress: (id, payload) => api.patch(`/users/me/addresses/${id}/`, payload),
+  deleteAddress: (id) => api.delete(`/users/me/addresses/${id}/`),
   stats: () => api.get("/users/me/stats/"),
 };
 
 export const listingApi = {
   list: (query = "") => api.get(`/listings/${query ? `?${query}` : ""}`),
+  listUrl: (url) => api.get(url),
   search: (query = "") => api.get(`/search/${query ? `?${query}` : ""}`),
+  mine: (query = "") => api.get(`/listings/mine/${query ? `?${query}` : ""}`),
+  publish: (id) => api.post(`/listings/${id}/publish/`, {}),
+  pause: (id) => api.post(`/listings/${id}/pause/`, {}),
+  remove: (id) => api.delete(`/listings/${id}/`),
+  create: (payload) => api.post("/listings/", payload),
+  update: (id, payload) => api.patch(`/listings/${id}/`, payload),
 };
 
 export const propertyApi = {
   list: () => api.get("/properties/"),
   create: (payload) => api.post("/properties/", payload),
+  update: (id, payload) => api.patch(`/properties/${id}/`, payload),
+  remove: (id) => api.delete(`/properties/${id}/`),
 };
 
 export const mediaApi = {
   list: () => api.get("/media/"),
-  upload: (formData) => api.post("/media/", formData),
+  upload: (file, { tipo = "FOTO", propertyId, listingId, nome } = {}) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("tipo", tipo);
+    if (propertyId) formData.append("property", propertyId);
+    if (listingId) formData.append("listing", listingId);
+    if (nome) formData.append("nome", nome);
+    return api.post("/media/", formData);
+  },
   remove: (id) => api.delete(`/media/${id}/`),
+  quota: () => api.get("/media/quota/"),
 };
 
 export const notificationApi = {

@@ -1,227 +1,96 @@
+import { useEffect, useState } from "react";
+import { Edit } from "lucide-react";
+import { Link } from "react-router-dom";
 import { PerfilHeader } from "../components/PerfilHeader";
 import { PerfilSidebar } from "../components/PerfilSidebar";
 import { PerfilCard } from "../components/PerfilCard";
-import { Edit } from "lucide-react";
-import { Link } from "react-router-dom";
+import { toApiError, userApi } from "../lib/api";
+import { adaptUser } from "../lib/adapters";
 
-const usuarioMock = {
-  nome: "Fulano de Tal",
-  email: "fulanodetal@gmail.com",
-  iniciais: "FT",
-  dataCadastro: "01/02/2023",
-  cpf: "123.***.***-10"
-};
+function addressLabel(address) {
+  if (!address) return "Nenhum endereço cadastrado.";
+  return `${address.logradouro}, ${address.numero} — ${address.bairro}, ${address.cidade} - ${address.estado} | CEP: ${address.cep}`;
+}
 
 export function Perfil() {
+  const [user, setUser] = useState(null);
+  const [stats, setStats] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let active = true;
+    Promise.all([userApi.me(), userApi.stats()])
+      .then(([userData, statsData]) => {
+        if (!active) return;
+        setUser(adaptUser(userData));
+        setStats(statsData);
+      })
+      .catch((requestError) => active && setError(toApiError(requestError)))
+      .finally(() => active && setIsLoading(false));
+    return () => { active = false; };
+  }, []);
+
+  if (isLoading) return <p className="mx-auto max-w-7xl px-4 py-12 text-center text-muted-foreground">Carregando perfil...</p>;
+  if (error) return <p className="mx-auto max-w-7xl px-4 py-12 text-center text-red-600" role="alert">{error}</p>;
+  if (!user || !stats) return null;
+
+  const addresses = user.addresses || [];
+  const quality = Number(stats.quality_score_medio || 0);
+  const qualityPercent = Math.min(100, Math.max(0, quality * 10));
+
   return (
-
     <div className="mx-auto w-full max-w-7xl px-4 py-8 lg:px-8">
-      {/* Main Layout Grid */}
       <div className="grid gap-8 min-[1080px]:grid-cols-[200px_minmax(0,1fr)]">
-        {/* Sidebar Left */}
         <PerfilSidebar />
-
-        {/* Content Right */}
-        <div className="flex flex-col min-w-0">
-          {/* Header */}
-          <PerfilHeader usuario={usuarioMock} />
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-            {/* LINHA 1 */}
-            {/* Informações do Perfil */}
-            <PerfilCard
-              titulo="Informações do perfil"
-              descricao="Acesse seus dados pessoais"
-            >
-              <div className="flex flex-col gap-2.5 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
-                  <span className="font-semibold mr-1">Nome:</span> Fulano de Tal
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
-                  <span className="font-semibold mr-1">CPF:</span> 123.***.***-10
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
-                  <span className="font-semibold mr-1">Data de Cadastro:</span> 01/02/2023
-                </p>
+        <div className="flex min-w-0 flex-col">
+          <PerfilHeader usuario={user} />
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <PerfilCard titulo="Informações do perfil" descricao="Acesse seus dados pessoais">
+              <div className="mb-6 flex flex-col gap-2.5 text-[13px] text-[#2D2D2D]">
+                <p><span className="mr-1 font-semibold">Nome:</span>{user.nome}</p>
+                <p><span className="mr-1 font-semibold">Email:</span>{user.email}</p>
+                <p><span className="mr-1 font-semibold">Data de Cadastro:</span>{user.dataCadastro || "Não informado"}</p>
               </div>
-              <Link to="/perfil/editar">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                  <Edit className="h-3.5 w-3.5" />
-                  Alterar Dados
-                </button>
-              </Link>
+              <Link to="/perfil/editar" className="flex items-center gap-1.5 text-[13px] text-[#1A535C]"><Edit className="h-3.5 w-3.5" />Alterar Dados</Link>
             </PerfilCard>
 
-            {/* Endereços */}
-            <PerfilCard
-              titulo="Endereços"
-              descricao="Endereços associados à sua conta"
-            >
-              <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]">
-                  2 endereços cadastrados
-                </p>
-                <div>
-                  <p className="font-['Inter'] text-[13px] font-semibold text-[#2D2D2D] mb-0.5">
-                    Endereço Principal
-                  </p>
-                  <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80 leading-relaxed">
-                    Rua Elias Oka 1354, 123, Irapuã- Floriano- PI<br />CEP:64800-971
-                  </p>
-                </div>
+            <PerfilCard titulo="Endereços" descricao="Endereços associados à sua conta">
+              <div className="mb-6 flex flex-col gap-3 text-[13px] text-[#2D2D2D]">
+                <p>{addresses.length} endereço(s) cadastrado(s)</p>
+                <div><p className="font-semibold">Endereço Principal</p><p className="leading-relaxed text-[#2D2D2D]/80">{addressLabel(addresses.find((address) => address.is_primary) || addresses[0])}</p></div>
               </div>
-              <Link to="/perfil/enderecos">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                  <Edit className="h-3.5 w-3.5" />
-                  Gerenciar Endereços
-                </button>
-              </Link>
+              <Link to="/perfil/enderecos" className="flex items-center gap-1.5 text-[13px] text-[#1A535C]"><Edit className="h-3.5 w-3.5" />Gerenciar Endereços</Link>
             </PerfilCard>
 
-            {/* Segurança */}
-            <PerfilCard
-              titulo="Segurança"
-              descricao="Configurações de segurança da sua conta"
-            >
-              <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  1 Método de verificação da conta
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  0 dispositivos vinculados
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  0 Alertas de Segurança
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  Permissão de localização: Ativada
-                </p>
+            <PerfilCard titulo="Meu Imóveis" descricao="Imóveis associados à sua conta">
+              <div className="mb-6 flex flex-col gap-3 text-[13px] text-[#2D2D2D]/80">
+                <p>{stats.imoveis_cadastrados} imóveis cadastrados</p>
+                <p>{stats.imoveis_publicados} imóveis anunciados</p>
+                <p>{stats.imoveis_rascunho} cadastros em rascunho</p>
+                <p>{stats.imoveis_alugados} imóveis alugados</p>
               </div>
-              <Link to="/perfil/seguranca">
-                <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                  <Edit className="h-3.5 w-3.5" />
-                  Ver mais detalhes
-                </button>
-              </Link>
+              <div className="flex flex-col gap-2 text-[13px] text-[#1A535C]"><Link to="/perfil/meus-imoveis">Gerenciar imóveis</Link><Link to="/perfil/meus-anuncios">Gerenciar anúncios</Link></div>
             </PerfilCard>
 
-            {/* LINHA 2 */}
-            {/* Meu Imóveis */}
-            <PerfilCard
-              titulo="Meu Imóveis"
-              descricao="Imóveis associados à sua conta"
-            >
-              <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  3 imóveis cadastrados
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  2 imóveis Anunciados
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  1 cadastro em rascunho
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  1 Alugado
-                </p>
+            <PerfilCard titulo="Qualidade dos anúncios" descricao="Avaliação dos seus anúncios">
+              <div className="mb-6 flex flex-col">
+                <p className="mb-5 text-[12px] leading-relaxed text-[#2D2D2D]/70">A nota média é calculada pelo backend com base na qualidade dos anúncios.</p>
+                <p className="mb-3 text-[13px] font-semibold text-[#2D2D2D]">Nota média de desempenho: {quality.toFixed(1)}</p>
+                <div className="h-2 overflow-hidden rounded-full bg-[#E5E7EB]"><div className="h-full rounded-full bg-[#1A535C]" style={{ width: `${qualityPercent}%` }} /></div>
+                <div className="mt-1 flex justify-between text-[11px] text-[#2D2D2D]/60"><span>0</span><span>10</span></div>
               </div>
-
-              <div className="flex flex-col gap-2">
-                <Link to="/perfil/meus-imoveis">
-                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition w-fit">
-                    <Edit className="h-3.5 w-3.5" />
-                    Gerenciar imóveis
-                  </button>
-                </Link>
-                <Link to="/perfil/meus-anuncios">
-                  <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition w-fit">
-                    <Edit className="h-3.5 w-3.5" />
-                    Gerenciar Anuncios
-                  </button>
-                </Link>
-              </div>
+              <Link to="/perfil/qualidade" className="text-[13px] text-[#1A535C]">Ver mais detalhes&gt;&gt;</Link>
             </PerfilCard>
 
-            {/* Qualidade dos anúncios */}
-            <PerfilCard
-              titulo="Qualidade dos anúncios"
-              descricao="Avaliação dos seus anúncios"
-            >
-              <div className="flex flex-col mb-6">
-                <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70 mb-5 leading-relaxed">
-                  A nota de desempenho é calculada usando a qualidade e detalhes das informações fornecidas e pelos usuários que acessaram seu anuncios
-                </p>
-
-                <p className="font-['Inter'] text-[13px] font-semibold text-[#2D2D2D] mb-3">
-                  Nota média de desempenho
-                </p>
-
-                <div className="relative pt-1">
-                  <div className="h-2 w-full bg-[#E5E7EB] rounded-full overflow-hidden">
-                    <div className="h-full bg-[#1A535C] rounded-full" style={{ width: '85%' }}></div>
-                  </div>
-                  <div className="flex justify-between mt-1 font-['Inter'] text-[11px] text-[#2D2D2D]/60">
-                    <span>0</span>
-                    <span className="ml-[70%]">8.5</span>
-                    <span>10</span>
-                  </div>
-                </div>
-              </div>
-              <Link to="/perfil/qualidade">
-                <button className="font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                  Ver mais detalhes&gt;&gt;
-                </button>
-              </Link>
+            <PerfilCard titulo="Desempenho" descricao="Indicadores reais dos seus anúncios">
+              <div className="flex flex-col gap-3 text-[13px] text-[#2D2D2D]/80"><p>{stats.anuncios_ativos} anúncios ativos</p><p>{stats.total_visualizacoes} visualizações</p><p>{stats.total_favoritos} favoritos</p></div>
             </PerfilCard>
 
-            {/* Privacidade */}
-            <PerfilCard
-              titulo="Privacidade"
-              descricao="Preferências e controle do uso de seus dados"
-            >
-              <div className="flex flex-col gap-3 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  Dados de localização essenciais para gestão
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  Informações sobre a navegação na plataforma
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  0 Alertas de Segurança
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  Permissão de localização: Ativada
-                </p>
-              </div>
-              <button className="flex items-center gap-1.5 font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                <Edit className="h-3.5 w-3.5" />
-                Gerenciar permissões
-              </button>
+            <PerfilCard titulo="Verificação da conta" descricao="Status dos dados de acesso">
+              <div className="mb-6 flex flex-col gap-3 text-[13px] text-[#2D2D2D]/80"><p>Email: {user.email_verificado ? "verificado" : "pendente"}</p><p>Perfil: {user.role}</p><p>O CPF não é exibido por segurança.</p></div>
+              <Link to="/perfil/seguranca" className="text-[13px] text-[#1A535C]">Ver detalhes de segurança</Link>
             </PerfilCard>
-
-            {/* LINHA 3 */}
-            {/* Fotos e Mídias */}
-            <PerfilCard
-              titulo="Fotos e Mídias"
-              descricao="Mídias enviadas para seus imóveis"
-            >
-              <div className="flex flex-col gap-2 mb-6">
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  12 Fotos enviadas
-                </p>
-                <p className="font-['Inter'] text-[13px] text-[#2D2D2D]/80">
-                  3 vídeos enviados
-                </p>
-              </div>
-              <Link to="/perfil/midia">
-                <button className="font-['Inter'] text-[13px] text-[#1A535C] hover:text-[#2F646C] transition">
-                  Ver mais detalhes&gt;&gt;
-                </button>
-              </Link>
-            </PerfilCard>
-
           </div>
         </div>
       </div>

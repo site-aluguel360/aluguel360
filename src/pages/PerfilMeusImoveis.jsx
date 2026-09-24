@@ -1,123 +1,47 @@
+import { useEffect, useState } from "react";
+import { Home, Edit, Trash2 } from "lucide-react";
 import { PerfilHeader } from "../components/PerfilHeader";
 import { PerfilSidebar } from "../components/PerfilSidebar";
 import { PerfilCard } from "../components/PerfilCard";
-import { Home, Edit, Trash2 } from "lucide-react";
+import { propertyApi, normalizeApiList, toApiError, userApi } from "../lib/api";
+import { adaptUser } from "../lib/adapters";
 
-const usuarioMock = {
-  nome: "Fulano de Tal",
-  email: "fulanodetal@gmail.com",
-  iniciais: "FT",
-  dataCadastro: "01/02/2023",
-};
-
-const imoveisMock = [
-  {
-    id: 1,
-    titulo: "Casa Moderna no Centro",
-    endereco: "Rua Elisa Oka, 123",
-    tipo: "Casa",
-    preco: "2.300",
-  },
-  {
-    id: 2,
-    titulo: "Apartamento Aconchegante",
-    endereco: "Avenida Getúlio Vargas, 456",
-    tipo: "Apartamento",
-    preco: "1.800",
-  },
-];
+function addressLabel(property) {
+  return `${property.logradouro}, ${property.numero} — ${property.bairro}, ${property.cidade}/${property.estado}`;
+}
 
 export function PerfilMeusImoveis() {
+  const [user, setUser] = useState(null);
+  const [properties, setProperties] = useState([]);
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    Promise.all([userApi.me(), propertyApi.list()])
+      .then(([userData, propertiesData]) => {
+        if (!active) return;
+        setUser(adaptUser(userData));
+        setProperties(normalizeApiList(propertiesData));
+      })
+      .catch((requestError) => active && setError(toApiError(requestError)))
+      .finally(() => active && setIsLoading(false));
+    return () => { active = false; };
+  }, []);
+
+  const remove = async (property) => {
+    try {
+      await propertyApi.remove(property.id);
+      setProperties((current) => current.filter((item) => item.id !== property.id));
+    } catch (requestError) {
+      setError(toApiError(requestError));
+    }
+  };
+
+  if (isLoading) return <p className="mx-auto max-w-7xl px-4 py-12 text-center text-muted-foreground">Carregando imóveis...</p>;
+  if (!user) return <p className="mx-auto max-w-7xl px-4 py-12 text-center text-red-600" role="alert">{error || "Não foi possível carregar os imóveis."}</p>;
+
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-6">
-      <PerfilHeader usuario={usuarioMock} />
-
-      <div className="grid gap-8 min-[1080px]:grid-cols-[280px_minmax(0,1fr)]">
-        <PerfilSidebar />
-
-        <section className="min-w-0 space-y-5">
-          <PerfilCard
-            titulo="Meus Imóveis"
-            descricao="Gerencie todos os imóveis cadastrados"
-          >
-            <div className="space-y-4">
-              {imoveisMock.map((imovel) => (
-                <div
-                  key={imovel.id}
-                  className="rounded-lg border border-[#D8E1E7] p-4"
-                >
-                  <div className="mb-3 flex items-start justify-between">
-                    <div className="flex items-center gap-3">
-                      <Home className="mt-1 h-5 w-5 text-[#2C7E7B] shrink-0" />
-                      <div>
-                        <h4 className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
-                          {imovel.titulo}
-                        </h4>
-                        <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60">
-                          {imovel.endereco}
-                        </p>
-                      </div>
-                    </div>
-                    <span className="inline-block rounded-full bg-[#4ECDC4]/20 px-3 py-1 font-['Inter'] text-[10px] font-semibold text-[#2C7E7B]">
-                      {imovel.tipo}
-                    </span>
-                  </div>
-
-                  <div className="mb-3 flex items-center justify-between border-t border-[#D8E1E7] pt-3">
-                    <p className="font-['Poppins'] text-[16px] font-semibold text-[#2D2D2D]/90">
-                      R$ {imovel.preco}
-                    </p>
-                    <span className="font-['Inter'] text-[12px] text-[#2D2D2D]/60">
-                      /mês
-                    </span>
-                  </div>
-
-                  <div className="flex gap-2">
-                    <button className="flex items-center gap-2 font-['Inter'] text-[12px] font-semibold text-[#1A535C] hover:underline">
-                      <Edit className="h-4 w-4" /> Editar
-                    </button>
-                    <button className="flex items-center gap-2 font-['Inter'] text-[12px] font-semibold text-[#FF6B6B] hover:underline">
-                      <Trash2 className="h-4 w-4" /> Deletar
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </PerfilCard>
-
-          <PerfilCard
-            titulo="Estatísticas"
-            descricao="Informações sobre seus imóveis"
-          >
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
-                  2
-                </p>
-                <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
-                  Imóveis Cadastrados
-                </p>
-              </div>
-              <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
-                  2
-                </p>
-                <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
-                  Anúncios Ativos
-                </p>
-              </div>
-              <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
-                  145
-                </p>
-                <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
-                  Visualizações
-                </p>
-              </div>
-            </div>
-          </PerfilCard>
-        </section>
-      </div>
-    </div>
+    <div className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-6"><PerfilHeader usuario={user} /><div className="grid gap-8 min-[1080px]:grid-cols-[280px_minmax(0,1fr)]"><PerfilSidebar /><section className="min-w-0 space-y-5"><PerfilCard titulo="Meus Imóveis" descricao="Imóveis cadastrados no seu usuário.">{error && <p className="mb-4 text-sm text-red-600" role="alert">{error}</p>}{properties.length === 0 && <p className="rounded-md border border-dashed p-8 text-center text-sm text-muted-foreground">Nenhum imóvel cadastrado.</p>}<div className="space-y-4">{properties.map((property) => <div key={property.id} className="rounded-lg border border-[#D8E1E7] p-4"><div className="mb-3 flex items-start justify-between"><div className="flex items-center gap-3"><Home className="h-5 w-5 text-[#2C7E7B]" /><div><h4 className="text-[14px] font-semibold">{property.tipo}</h4><p className="text-[12px] text-[#2D2D2D]/60">{addressLabel(property)}</p></div></div><span className="rounded-full bg-[#4ECDC4]/20 px-3 py-1 text-[10px] font-semibold text-[#2C7E7B]">{property.status}</span></div><div className="flex gap-3 border-t pt-3"><button type="button" className="flex items-center gap-2 text-[12px] font-semibold text-[#1A535C]"><Edit className="h-4 w-4" />Editar</button><button type="button" onClick={() => remove(property)} className="flex items-center gap-2 text-[12px] font-semibold text-[#FF6B6B]"><Trash2 className="h-4 w-4" />Deletar</button></div></div>)}</div></PerfilCard></section></div></div>
   );
 }

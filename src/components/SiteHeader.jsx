@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { LogIn, MapPin, Search, Menu, X } from "lucide-react";
+import { LogIn, LogOut, MapPin, Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { IconeAnunciar } from "./IconeAnunciar";
@@ -89,7 +89,7 @@ function GuestActions() {
   );
 }
 
-function AuthenticatedActions() {
+function AuthenticatedActions({ onLogout }) {
   return (
     <div className="flex shrink-0 flex-col items-end gap-2 w-full lg:w-auto">
       <div className="flex items-center gap-3 w-full justify-end lg:w-auto">
@@ -123,12 +123,21 @@ function AuthenticatedActions() {
           <IconeNotificacao />
           Notificações
         </Link>
+
+        <button
+          type="button"
+          onClick={onLogout}
+          className="flex items-center gap-1 transition-colors hover:text-primary"
+        >
+          <LogOut className="h-3.5 w-3.5" />
+          Sair
+        </button>
       </div>
     </div>
   );
 }
 
-export function SiteHeader({ isAuthenticated = false }) {
+export function SiteHeader({ isAuthenticated = false, onLogout }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -156,7 +165,7 @@ export function SiteHeader({ isAuthenticated = false }) {
             <SearchNavigation />
           </div>
           <div className="flex shrink-0 justify-end">
-            {isAuthenticated ? <AuthenticatedActions /> : <GuestActions />}
+            {isAuthenticated ? <AuthenticatedActions onLogout={onLogout} /> : <GuestActions />}
           </div>
         </div>
       </div>
@@ -165,7 +174,7 @@ export function SiteHeader({ isAuthenticated = false }) {
       {isMobileMenuOpen && (
         <div className="flex flex-col items-center gap-6 border-t border-[#1A535C]/10 bg-white px-4 py-6 shadow-md lg:hidden">
           <SearchNavigation />
-          {isAuthenticated ? <AuthenticatedActions /> : <GuestActions />}
+          {isAuthenticated ? <AuthenticatedActions onLogout={onLogout} /> : <GuestActions />}
         </div>
       )}
     </header>

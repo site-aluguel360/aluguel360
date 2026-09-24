@@ -1,131 +1,96 @@
+import { useEffect, useRef, useState } from "react";
+import { Image as ImageIcon, Play, Trash2, Upload } from "lucide-react";
 import { PerfilHeader } from "../components/PerfilHeader";
 import { PerfilSidebar } from "../components/PerfilSidebar";
 import { PerfilCard } from "../components/PerfilCard";
-import { Image as ImageIcon, Play, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { mediaApi, normalizeApiList, toApiError, userApi } from "../lib/api";
+import { adaptUser } from "../lib/adapters";
 
-const usuarioMock = {
-  nome: "Fulano de Tal",
-  email: "fulanodetal@gmail.com",
-  iniciais: "FT",
-  dataCadastro: "01/02/2023",
-};
+const PHOTO_TYPES = ["image/jpeg", "image/png", "image/webp", "image/heic"];
+const VIDEO_TYPES = ["video/mp4", "video/quicktime"];
 
-const midasMock = [
-  { id: 1, tipo: "foto", nome: "Sala principal", tamanho: "2.5 MB" },
-  { id: 2, tipo: "foto", nome: "Quarto 1", tamanho: "1.8 MB" },
-  { id: 3, tipo: "video", nome: "Tour virtual", tamanho: "45 MB" },
-];
+function formatMb(value) {
+  return `${Number(value || 0).toFixed(1)} MB`;
+}
 
 export function PerfilMidia() {
+  const inputRef = useRef(null);
+  const [user, setUser] = useState(null);
+  const [media, setMedia] = useState([]);
+  const [quota, setQuota] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+
+  const load = async () => {
+    const [userData, mediaData, quotaData] = await Promise.all([userApi.me(), mediaApi.list(), mediaApi.quota()]);
+    setUser(adaptUser(userData));
+    setMedia(normalizeApiList(mediaData));
+    setQuota(quotaData);
+  };
+
+  useEffect(() => {
+    let active = true;
+    Promise.all([userApi.me(), mediaApi.list(), mediaApi.quota()])
+      .then(([userData, mediaData, quotaData]) => {
+        if (!active) return;
+        setUser(adaptUser(userData));
+        setMedia(normalizeApiList(mediaData));
+        setQuota(quotaData);
+      })
+      .catch((requestError) => active && setError(toApiError(requestError)))
+      .finally(() => active && setIsLoading(false));
+    return () => { active = false; };
+  }, []);
+
+  const handleFile = async (event) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file) return;
+    const isVideo = file.type.startsWith("video/");
+    const allowed = isVideo ? VIDEO_TYPES : PHOTO_TYPES;
+    const maxBytes = (isVideo ? 100 : 10) * 1024 * 1024;
+    if (!allowed.includes(file.type)) {
+      setError("Tipo de arquivo não permitido. Use JPEG, PNG, WebP, HEIC, MP4 ou MOV.");
+      return;
+    }
+    if (file.size > maxBytes) {
+      setError(`Arquivo muito grande. O limite para ${isVideo ? "vídeos é 100 MB" : "fotos é 10 MB"}.`);
+      return;
+    }
+    setIsUploading(true);
+    setError("");
+    setMessage("");
+    try {
+      await mediaApi.upload(file, { tipo: isVideo ? "VIDEO" : "FOTO", nome: file.name });
+      await load();
+      setMessage("Mídia enviada com sucesso.");
+    } catch (requestError) {
+      setError(toApiError(requestError));
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const remove = async (item) => {
+    try {
+      await mediaApi.remove(item.id);
+      setMedia((current) => current.filter((mediaItem) => mediaItem.id !== item.id));
+      const updatedQuota = await mediaApi.quota();
+      setQuota(updatedQuota);
+      setMessage("Mídia removida com sucesso.");
+    } catch (requestError) {
+      setError(toApiError(requestError));
+    }
+  };
+
+  if (isLoading) return <p className="mx-auto max-w-7xl px-4 py-12 text-center text-muted-foreground">Carregando mídias...</p>;
+  if (!user) return <p className="mx-auto max-w-7xl px-4 py-12 text-center text-red-600" role="alert">{error || "Não foi possível carregar as mídias."}</p>;
+  const usagePercent = Math.min(100, Number(quota?.usage_percent || 0));
+
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-6">
-      <PerfilHeader usuario={usuarioMock} />
-
-      <div className="grid gap-8 min-[1080px]:grid-cols-[280px_minmax(0,1fr)]">
-        <PerfilSidebar />
-
-        <section className="min-w-0 space-y-5">
-          <PerfilCard
-            titulo="Fotos e Mídias"
-            descricao="Gerencie as mídias enviadas para seus imóveis"
-          >
-            <div className="space-y-4">
-              {/* Estatísticas */}
-              <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                  <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
-                    12
-                  </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
-                    Fotos enviadas
-                  </p>
-                </div>
-                <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                  <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
-                    3
-                  </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
-                    Vídeos
-                  </p>
-                </div>
-                <div className="rounded-lg bg-[#F0F4F8] p-4 text-center">
-                  <p className="font-['Poppins'] text-[32px] font-semibold text-[#2C7E7B]">
-                    156 MB
-                  </p>
-                  <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60 mt-1">
-                    Armazenado
-                  </p>
-                </div>
-              </div>
-            </div>
-          </PerfilCard>
-
-          <PerfilCard
-            titulo="Mídias Recentes"
-            descricao="Lista de arquivos mais recentes"
-          >
-            <div className="space-y-3">
-              {midasMock.map((midia) => (
-                <div
-                  key={midia.id}
-                  className="flex items-center justify-between rounded-lg border border-[#D8E1E7] p-4"
-                >
-                  <div className="flex items-center gap-3">
-                    {midia.tipo === "foto" ? (
-                      <ImageIcon className="h-5 w-5 text-[#2C7E7B]" />
-                    ) : (
-                      <Play className="h-5 w-5 text-[#FF6B6B]" />
-                    )}
-                    <div>
-                      <p className="font-['Inter'] text-[14px] font-semibold text-[#2D2D2D]/90">
-                        {midia.nome}
-                      </p>
-                      <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/60">
-                        {midia.tamanho}
-                      </p>
-                    </div>
-                  </div>
-                  <button className="font-['Inter'] text-[12px] font-semibold text-[#FF6B6B] hover:underline">
-                    Deletar
-                  </button>
-                </div>
-              ))}
-
-              <button className="flex w-full items-center justify-center gap-2 rounded-lg border-2 border-dashed border-[#D8E1E7] py-4 font-['Inter'] text-[14px] font-semibold text-[#1A535C] transition hover:border-[#1A535C] hover:bg-[#F0F4F8]">
-                <Plus className="h-4 w-4" /> Adicionar mais mídias
-              </button>
-            </div>
-          </PerfilCard>
-
-          <PerfilCard
-            titulo="Limites de Armazenamento"
-            descricao="Informações sobre seu uso de armazenamento"
-          >
-            <div className="space-y-4">
-              <div>
-                <div className="mb-2 flex items-center justify-between">
-                  <span className="font-['Inter'] text-[14px] font-medium text-[#2D2D2D]/80">
-                    Uso de armazenamento
-                  </span>
-                  <span className="font-['Poppins'] text-[14px] font-semibold text-[#2D2D2D]/90">
-                    156 MB / 1 GB
-                  </span>
-                </div>
-                <div className="h-2 overflow-hidden rounded-full bg-[#D8E1E7]">
-                  <div
-                    className="h-full bg-gradient-to-r from-[#4ECDC4] to-[#2C7E7B]"
-                    style={{ width: "15.6%" }}
-                  ></div>
-                </div>
-              </div>
-
-              <p className="font-['Inter'] text-[12px] text-[#2D2D2D]/70">
-                Você está usando 15.6% do seu armazenamento. Você pode fazer upload de até 843 MB de conteúdo adicional.
-              </p>
-            </div>
-          </PerfilCard>
-        </section>
-      </div>
-    </div>
+    <div className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-6"><PerfilHeader usuario={user} /><div className="grid gap-8 min-[1080px]:grid-cols-[280px_minmax(0,1fr)]"><PerfilSidebar /><section className="min-w-0 space-y-5"><PerfilCard titulo="Fotos e Mídias" descricao="Gerencie os arquivos enviados para seus imóveis.">{error && <p className="mb-4 rounded-md bg-red-50 p-3 text-sm text-red-700" role="alert">{error}</p>}{message && <p className="mb-4 rounded-md bg-green-50 p-3 text-sm text-green-700">{message}</p>}<div className="mb-5 grid gap-4 sm:grid-cols-3"><div className="rounded-lg bg-[#F0F4F8] p-4 text-center"><p className="text-3xl font-semibold text-[#2C7E7B]">{quota?.fotos_count || 0}</p><p className="text-xs text-[#2D2D2D]/60">Fotos enviadas</p></div><div className="rounded-lg bg-[#F0F4F8] p-4 text-center"><p className="text-3xl font-semibold text-[#2C7E7B]">{quota?.videos_count || 0}</p><p className="text-xs text-[#2D2D2D]/60">Vídeos</p></div><div className="rounded-lg bg-[#F0F4F8] p-4 text-center"><p className="text-3xl font-semibold text-[#2C7E7B]">{formatMb(quota?.total_mb_used)}</p><p className="text-xs text-[#2D2D2D]/60">Armazenado</p></div></div><div className="space-y-3">{media.length === 0 && <p className="rounded-md border border-dashed p-8 text-center text-sm text-muted-foreground">Nenhuma mídia enviada.</p>}{media.map((item) => <div key={item.id} className="flex items-center justify-between gap-3 rounded-lg border border-[#D8E1E7] p-4"><div className="flex min-w-0 items-center gap-3">{item.tipo === "VIDEO" ? <Play className="h-5 w-5 shrink-0 text-[#FF6B6B]" /> : item.url ? <img src={item.thumbnail_url || item.url} alt={item.nome || "Mídia do imóvel"} className="h-12 w-12 rounded object-cover" /> : <ImageIcon className="h-5 w-5 shrink-0 text-[#2C7E7B]" />}<div className="min-w-0"><p className="truncate text-sm font-semibold">{item.nome || "Mídia"}</p><p className="text-xs text-[#2D2D2D]/60">{formatMb(item.tamanho_mb)} · {item.formato || item.tipo}</p></div></div><button type="button" onClick={() => remove(item)} className="flex shrink-0 items-center gap-2 text-xs font-semibold text-[#FF6B6B]"><Trash2 className="h-4 w-4" />Remover</button></div>)}</div><input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp,image/heic,video/mp4,video/quicktime" onChange={handleFile} className="hidden" /><Button type="button" disabled={isUploading} onClick={() => inputRef.current?.click()} className="mt-4 w-full"><Upload className="mr-2 h-4 w-4" />{isUploading ? "Enviando..." : "Adicionar mídia"}</Button></PerfilCard><PerfilCard titulo="Limites de armazenamento" descricao="Uso atualizado pela API."><div className="mb-2 flex justify-between text-sm"><span>Uso</span><span>{formatMb(quota?.total_mb_used)} / {formatMb(quota?.total_mb_limit)}</span></div><div className="h-2 overflow-hidden rounded-full bg-[#D8E1E7]"><div className="h-full bg-[#2C7E7B]" style={{ width: `${usagePercent}%` }} /></div><p className="mt-2 text-xs text-[#2D2D2D]/70">{formatMb(quota?.available_mb)} disponíveis.</p></PerfilCard></section></div></div>
   );
 }

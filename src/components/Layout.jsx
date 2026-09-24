@@ -4,11 +4,11 @@ import { SiteHeader } from "./SiteHeader";
 import { useAuth } from "../contexts/AuthContext";
 
 export function Layout() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
 
   return (
     <div className="flex min-h-screen flex-col font-sans">
-      <SiteHeader isAuthenticated={isAuthenticated} />
+      <SiteHeader isAuthenticated={isAuthenticated} onLogout={logout} />
 
       <main className="flex flex-1 flex-col bg-background">
         <Outlet />

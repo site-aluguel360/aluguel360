@@ -1,9 +1,31 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Heart, Star, SquareDashedBottomCode, BedDouble, MapPin, SlidersHorizontal, Image as ImageIcon, User, ListOrdered, BadgeCheck, Clock, PhoneCall, Pointer, Share2, LogIn } from "lucide-react";
+import { listingApi, toApiError } from "../lib/api";
+import { adaptListings } from "../lib/adapters";
 
 export function Home() {
+  const [listings, setListings] = useState([]);
+  const [isLoadingListings, setIsLoadingListings] = useState(true);
+  const [listingsError, setListingsError] = useState("");
+
+  useEffect(() => {
+    let isMounted = true;
+    listingApi.list("ordering=-views_count")
+      .then((payload) => {
+        if (isMounted) setListings(adaptListings(payload).slice(0, 6));
+      })
+      .catch((error) => {
+        if (isMounted) setListingsError(toApiError(error));
+      })
+      .finally(() => {
+        if (isMounted) setIsLoadingListings(false);
+      });
+    return () => { isMounted = false; };
+  }, []);
+
   return (
     <>
       {/* HERO SECTION */}
@@ -50,87 +72,43 @@ export function Home() {
             </Button>
           </div>
 
-          {/* PROPERTIES */}
+          {/* PROPERTIES — dados reais de /listings/ */}
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground">Imóveis mais acessados no momento</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Property 1 */}
-              <Card className="overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative">
-                <div className="relative h-52 overflow-hidden">
-                  <img src="/assets/property_1.png" alt="Property 1" className="w-full h-full object-cover" />
-                  <Button size="icon" variant="secondary" className="absolute top-4 right-4 rounded-full bg-white/80 hover:bg-white text-muted-foreground hover:text-red-500 w-9 h-9">
-                    <Heart className="w-5 h-5" />
-                  </Button>
-                </div>
-                <CardContent className="p-5">
-                  <h3 className="font-semibold text-lg line-clamp-2 h-14 mb-2 text-foreground">Apartamento com Vista Panorâmica - Alto do Horizonte</h3>
-                  <div className="flex text-amber-400 mb-2 gap-0.5">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                  </div>
-                  <div className="text-2xl font-bold mb-4">R$ 3.600</div>
-                  <div className="flex gap-4 text-muted-foreground text-sm border-b pb-4 mb-4">
-                    <span className="flex items-center gap-1.5"><SquareDashedBottomCode className="w-4 h-4" /> 80m²</span>
-                    <span className="flex items-center gap-1.5"><BedDouble className="w-4 h-4" /> 4 quartos</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-sm text-muted-foreground line-clamp-2">
-                    <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                    <span>Rua Pássaros, 350 - Condomínio Vista Alta - Agronômica</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Property 2 */}
-              <Card className="overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative">
-                <div className="relative h-52 overflow-hidden">
-                  <img src="/assets/property_2.png" alt="Property 2" className="w-full h-full object-cover" />
-                  <Button size="icon" variant="secondary" className="absolute top-4 right-4 rounded-full bg-white/80 hover:bg-white text-muted-foreground hover:text-red-500 w-9 h-9">
-                    <Heart className="w-5 h-5" />
-                  </Button>
-                </div>
-                <CardContent className="p-5">
-                  <h3 className="font-semibold text-lg line-clamp-2 h-14 mb-2 text-foreground">Casa Rústica - Serra das Palmeiras</h3>
-                  <div className="flex text-amber-400 mb-2 gap-0.5">
-                    {[...Array(4)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                    <Star className="w-4 h-4 text-gray-300" />
-                  </div>
-                  <div className="text-2xl font-bold mb-4">R$ 2.050</div>
-                  <div className="flex gap-4 text-muted-foreground text-sm border-b pb-4 mb-4">
-                    <span className="flex items-center gap-1.5"><SquareDashedBottomCode className="w-4 h-4" /> 65m²</span>
-                    <span className="flex items-center gap-1.5"><BedDouble className="w-4 h-4" /> 2 quartos</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-sm text-muted-foreground line-clamp-2">
-                    <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                    <span>Estrada das Palmeiras, km 4 - Lote 15</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Property 3 */}
-              <Card className="overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative">
-                <div className="relative h-52 overflow-hidden">
-                  <img src="/assets/property_3.png" alt="Property 3" className="w-full h-full object-cover" />
-                  <Button size="icon" variant="secondary" className="absolute top-4 right-4 rounded-full bg-white/80 hover:bg-white text-muted-foreground hover:text-red-500 w-9 h-9">
-                    <Heart className="w-5 h-5" />
-                  </Button>
-                </div>
-                <CardContent className="p-5">
-                  <h3 className="font-semibold text-lg line-clamp-2 h-14 mb-2 text-foreground">Casa Térrea Aconchegante - Bairro Jardim das Flores</h3>
-                  <div className="flex text-amber-400 mb-2 gap-0.5">
-                    {[...Array(4)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
-                    <Star className="w-4 h-4 text-gray-300" />
-                  </div>
-                  <div className="text-2xl font-bold mb-4">R$ 2.300</div>
-                  <div className="flex gap-4 text-muted-foreground text-sm border-b pb-4 mb-4">
-                    <span className="flex items-center gap-1.5"><SquareDashedBottomCode className="w-4 h-4" /> 110m²</span>
-                    <span className="flex items-center gap-1.5"><BedDouble className="w-4 h-4" /> 3 quartos</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-sm text-muted-foreground line-clamp-2">
-                    <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                    <span>Rua do Encanto, 128 - Jardim das Flores</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            {isLoadingListings && <p className="py-12 text-center text-muted-foreground">Carregando imóveis...</p>}
+            {!isLoadingListings && listingsError && <p className="py-12 text-center text-red-600" role="alert">{listingsError}</p>}
+            {!isLoadingListings && !listingsError && listings.length === 0 && <p className="py-12 text-center text-muted-foreground">Nenhum imóvel publicado no momento.</p>}
+            {!isLoadingListings && !listingsError && listings.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {listings.map((listing) => (
+                  <Link to="/resultados" key={listing.id} className="block">
+                    <Card className="h-full overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative">
+                      <div className="relative h-52 overflow-hidden">
+                        <img src={listing.imagem} alt={listing.titulo} className="w-full h-full object-cover" />
+                        <Button type="button" size="icon" variant="secondary" aria-label="Favoritar imóvel" className="absolute top-4 right-4 rounded-full bg-white/80 hover:bg-white text-muted-foreground hover:text-red-500 w-9 h-9" onClick={(event) => event.preventDefault()}>
+                          <Heart className="w-5 h-5" />
+                        </Button>
+                      </div>
+                      <CardContent className="p-5">
+                        <h3 className="font-semibold text-lg line-clamp-2 min-h-14 mb-2 text-foreground">{listing.titulo}</h3>
+                        <div className="flex text-amber-400 mb-2 gap-0.5" aria-label={`${Math.round(listing.raw?.quality_score || 0)} de qualidade`}>
+                          {[...Array(5)].map((_, index) => <Star key={index} className={`w-4 h-4 ${index < Math.round((listing.raw?.quality_score || 0) / 2) ? "fill-current" : "text-gray-300"}`} />)}
+                        </div>
+                        <div className="text-2xl font-bold mb-4">R$ {Number(listing.preco || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</div>
+                        <div className="flex gap-4 text-muted-foreground text-sm border-b pb-4 mb-4">
+                          <span className="flex items-center gap-1.5"><SquareDashedBottomCode className="w-4 h-4" /> {listing.area || 0}m²</span>
+                          <span className="flex items-center gap-1.5"><BedDouble className="w-4 h-4" /> {listing.quartos || 0} quartos</span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground line-clamp-2">
+                          <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+                          <span>{listing.endereco}</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            )}
           </section>
 
           {/* BANNER SPLIT 1 */}
