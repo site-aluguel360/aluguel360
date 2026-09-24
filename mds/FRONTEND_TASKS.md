@@ -44,11 +44,25 @@ Ao final desta fase devem estar documentados:
 - **Ações:** registrar prefixo `/api/v1/`, autenticação Bearer, envelope de resposta, payloads de auth, users, listings, properties e media.
 - **Critério de conclusão:** tabela tela → endpoint registrada no plano de integração.
 
-### T-0.1.3 — Definir configuração local do Vite [PENDENTE]
+### T-0.1.3 — Definir configuração local do Vite [CONCLUÍDA]
 - **Dependência:** T-0.1.2
 - **Arquivo:** `.env.example` na raiz do frontend.
 - **Ações:** documentar `VITE_API_URL=http://localhost:8000/api/v1` sem inserir segredos.
 - **Critério de conclusão:** `npm run build` funciona com a variável ausente usando o fallback local e com a variável definida usando a URL configurada.
+
+### CHECKPOINT — FASE 0
+
+| # | Verificação | Comando/Método | Esperado |
+|---|---|---|---|
+| 1 | Diagnóstico frontend | documentação em `documentacao_projeto/frontend/fase0_diagnostico_frontend.md` | inventário registrado |
+| 2 | Contratos API | documentação em `documentacao_projeto/frontend/fase0_contratos_api.md` | rotas e formato registrados |
+| 3 | Variável pública | `.env.example` | `VITE_API_URL` sem segredos |
+| 4 | Build sem variável | `npm run build` sem `VITE_API_URL` | aprovado com fallback local |
+| 5 | Build com variável | `npm run build` com `VITE_API_URL` | aprovado com URL configurada |
+| 6 | Registro de evidências | `documentacao_projeto/frontend/fase0_validacao.md` | evidências persistidas |
+
+> **CHECKPOINT APROVADO EM 24/09/2026.**
+> A Fase I deve aguardar autorização explícita antes de começar.
 
 ---
 
@@ -449,7 +463,7 @@ Ao final desta fase devem existir:
 
 | Fase | Status | Observação |
 |---|---|---|
-| Fase 0 | Parcial | Diagnóstico e mapeamento concluídos; `.env.example` frontend pendente. |
+| Fase 0 | Concluída | Diagnóstico, contratos, `.env.example` e builds com e sem variável validados. |
 | Fase I | Parcial | Cliente HTTP, tokens, AuthContext e login concluídos; ProtectedRoute e logout visual pendentes. |
 | Fase II | Parcial | Cadastro, campos de endereço, ViaCEP e adaptador concluídos; recuperação OTP pendente. |
 | Fase III | Parcial | Adaptadores e Resultados concluídos; Home, filtros e paginação cursor pendentes. |
