@@ -11,6 +11,17 @@ class PropertyRoomSerializer(serializers.ModelSerializer):
 
 
 class PropertySerializer(serializers.ModelSerializer):
+    tipo = serializers.CharField(required=False, default='OUTRO')
+    area_m2 = serializers.FloatField(required=False, default=0)
+    cep = serializers.CharField(required=False, default='')
+    logradouro = serializers.CharField(required=False, default='')
+    numero = serializers.CharField(required=False, default='')
+    bairro = serializers.CharField(required=False, default='')
+    cidade = serializers.CharField(required=False, default='')
+    estado = serializers.CharField(required=False, default='')
+    complemento = serializers.CharField(required=False, default='')
+    referencia = serializers.CharField(required=False, default='')
+    features = serializers.JSONField(required=False, default=dict)
     rooms = PropertyRoomSerializer(many=True, required=False)
 
     class Meta:

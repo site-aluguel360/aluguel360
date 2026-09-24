@@ -18,7 +18,6 @@ import { Textarea } from "../components/ui/textarea";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { CardImovel } from "../components/CardImovel";
-import { MenuLogin } from "../components/MenuLogin";
 import { lookupCep } from "../lib/viacep";
 import { listingApi, mediaApi, propertyApi, toApiError } from "../lib/api";
 import { toListingPayload, toPropertyPayload } from "../lib/adapters";
@@ -184,7 +183,7 @@ function ProgressBar({ step }) {
   );
 }
 
-function FooterNav({ step, onBack, onNext }) {
+function FooterNav({ step, onBack, onNext, onSaveDraft, isSaving }) {
   return (
     <div className="mt-1 flex min-w-0 flex-wrap items-center justify-between gap-2 px-2 sm:px-1">
       <Button
@@ -197,17 +196,12 @@ function FooterNav({ step, onBack, onNext }) {
         Voltar
       </Button>
 
-      {step < maxStep ? (
-        <Button
-          type="button"
-          onClick={onNext}
-          className="mt-1 h-[28px] rounded-[6px] bg-secondary px-4 font-['Poppins'] text-[14px] font-semibold text-white shadow-[0_1px_4px_rgba(0,0,0,0.18)] hover:bg-secondary-hover"
-        >
-          Próximo &gt;&gt;
+      <div className="flex flex-wrap items-center justify-end gap-3">
+        <Button type="button" variant="outline" disabled={isSaving} onClick={onSaveDraft} className="h-[28px] px-3 text-xs">
+          {isSaving ? "Salvando..." : "Salvar rascunho"}
         </Button>
-      ) : (
-        <div className="flex-1" />
-      )}
+        {step < maxStep ? <Button type="button" onClick={onNext} className="mt-1 h-[28px] rounded-[6px] bg-secondary px-4 font-['Poppins'] text-[14px] font-semibold text-white shadow-[0_1px_4px_rgba(0,0,0,0.18)] hover:bg-secondary-hover">Próximo &gt;&gt;</Button> : null}
+      </div>
 
     </div>
   );
@@ -1366,8 +1360,6 @@ export function CadastroImovel() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#eef2f5] px-3 py-2 sm:px-4">
       <div className="mx-auto w-full min-w-0 max-w-7xl">
-        <MenuLogin />
-
         <div className="mt-1 min-w-0">
           <div className="flex min-w-0 flex-col">
             <Shell className={`w-full overflow-x-hidden px-2 sm:px-3 ${step === 0
@@ -1511,7 +1503,7 @@ export function CadastroImovel() {
                 <ProgressBar step={step} />
               </div>
             </Shell>
-            <FooterNav step={step} onBack={goBack} onNext={goNext} />
+            <FooterNav step={step} onBack={goBack} onNext={goNext} onSaveDraft={saveDraft} isSaving={isSaving} />
           </div>
         </div>
       </div>

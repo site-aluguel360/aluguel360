@@ -15,7 +15,7 @@ export function Home() {
     let isMounted = true;
     listingApi.list("ordering=-views_count")
       .then((payload) => {
-        if (isMounted) setListings(adaptListings(payload).slice(0, 6));
+        if (isMounted) setListings(adaptListings(payload).slice(0, 3));
       })
       .catch((error) => {
         if (isMounted) setListingsError(toApiError(error));
@@ -81,7 +81,7 @@ export function Home() {
             {!isLoadingListings && !listingsError && listings.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {listings.map((listing) => (
-                  <Link to="/resultados" key={listing.id} className="block">
+                  <Link to={`/visualizar-imoveis/${listing.id}`} key={listing.id} className="block">
                     <Card className="h-full overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 duration-300 border-border group relative">
                       <div className="relative h-52 overflow-hidden">
                         <img src={listing.imagem} alt={listing.titulo} className="w-full h-full object-cover" />

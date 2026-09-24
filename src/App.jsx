@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { Layout } from "./components/Layout.jsx";
 import { Home } from "./pages/Home";
 import { ResultadosPesquisa } from "./pages/ResultadosPesquisa";
@@ -8,7 +9,7 @@ import { Login } from "./pages/Login";
 import { EditProfile } from "./pages/EditProfile";
 import { RecuperarSenha } from "./pages/RecuperarSenha";
 
-import { About } from "./pages/About";
+import { About as AboutAtualizado } from "./pages/AboutAtualizado";
 import { Perfil } from "./pages/Perfil";
 import { PerfilEnderecos } from "./pages/PerfilEnderecos";
 import { PerfilSeguranca } from "./pages/PerfilSeguranca";
@@ -19,6 +20,11 @@ import { PerfilMeusImoveis } from "./pages/PerfilMeusImoveis";
 import { PerfilMeusAnuncios } from "./pages/PerfilMeusAnuncios";
 import { CadastroImovel } from "./pages/CadastroImovel";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { InformacoesAnunciantes } from "./pages/InformacoesAnunciantes";
+import { PerfilAnunciante } from "./pages/PerfilAnunciante";
+import { VisualizarImoveis } from "./pages/VisualizarImoveis";
+import { VisualizacaoContatos } from "./pages/VisualizacaoContatos";
+import { ContatoAnunciante } from "./pages/ContatoAnunciante";
 
 
 
@@ -26,6 +32,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<CadastroUsuario />} />
@@ -35,8 +42,10 @@ function App() {
 
             <Route path="contact" element={<Navigate to="#footer" replace />} />
             <Route path="resultados" element={<ResultadosPesquisa />} />
-            <Route path="about" element={<About />} />
+            <Route path="about" element={<AboutAtualizado />} />
             <Route path="recuperar-senha" element={<RecuperarSenha />} />
+            <Route path="visualizar-imoveis/:id" element={<VisualizarImoveis />} />
+            <Route path="informacoes-anunciantes" element={<InformacoesAnunciantes />} />
 
             <Route element={<ProtectedRoute />}>
               <Route path="perfil" element={<Perfil />} />
@@ -49,6 +58,9 @@ function App() {
               <Route path="perfil/cadastro-imovel" element={<CadastroImovel />} />
               <Route path="perfil/meus-imoveis" element={<PerfilMeusImoveis />} />
               <Route path="perfil/meus-anuncios" element={<PerfilMeusAnuncios />} />
+              <Route path="visualizacao-contatos" element={<VisualizacaoContatos />} />
+              <Route path="contato-anunciante" element={<ContatoAnunciante />} />
+              <Route path="perfil-anunciante" element={<PerfilAnunciante />} />
             </Route>
           </Route>
         </Routes>

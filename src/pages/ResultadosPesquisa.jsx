@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { BarraFiltros } from "../components/BarraFiltros";
 import { FiltroLateral } from "../components/FiltroLateral";
 import { FiltroPreco } from "../components/FiltroPreco";
@@ -90,7 +91,7 @@ export function ResultadosPesquisa() {
         <section className="min-w-0 space-y-5">
           {!isLoading && !error && imoveis.length === 0 && <p className="rounded-md border border-dashed p-10 text-center text-muted-foreground">Nenhum imóvel encontrado com esses filtros.</p>}
           <div className="grid gap-5 min-[1080px]:grid-cols-2 min-[1200px]:grid-cols-3">
-            {imoveis.map((imovel) => <CardImovel key={imovel.id} {...imovel} />)}
+            {imoveis.map((imovel) => <Link to={`/visualizar-imoveis/${imovel.id}`} key={imovel.id} className="block"><CardImovel {...imovel} /></Link>)}
           </div>
           {(page.previous || page.next) && (
             <nav className="flex items-center justify-center gap-4 pt-4" aria-label="Paginação do catálogo">

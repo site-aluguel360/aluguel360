@@ -181,6 +181,7 @@ export const userApi = {
 export const listingApi = {
   list: (query = "") => api.get(`/listings/${query ? `?${query}` : ""}`),
   listUrl: (url) => api.get(url),
+  detail: (id) => api.get(`/listings/${id}/`),
   search: (query = "") => api.get(`/search/${query ? `?${query}` : ""}`),
   mine: (query = "") => api.get(`/listings/mine/${query ? `?${query}` : ""}`),
   publish: (id) => api.post(`/listings/${id}/publish/`, {}),

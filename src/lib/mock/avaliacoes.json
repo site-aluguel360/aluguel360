@@ -1,0 +1,682 @@
+[
+  {
+    "id": 1,
+    "imovelId": 1,
+    "nome": "Letícia Rocha",
+    "estrelas": 4,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "LR"
+  },
+  {
+    "id": 2,
+    "imovelId": 1,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "FM"
+  },
+  {
+    "id": 3,
+    "imovelId": 1,
+    "nome": "Lucas Almeida",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "LA"
+  },
+  {
+    "id": 4,
+    "imovelId": 1,
+    "nome": "João Carlos",
+    "estrelas": 5,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "JC"
+  },
+  {
+    "id": 5,
+    "imovelId": 1,
+    "nome": "Bruno Santos",
+    "estrelas": 4,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "BS"
+  },
+  {
+    "id": 6,
+    "imovelId": 2,
+    "nome": "Mariana Dias",
+    "estrelas": 5,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "MD"
+  },
+  {
+    "id": 7,
+    "imovelId": 2,
+    "nome": "Carlos Eduardo",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "CE"
+  },
+  {
+    "id": 8,
+    "imovelId": 2,
+    "nome": "Mariana Dias",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "MD"
+  },
+  {
+    "id": 9,
+    "imovelId": 2,
+    "nome": "Fernanda Costa",
+    "estrelas": 4,
+    "texto": "Perfeito para quem busca descanso. Voltarei com certeza.",
+    "avatar": "FC"
+  },
+  {
+    "id": 10,
+    "imovelId": 2,
+    "nome": "Lucas Almeida",
+    "estrelas": 5,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "LA"
+  },
+  {
+    "id": 11,
+    "imovelId": 3,
+    "nome": "Rafael Gomes",
+    "estrelas": 5,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "RG"
+  },
+  {
+    "id": 12,
+    "imovelId": 3,
+    "nome": "Rafael Gomes",
+    "estrelas": 4,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "RG"
+  },
+  {
+    "id": 13,
+    "imovelId": 3,
+    "nome": "Juliana Mendes",
+    "estrelas": 4,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "JM"
+  },
+  {
+    "id": 14,
+    "imovelId": 3,
+    "nome": "Juliana Mendes",
+    "estrelas": 4,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "JM"
+  },
+  {
+    "id": 15,
+    "imovelId": 3,
+    "nome": "Juliana Mendes",
+    "estrelas": 5,
+    "texto": "Gostei bastante da estadia. Ambiente tranquilo e familiar.",
+    "avatar": "JM"
+  },
+  {
+    "id": 16,
+    "imovelId": 4,
+    "nome": "Ana Clara",
+    "estrelas": 4,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "AC"
+  },
+  {
+    "id": 17,
+    "imovelId": 4,
+    "nome": "Mariana Dias",
+    "estrelas": 4,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "MD"
+  },
+  {
+    "id": 18,
+    "imovelId": 4,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "FM"
+  },
+  {
+    "id": 19,
+    "imovelId": 4,
+    "nome": "Natália Pinto",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "NP"
+  },
+  {
+    "id": 20,
+    "imovelId": 4,
+    "nome": "Mariana Dias",
+    "estrelas": 4,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "MD"
+  },
+  {
+    "id": 21,
+    "imovelId": 5,
+    "nome": "Ana Clara",
+    "estrelas": 5,
+    "texto": "Gostei bastante da estadia. Ambiente tranquilo e familiar.",
+    "avatar": "AC"
+  },
+  {
+    "id": 22,
+    "imovelId": 5,
+    "nome": "Amanda Barbosa",
+    "estrelas": 4,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "AB"
+  },
+  {
+    "id": 23,
+    "imovelId": 5,
+    "nome": "Lucas Almeida",
+    "estrelas": 4,
+    "texto": "Ótima experiência. O processo de locação foi muito prático.",
+    "avatar": "LA"
+  },
+  {
+    "id": 24,
+    "imovelId": 5,
+    "nome": "Letícia Rocha",
+    "estrelas": 4,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "LR"
+  },
+  {
+    "id": 25,
+    "imovelId": 5,
+    "nome": "Camila Castro",
+    "estrelas": 5,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "CC"
+  },
+  {
+    "id": 26,
+    "imovelId": 6,
+    "nome": "Rafael Gomes",
+    "estrelas": 4,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "RG"
+  },
+  {
+    "id": 27,
+    "imovelId": 6,
+    "nome": "Letícia Rocha",
+    "estrelas": 5,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "LR"
+  },
+  {
+    "id": 28,
+    "imovelId": 6,
+    "nome": "Carlos Eduardo",
+    "estrelas": 4,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "CE"
+  },
+  {
+    "id": 29,
+    "imovelId": 6,
+    "nome": "Ana Clara",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "AC"
+  },
+  {
+    "id": 30,
+    "imovelId": 6,
+    "nome": "Felipe Martins",
+    "estrelas": 4,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "FM"
+  },
+  {
+    "id": 31,
+    "imovelId": 7,
+    "nome": "Beatriz Lima",
+    "estrelas": 4,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "BL"
+  },
+  {
+    "id": 32,
+    "imovelId": 7,
+    "nome": "Natália Pinto",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "NP"
+  },
+  {
+    "id": 33,
+    "imovelId": 7,
+    "nome": "Juliana Mendes",
+    "estrelas": 4,
+    "texto": "Gostei bastante da estadia. Ambiente tranquilo e familiar.",
+    "avatar": "JM"
+  },
+  {
+    "id": 34,
+    "imovelId": 7,
+    "nome": "Ana Clara",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "AC"
+  },
+  {
+    "id": 35,
+    "imovelId": 7,
+    "nome": "Amanda Barbosa",
+    "estrelas": 5,
+    "texto": "Gostei bastante da estadia. Ambiente tranquilo e familiar.",
+    "avatar": "AB"
+  },
+  {
+    "id": 36,
+    "imovelId": 8,
+    "nome": "João Carlos",
+    "estrelas": 4,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "JC"
+  },
+  {
+    "id": 37,
+    "imovelId": 8,
+    "nome": "João Carlos",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "JC"
+  },
+  {
+    "id": 38,
+    "imovelId": 8,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "FM"
+  },
+  {
+    "id": 39,
+    "imovelId": 8,
+    "nome": "Ana Clara",
+    "estrelas": 4,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "AC"
+  },
+  {
+    "id": 40,
+    "imovelId": 8,
+    "nome": "Pedro Silva",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "PS"
+  },
+  {
+    "id": 41,
+    "imovelId": 9,
+    "nome": "Juliana Mendes",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "JM"
+  },
+  {
+    "id": 42,
+    "imovelId": 9,
+    "nome": "Rafael Gomes",
+    "estrelas": 5,
+    "texto": "Perfeito para quem busca descanso. Voltarei com certeza.",
+    "avatar": "RG"
+  },
+  {
+    "id": 43,
+    "imovelId": 9,
+    "nome": "Letícia Rocha",
+    "estrelas": 5,
+    "texto": "Gostei bastante da estadia. Ambiente tranquilo e familiar.",
+    "avatar": "LR"
+  },
+  {
+    "id": 44,
+    "imovelId": 9,
+    "nome": "Fernanda Costa",
+    "estrelas": 5,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "FC"
+  },
+  {
+    "id": 45,
+    "imovelId": 9,
+    "nome": "Letícia Rocha",
+    "estrelas": 5,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "LR"
+  },
+  {
+    "id": 46,
+    "imovelId": 10,
+    "nome": "Natália Pinto",
+    "estrelas": 4,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "NP"
+  },
+  {
+    "id": 47,
+    "imovelId": 10,
+    "nome": "Amanda Barbosa",
+    "estrelas": 5,
+    "texto": "Ótima experiência. O processo de locação foi muito prático.",
+    "avatar": "AB"
+  },
+  {
+    "id": 48,
+    "imovelId": 10,
+    "nome": "Rodrigo Nogueira",
+    "estrelas": 4,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "RN"
+  },
+  {
+    "id": 49,
+    "imovelId": 10,
+    "nome": "Thiago Ribeiro",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "TR"
+  },
+  {
+    "id": 50,
+    "imovelId": 10,
+    "nome": "Juliana Mendes",
+    "estrelas": 4,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "JM"
+  },
+  {
+    "id": 51,
+    "imovelId": 11,
+    "nome": "Mariana Dias",
+    "estrelas": 4,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "MD"
+  },
+  {
+    "id": 52,
+    "imovelId": 11,
+    "nome": "Diego Alves",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "DA"
+  },
+  {
+    "id": 53,
+    "imovelId": 11,
+    "nome": "Pedro Silva",
+    "estrelas": 4,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "PS"
+  },
+  {
+    "id": 54,
+    "imovelId": 11,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "FM"
+  },
+  {
+    "id": 55,
+    "imovelId": 11,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "FM"
+  },
+  {
+    "id": 56,
+    "imovelId": 12,
+    "nome": "Diego Alves",
+    "estrelas": 4,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "DA"
+  },
+  {
+    "id": 57,
+    "imovelId": 12,
+    "nome": "João Carlos",
+    "estrelas": 4,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "JC"
+  },
+  {
+    "id": 58,
+    "imovelId": 12,
+    "nome": "Lucas Almeida",
+    "estrelas": 4,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "LA"
+  },
+  {
+    "id": 59,
+    "imovelId": 12,
+    "nome": "Carlos Eduardo",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "CE"
+  },
+  {
+    "id": 60,
+    "imovelId": 12,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "FM"
+  },
+  {
+    "id": 61,
+    "imovelId": 13,
+    "nome": "Ana Clara",
+    "estrelas": 4,
+    "texto": "Perfeito para quem busca descanso. Voltarei com certeza.",
+    "avatar": "AC"
+  },
+  {
+    "id": 62,
+    "imovelId": 13,
+    "nome": "Ana Clara",
+    "estrelas": 5,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "AC"
+  },
+  {
+    "id": 63,
+    "imovelId": 13,
+    "nome": "Diego Alves",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "DA"
+  },
+  {
+    "id": 64,
+    "imovelId": 13,
+    "nome": "Lucas Almeida",
+    "estrelas": 4,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "LA"
+  },
+  {
+    "id": 65,
+    "imovelId": 13,
+    "nome": "Diego Alves",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "DA"
+  },
+  {
+    "id": 66,
+    "imovelId": 14,
+    "nome": "Natália Pinto",
+    "estrelas": 4,
+    "texto": "Perfeito para quem busca descanso. Voltarei com certeza.",
+    "avatar": "NP"
+  },
+  {
+    "id": 67,
+    "imovelId": 14,
+    "nome": "Camila Castro",
+    "estrelas": 5,
+    "texto": "Perfeito para quem busca descanso. Voltarei com certeza.",
+    "avatar": "CC"
+  },
+  {
+    "id": 68,
+    "imovelId": 14,
+    "nome": "Amanda Barbosa",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "AB"
+  },
+  {
+    "id": 69,
+    "imovelId": 14,
+    "nome": "Mariana Dias",
+    "estrelas": 4,
+    "texto": "Ótima experiência. O processo de locação foi muito prático.",
+    "avatar": "MD"
+  },
+  {
+    "id": 70,
+    "imovelId": 14,
+    "nome": "Bruno Santos",
+    "estrelas": 5,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "BS"
+  },
+  {
+    "id": 71,
+    "imovelId": 15,
+    "nome": "Natália Pinto",
+    "estrelas": 4,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "NP"
+  },
+  {
+    "id": 72,
+    "imovelId": 15,
+    "nome": "Carlos Eduardo",
+    "estrelas": 4,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "CE"
+  },
+  {
+    "id": 73,
+    "imovelId": 15,
+    "nome": "Beatriz Lima",
+    "estrelas": 5,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "BL"
+  },
+  {
+    "id": 74,
+    "imovelId": 15,
+    "nome": "Rafael Gomes",
+    "estrelas": 5,
+    "texto": "Lugar fantástico! Superou nossas expectativas.",
+    "avatar": "RG"
+  },
+  {
+    "id": 75,
+    "imovelId": 15,
+    "nome": "Mariana Dias",
+    "estrelas": 4,
+    "texto": "O anfitrião foi muito atencioso do começo ao fim.",
+    "avatar": "MD"
+  },
+  {
+    "id": 76,
+    "imovelId": 16,
+    "nome": "Letícia Rocha",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "LR"
+  },
+  {
+    "id": 77,
+    "imovelId": 16,
+    "nome": "Rodrigo Nogueira",
+    "estrelas": 5,
+    "texto": "Muito bom, bem limpo e organizado. Recomendo.",
+    "avatar": "RN"
+  },
+  {
+    "id": 78,
+    "imovelId": 16,
+    "nome": "Maria Souza",
+    "estrelas": 5,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "MS"
+  },
+  {
+    "id": 79,
+    "imovelId": 16,
+    "nome": "Rafael Gomes",
+    "estrelas": 4,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "RG"
+  },
+  {
+    "id": 80,
+    "imovelId": 16,
+    "nome": "Rodrigo Nogueira",
+    "estrelas": 5,
+    "texto": "Imóvel maravilhoso. Exatamente como nas fotos.",
+    "avatar": "RN"
+  },
+  {
+    "id": 81,
+    "imovelId": 17,
+    "nome": "Pedro Silva",
+    "estrelas": 5,
+    "texto": "Bom custo-benefício. Apenas a internet oscilou um pouco.",
+    "avatar": "PS"
+  },
+  {
+    "id": 82,
+    "imovelId": 17,
+    "nome": "Felipe Martins",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "FM"
+  },
+  {
+    "id": 83,
+    "imovelId": 17,
+    "nome": "Letícia Rocha",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "LR"
+  },
+  {
+    "id": 84,
+    "imovelId": 17,
+    "nome": "Rafael Gomes",
+    "estrelas": 5,
+    "texto": "Estrutura impecável, móveis novos e bem cuidados.",
+    "avatar": "RG"
+  },
+  {
+    "id": 85,
+    "imovelId": 17,
+    "nome": "Beatriz Lima",
+    "estrelas": 5,
+    "texto": "Localização excelente, perto de tudo.",
+    "avatar": "BL"
+  }
+]

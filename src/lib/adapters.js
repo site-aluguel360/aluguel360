@@ -119,6 +119,12 @@ export function toPropertyPayload(form) {
 }
 
 export function toListingPayload(form, propertyId) {
+  const guaranteeMap = {
+    Caução: "CAUCAO",
+    Fiador: "FIADOR",
+    "Sem garantia": "SEM_GARANTIA",
+    "Seguro Fiançado": "SEGURO_FIANCADO",
+  };
   return {
     property: propertyId,
     titulo: String(form.title || "").trim(),
@@ -131,6 +137,6 @@ export function toListingPayload(form, propertyId) {
     iptu_valor: Number(String(form.iptuFee || "0").replace(/[^0-9,.-]/g, "").replace(",", ".")) || 0,
     iptu_incluido: Boolean(form.iptuIncluded),
     outras_taxas: String(form.otherFees || "").trim(),
-    garantia: String(form.guarantee || "").trim(),
+    garantia: guaranteeMap[form.guarantee] || "SEM_GARANTIA",
   };
 }

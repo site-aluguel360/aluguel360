@@ -1,0 +1,1 @@
+pagina home exibe mais de tres cards no topo. deve exibir apenas os 3 mais acessados;
