@@ -86,14 +86,16 @@ export function EditProfile() {
 
               <div className="flex flex-col gap-1">
                 <label className="text-[14px] font-medium text-[#2D2D2D]">E-mail</label>
-                <Input
-                  type="email"
-                  name="email"
-                  value={user.email}
-                  onChange={handleChange}
-                  placeholder="Digite o Email"
-                  className="h-[41px] rounded-[9px] border-[#1A535C] bg-white px-3 text-[14px] font-light text-[#2D2D2D]"
-                />
+                  <Input
+                    type="email"
+                    name="email"
+                    value={user.email}
+                    readOnly
+                    disabled
+                    placeholder="Digite o Email"
+                    className="h-[41px] rounded-[9px] border-[#D8E1E7] bg-[#F0F4F8] px-3 text-[14px] font-light text-[#2D2D2D] opacity-80"
+                  />
+                  <small className="text-[11px] text-[#2D2D2D]/60">O email não pode ser alterado nesta etapa.</small>
               </div>
 
               <div className="flex flex-col gap-1">

@@ -1,21 +1,60 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useEffect, useState } from "react";
+import { authApi, getAccessToken, getRememberedUser, rememberUser } from "../lib/api";
+import { adaptUser } from "../lib/adapters";
 
-const AuthContext = createContext({});
+const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
-  // Estado global para controlar se o usuário está logado
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(() => adaptUser(getRememberedUser()));
+  const [isLoading, setIsLoading] = useState(Boolean(getAccessToken()) && !user);
 
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
+  useEffect(() => {
+    if (!getAccessToken()) return;
+    if (user) return;
+    let active = true;
+    (async () => {
+      try {
+        const currentUser = await authApi.me?.();
+        if (active) {
+          setUser(adaptUser(currentUser));
+          rememberUser(currentUser);
+        }
+      } catch {
+        if (active) setUser(null);
+      } finally {
+        if (active) setIsLoading(false);
+      }
+    })();
+    return () => { active = false; };
+  }, [user]);
+
+  const login = async (email, senha) => {
+    const response = await authApi.login(email, senha);
+    const nextUser = adaptUser(response.user);
+    setUser(nextUser);
+    return nextUser;
+  };
+
+  const register = async (payload) => {
+    const response = await authApi.register(payload);
+    const nextUser = adaptUser(response.user);
+    setUser(nextUser);
+    return nextUser;
+  };
+
+  const logout = async () => {
+    await authApi.logout();
+    setUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: Boolean(user), isLoading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   return useContext(AuthContext);
 }
