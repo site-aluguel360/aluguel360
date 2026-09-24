@@ -1,0 +1,22 @@
+[Unit]
+Description=Aluguel360 Celery Beat Scheduler
+After=network.target redis-server.service
+Requires=redis-server.service
+
+[Service]
+Type=simple
+User=aluguel360
+Group=aluguel360
+WorkingDirectory=/opt/aluguel360/backend/aluguel360_mobile_api
+EnvironmentFile=/etc/aluguel360/aluguel360.env
+Environment=DJANGO_SETTINGS_MODULE=config.settings.production
+ExecStart=/opt/aluguel360/backend/venv/bin/celery -A config beat --loglevel=INFO
+Restart=on-failure
+RestartSec=5
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

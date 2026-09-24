@@ -1,0 +1,13 @@
+-r base.txt
+
+# Servidor WSGI/ASGI
+gunicorn==23.0.0
+uvicorn[standard]==0.32.1
+
+# Monitoramento e health check
+sentry-sdk[django]==2.17.0
+django-health-check==3.18.3
+
+# Segurança e static files
+django-csp==3.8
+whitenoise==6.8.2

@@ -33,6 +33,8 @@ class AddressViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False) or not self.request.user.is_authenticated:
+            return Address.objects.none()
         return Address.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
@@ -44,6 +46,8 @@ class SessionViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False) or not self.request.user.is_authenticated:
+            return Session.objects.none()
         return Session.objects.filter(user=self.request.user)
 
     def destroy(self, request, *args, **kwargs):
@@ -55,6 +59,7 @@ class SessionViewSet(viewsets.ReadOnlyModelViewSet):
 
 class StatsView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = UserStatsSerializer
 
     def get(self, request):
         listings = request.user.listings.all()
@@ -76,6 +81,8 @@ class FavoritesView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False) or not self.request.user.is_authenticated:
+            return Listing.objects.none()
         return Listing.objects.filter(favorites__user=self.request.user).select_related('property')
 
     def get_serializer_class(self):

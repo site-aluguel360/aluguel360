@@ -4,9 +4,12 @@ from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
+from .health import health_check
+
 API_PREFIX = 'api/v1/'
 
 urlpatterns = [
+    path('health', health_check, name='health'),
     # Admin Django
     path('admin/', admin.site.urls),
 

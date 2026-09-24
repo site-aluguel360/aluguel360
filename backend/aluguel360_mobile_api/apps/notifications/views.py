@@ -14,6 +14,8 @@ class NotificationViewSet(viewsets.ReadOnlyModelViewSet):
     pagination_class = MobileCursorPagination
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False) or not self.request.user.is_authenticated:
+            return Notification.objects.none()
         return Notification.objects.filter(user=self.request.user).order_by('-created_at')
 
     @action(detail=True, methods=['patch'])

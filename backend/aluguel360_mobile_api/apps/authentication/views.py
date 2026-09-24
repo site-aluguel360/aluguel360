@@ -10,6 +10,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django_ratelimit.decorators import ratelimit
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema
 
 from apps.users.models import Session, User
 from .models import DeviceToken, OtpToken
@@ -31,6 +33,7 @@ class RegisterView(APIView):
     permission_classes = [AllowAny]
 
     @transaction.atomic
+    @extend_schema(request=RegisterSerializer, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         serializer = RegisterSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
@@ -46,6 +49,7 @@ class RegisterView(APIView):
 class LoginView(APIView):
     permission_classes = [AllowAny]
 
+    @extend_schema(request=LoginSerializer, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         serializer = LoginSerializer(data=request.data, context={'request': request})
         serializer.is_valid(raise_exception=True)
@@ -63,6 +67,7 @@ class LoginView(APIView):
 class ForgotPasswordView(APIView):
     permission_classes = [AllowAny]
 
+    @extend_schema(request=ForgotPasswordSerializer, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         serializer = ForgotPasswordSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -77,6 +82,7 @@ class ForgotPasswordView(APIView):
 class VerifyOtpView(APIView):
     permission_classes = [AllowAny]
 
+    @extend_schema(request=VerifyOtpSerializer, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         serializer = VerifyOtpSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -90,6 +96,7 @@ class VerifyOtpView(APIView):
 class ResetPasswordView(APIView):
     permission_classes = [AllowAny]
 
+    @extend_schema(request=ResetPasswordSerializer, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         serializer = ResetPasswordSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -108,6 +115,7 @@ class ResetPasswordView(APIView):
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(request=None, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         try:
             token = RefreshToken(request.data['refresh_token'])
@@ -121,6 +129,7 @@ class LogoutView(APIView):
 class RegisterDeviceView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(request=None, responses=OpenApiTypes.OBJECT)
     def post(self, request):
         token = request.data.get('token')
         platform = request.data.get('platform')
@@ -135,6 +144,7 @@ class RegisterDeviceView(APIView):
 class DeleteDeviceView(APIView):
     permission_classes = [IsAuthenticated]
 
+    @extend_schema(request=None, responses={204: None})
     def delete(self, request, pk):
         deleted, _ = DeviceToken.objects.filter(pk=pk, user=request.user).delete()
         return Response(status=status.HTTP_204_NO_CONTENT if deleted else status.HTTP_404_NOT_FOUND)

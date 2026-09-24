@@ -9,6 +9,7 @@ from apps.listings.serializers import ListingListSerializer
 
 class SearchView(APIView):
     permission_classes = [AllowAny]
+    serializer_class = ListingListSerializer
 
     def get(self, request):
         query = request.query_params.get('q', '').strip()

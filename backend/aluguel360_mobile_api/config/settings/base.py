@@ -110,6 +110,8 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'common.exceptions.custom_exception_handler',
 }
 
+RATELIMIT_EXCEPTION_CLASS = 'common.ratelimit.RatelimitExceeded'
+
 # ── JWT Configuration
 from datetime import timedelta
 SIMPLE_JWT = {

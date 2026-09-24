@@ -10,6 +10,8 @@ class PropertyViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False) or not self.request.user.is_authenticated:
+            return Property.objects.none()
         return Property.objects.filter(owner=self.request.user, deleted_at__isnull=True).prefetch_related('rooms')
 
     def perform_destroy(self, instance):

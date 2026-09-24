@@ -1,0 +1,22 @@
+[Unit]
+Description=Aluguel360 Django API via Gunicorn
+After=network.target postgresql.service redis-server.service
+Requires=redis-server.service
+
+[Service]
+Type=notify
+User=aluguel360
+Group=aluguel360
+WorkingDirectory=/opt/aluguel360/backend/aluguel360_mobile_api
+EnvironmentFile=/etc/aluguel360/aluguel360.env
+Environment=DJANGO_SETTINGS_MODULE=config.settings.production
+ExecStart=/opt/aluguel360/backend/venv/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8000 --workers 4 --timeout 120 --access-logfile - --error-logfile -
+Restart=on-failure
+RestartSec=5
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

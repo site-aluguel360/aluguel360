@@ -98,7 +98,7 @@ PLANO [ID-TAREFA]:
 
 | Componente | Tecnologia | Versão |
 |-----------|-----------|--------|
-| Linguagem | Python | 3.12 exato |
+| Linguagem | Python | 3.13 exato |
 | Framework | Django | 5.1.x |
 | API | Django REST Framework | 3.15.x |
 | JWT | djangorestframework-simplejwt | 5.3.x |
