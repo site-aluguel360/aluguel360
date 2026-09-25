@@ -1,5 +1,4 @@
 import magic
-import cloudinary.uploader
 from django.conf import settings
 from django.db import transaction
 from django_ratelimit.decorators import ratelimit
@@ -13,6 +12,7 @@ from rest_framework.response import Response
 from .models import Media, MediaType, StorageQuota
 from .serializers import MediaSerializer, StorageQuotaSerializer
 from .tasks import generate_thumbnail, update_storage_quota
+from .storage import get_media_storage
 
 ALLOWED_PHOTO_MIMES = {'image/jpeg', 'image/png', 'image/webp', 'image/heic'}
 ALLOWED_VIDEO_MIMES = {'video/mp4', 'video/quicktime'}
@@ -49,13 +49,24 @@ class MediaViewSet(viewsets.ModelViewSet):
         limit = getattr(settings, 'MAX_PHOTOS_PER_USER', 50) if tipo == MediaType.FOTO else getattr(settings, 'MAX_VIDEOS_PER_USER', 5)
         if count >= limit:
             return Response({'error': 'Limite de mídias atingido.'}, status=status.HTTP_400_BAD_REQUEST)
-        result = cloudinary.uploader.upload(uploaded, folder=f'aluguel360/users/{request.user.id}', resource_type='video' if tipo == MediaType.VIDEO else 'image')
+        storage = get_media_storage()
+        try:
+            stored = storage.save(uploaded, user_id=str(request.user.id), media_type=tipo)
+        except Exception as exc:
+            return Response({'error': f'Não foi possível armazenar a mídia localmente: {exc}'}, status=status.HTTP_502_BAD_GATEWAY)
         media = Media.objects.create(user=request.user, tipo=tipo, property_id=request.data.get('property') or None,
-            listing_id=request.data.get('listing') or None, url=result['secure_url'], public_id=result['public_id'],
+            listing_id=request.data.get('listing') or None, url=stored.url, public_id=stored.public_id,
             nome=request.data.get('nome', uploaded.name), tamanho_mb=size_mb, formato=mime)
-        generate_thumbnail.delay(str(media.id))
-        update_storage_quota.delay(str(request.user.id))
-        return Response(MediaSerializer(media).data, status=status.HTTP_201_CREATED)
+        if getattr(settings, 'MEDIA_STORAGE_BACKEND', 'local') == 'local':
+            media.thumbnail_url = stored.url
+            media.url_optimized = stored.url
+            media.save(update_fields=['thumbnail_url', 'url_optimized'])
+        try:
+            generate_thumbnail.delay(str(media.id))
+        except Exception:
+            pass
+        update_storage_quota(str(request.user.id))
+        return Response(MediaSerializer(media, context={'request': request}).data, status=status.HTTP_201_CREATED)
 
     @action(detail=True, methods=['post'])
     def set_highlight(self, request, pk=None):
@@ -65,7 +76,7 @@ class MediaViewSet(viewsets.ModelViewSet):
         Media.objects.filter(user=request.user, listing=media.listing, is_highlight=True).update(is_highlight=False)
         media.is_highlight = True
         media.save(update_fields=['is_highlight'])
-        return Response(MediaSerializer(media).data)
+        return Response(MediaSerializer(media, context={'request': request}).data)
 
     @action(detail=False, methods=['get'])
     def quota(self, request):
@@ -73,7 +84,8 @@ class MediaViewSet(viewsets.ModelViewSet):
         return Response(StorageQuotaSerializer(quota).data)
 
     def perform_destroy(self, instance):
-        cloudinary.uploader.destroy(instance.public_id, resource_type='video' if instance.tipo == MediaType.VIDEO else 'image')
+        storage = get_media_storage()
+        storage.delete(instance.public_id)
         user_id = str(instance.user_id)
         instance.delete()
-        update_storage_quota.delay(user_id)
+        update_storage_quota(user_id)

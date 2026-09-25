@@ -5,11 +5,9 @@ from django.db.models import Count, Sum
 @shared_task
 def generate_thumbnail(media_id):
     from .models import Media
-    import cloudinary
     media = Media.objects.get(pk=media_id)
-    image = cloudinary.CloudinaryImage(media.public_id)
-    media.thumbnail_url = image.build_url(width=400, height=300, crop='fill', quality='auto', format='webp')
-    media.url_optimized = image.build_url(quality='auto', format='webp')
+    media.thumbnail_url = media.url
+    media.url_optimized = media.url
     media.save(update_fields=['thumbnail_url', 'url_optimized'])
     return media.thumbnail_url
 

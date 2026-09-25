@@ -13,12 +13,13 @@ class MediaType(models.TextChoices):
 class Media(models.Model):
     """
     Mídias (fotos e vídeos) associadas a imóveis e anúncios.
-    Armazenamento via Cloudinary (URL pública + public_id para deletar).
+    Armazenamento abstrato. Em desenvolvimento, os arquivos ficam em MEDIA_ROOT;
+    Cloudinary pode ser habilitado posteriormente por ambiente.
     
     Suporta:
     - Fotos: JPEG, PNG, WebP (max 10MB)
     - Vídeos: MP4, MOV (max 100MB)
-    - Thumbnails automáticos via Cloudinary transformations
+    - URLs e thumbnails compatíveis com storage local ou externo
     """
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -43,7 +44,7 @@ class Media(models.Model):
 
     tipo = models.CharField(max_length=10, choices=MediaType.choices)
 
-    # Cloudinary
+    # O public_id identifica o arquivo no backend de storage selecionado.
     url = models.URLField(max_length=500)                  # URL da mídia original
     url_optimized = models.URLField(max_length=500, blank=True)  # WebP otimizado
     thumbnail_url = models.URLField(max_length=500, blank=True)  # Thumb 400x300

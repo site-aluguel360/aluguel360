@@ -1274,9 +1274,15 @@ export function CadastroImovel() {
       ...(form.extraPhotoFiles || []).map((file) => ({ file, tipo: "FOTO" })),
       ...(form.videoFile ? [{ file: form.videoFile, tipo: "VIDEO" }] : []),
     ];
+    const failures = [];
     for (const item of files) {
-      await mediaApi.upload(item.file, { tipo: item.tipo, propertyId: createdPropertyId, listingId: createdListingId });
+      try {
+        await mediaApi.upload(item.file, { tipo: item.tipo, propertyId: createdPropertyId, listingId: createdListingId });
+      } catch (requestError) {
+        failures.push(toApiError(requestError));
+      }
     }
+    return failures;
   };
 
   const saveDraft = async () => {
@@ -1289,9 +1295,9 @@ export function CadastroImovel() {
       const listingPayload = toListingPayload(form, createdProperty.id);
       const createdListing = listingId ? await listingApi.update(listingId, listingPayload) : await listingApi.create(listingPayload);
       setListingId(createdListing.id);
-      await uploadFiles(createdProperty.id, createdListing.id);
+      const mediaFailures = await uploadFiles(createdProperty.id, createdListing.id);
       setForm((current) => ({ ...current, photoFiles: {}, extraPhotoFiles: [], videoFile: null }));
-      setSaveMessage("Rascunho salvo com sucesso. O anúncio ainda não foi publicado.");
+      setSaveMessage(mediaFailures.length ? `Rascunho salvo. ${mediaFailures.length} mídia(s) não foram enviadas e podem ser reenviadas.` : "Rascunho salvo com sucesso. O anúncio ainda não foi publicado.");
     } catch (requestError) {
       setSaveError(toApiError(requestError));
     } finally {
@@ -1303,20 +1309,22 @@ export function CadastroImovel() {
     setIsSaving(true);
     setSaveError("");
     setSaveMessage("");
+    let mediaFailureCount = 0;
     try {
       if (!propertyId || !listingId) {
         const createdProperty = propertyId ? { id: propertyId } : await propertyApi.create(toPropertyPayload(form));
         const createdListing = await listingApi.create(toListingPayload(form, createdProperty.id));
         setPropertyId(createdProperty.id);
         setListingId(createdListing.id);
-        await uploadFiles(createdProperty.id, createdListing.id);
+        const mediaFailures = await uploadFiles(createdProperty.id, createdListing.id);
+        mediaFailureCount = mediaFailures.length;
         setForm((current) => ({ ...current, photoFiles: {}, extraPhotoFiles: [], videoFile: null }));
         await listingApi.publish(createdListing.id);
       } else {
         await listingApi.update(listingId, toListingPayload(form, propertyId));
         await listingApi.publish(listingId);
       }
-      setSaveMessage("Anúncio publicado com sucesso.");
+      setSaveMessage(mediaFailureCount ? `Anúncio publicado, mas ${mediaFailureCount} mídia(s) não foram enviadas.` : "Anúncio publicado com sucesso.");
     } catch (requestError) {
       setSaveError(toApiError(requestError));
     } finally {

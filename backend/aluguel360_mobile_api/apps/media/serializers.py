@@ -4,6 +4,25 @@ from .models import Media, StorageQuota
 
 
 class MediaSerializer(serializers.ModelSerializer):
+    url = serializers.SerializerMethodField()
+    url_optimized = serializers.SerializerMethodField()
+    thumbnail_url = serializers.SerializerMethodField()
+
+    def _absolute_url(self, value):
+        request = self.context.get('request')
+        if request and value and value.startswith('/'):
+            return request.build_absolute_uri(value)
+        return value
+
+    def get_url(self, obj):
+        return self._absolute_url(obj.url)
+
+    def get_url_optimized(self, obj):
+        return self._absolute_url(obj.url_optimized)
+
+    def get_thumbnail_url(self, obj):
+        return self._absolute_url(obj.thumbnail_url)
+
     class Meta:
         model = Media
         fields = ['id', 'property', 'listing', 'tipo', 'url', 'url_optimized', 'thumbnail_url', 'public_id', 'nome', 'tamanho_mb', 'largura', 'altura', 'duracao_segundos', 'formato', 'is_highlight', 'ordem', 'created_at']

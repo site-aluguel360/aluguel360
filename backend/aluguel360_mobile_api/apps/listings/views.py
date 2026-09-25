@@ -25,7 +25,7 @@ class ListingViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         base = Listing.objects.select_related('property', 'owner').prefetch_related('property__rooms', 'media')
-        if self.action in ('mine', 'publish', 'pause'):
+        if self.action in ('mine', 'create', 'update', 'partial_update', 'destroy', 'publish', 'pause'):
             return base.filter(owner=self.request.user)
         return base.filter(status=ListingStatus.PUBLICADO)
 

@@ -30,6 +30,7 @@ export function PerfilMeusAnuncios() {
 
   const updateStatus = async (listing) => {
     try {
+      if (!listing?.id) throw new Error("Anúncio sem identificador. Recarregue a página.");
       if (listing.status === "PUBLICADO") await listingApi.pause(listing.id);
       else await listingApi.publish(listing.id);
       const refreshed = await listingApi.mine();

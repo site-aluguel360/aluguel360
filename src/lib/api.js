@@ -184,9 +184,18 @@ export const listingApi = {
   detail: (id) => api.get(`/listings/${id}/`),
   search: (query = "") => api.get(`/search/${query ? `?${query}` : ""}`),
   mine: (query = "") => api.get(`/listings/mine/${query ? `?${query}` : ""}`),
-  publish: (id) => api.post(`/listings/${id}/publish/`, {}),
-  pause: (id) => api.post(`/listings/${id}/pause/`, {}),
-  remove: (id) => api.delete(`/listings/${id}/`),
+  publish: (id) => {
+    if (!id) throw new Error("Anúncio sem identificador.");
+    return api.post(`/listings/${id}/publish/`, {});
+  },
+  pause: (id) => {
+    if (!id) throw new Error("Anúncio sem identificador.");
+    return api.post(`/listings/${id}/pause/`, {});
+  },
+  remove: (id) => {
+    if (!id) throw new Error("Anúncio sem identificador.");
+    return api.delete(`/listings/${id}/`);
+  },
   create: (payload) => api.post("/listings/", payload),
   update: (id, payload) => api.patch(`/listings/${id}/`, payload),
 };

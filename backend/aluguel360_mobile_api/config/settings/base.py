@@ -28,9 +28,6 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'django_filters',
     'drf_spectacular',
-    'cloudinary',
-    'cloudinary_storage',
-    'storages',
     'watson',                       # Full-text search
     'django_structlog',             # JSON logging
     'allauth',
@@ -149,13 +146,11 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'America/Sao_Paulo'
 
-# ── Cloudinary Storage (Fotos e Vídeos)
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET'),
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# ── Media storage
+# Local storage is the only active backend in this codebase.
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_STORAGE_BACKEND = 'local'
 
 # ── Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -20,12 +20,8 @@ django-allauth==64.2.1
 dj-rest-auth==6.0.0
 
 # ─── Upload e Armazenamento de Mídia
-cloudinary==1.41.0
-django-cloudinary-storage==0.3.0
-django-storages==1.14.4
 Pillow==10.4.0
 python-magic==0.4.27       # Validação de MIME real
-boto3==1.35.80             # Compatibilidade S3 (backup)
 
 # ─── Cache e Filas
 django-redis==5.4.0

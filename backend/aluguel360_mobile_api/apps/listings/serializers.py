@@ -13,6 +13,21 @@ class RoomSerializer(serializers.ModelSerializer):
 
 
 class MediaThumbnailSerializer(serializers.ModelSerializer):
+    thumbnail_url = serializers.SerializerMethodField()
+    url_optimized = serializers.SerializerMethodField()
+
+    def _absolute_url(self, value):
+        request = self.context.get('request')
+        if request and value and value.startswith('/'):
+            return request.build_absolute_uri(value)
+        return value
+
+    def get_thumbnail_url(self, obj):
+        return self._absolute_url(obj.thumbnail_url)
+
+    def get_url_optimized(self, obj):
+        return self._absolute_url(obj.url_optimized)
+
     class Meta:
         model = Media
         fields = ['id', 'thumbnail_url', 'url_optimized', 'tipo', 'is_highlight']
@@ -32,7 +47,13 @@ class ListingListSerializer(serializers.ModelSerializer):
 
     def get_foto_destaque(self, obj):
         photo = obj.media.filter(tipo='FOTO', is_highlight=True).first() or obj.media.filter(tipo='FOTO').first()
-        return {'url': photo.thumbnail_url or photo.url, 'id': str(photo.id)} if photo else None
+        if not photo:
+            return None
+        url = photo.thumbnail_url or photo.url
+        request = self.context.get('request')
+        if request and url and url.startswith('/'):
+            url = request.build_absolute_uri(url)
+        return {'url': url, 'id': str(photo.id)}
 
     def get_quartos(self, obj):
         room = obj.property.rooms.filter(tipo='quartos').first()

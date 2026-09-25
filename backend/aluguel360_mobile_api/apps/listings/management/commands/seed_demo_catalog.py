@@ -1,170 +1,87 @@
 from datetime import timedelta
+from pathlib import Path
 
-from django.core.management.base import BaseCommand, CommandError
+from django.conf import settings
+from django.core.files import File
+
+from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.utils import timezone
 
 from apps.listings.models import Listing, ListingStatus
 from apps.properties.models import Property, PropertyRoom, PropertyStatus
 from apps.users.models import User, UserRole
+from apps.media.models import Media, MediaType
+from apps.media.storage import get_media_storage
 
-
-DEMO_OWNER_EMAIL = "proprietario.demo@aluguel360.test"
-DEMO_OWNER_PASSWORD = "Demo@Aluguel3602026!"
-
+DEMO_USERS = [
+    {"email": "proprietario.demo@aluguel360.test", "nome": "Carlos Alberto Silva", "cpf": "12345678910", "telefone": "86998123456"},
+    {"email": "ana.souza@aluguel360.test", "nome": "Ana Beatriz Souza", "cpf": "23456789021", "telefone": "48998887766"},
+    {"email": "marcos.lima@aluguel360.test", "nome": "Marcos Eduardo Lima", "cpf": "34567890132", "telefone": "48997776655"},
+]
+DEMO_PASSWORD = "Demo@Aluguel3602026!"
 
 DEMO_PROPERTIES = [
-    {
-        "key": "home-apartamento-vista-panoramica",
-        "tipo": "APARTAMENTO",
-        "area_m2": 80,
-        "cep": "88015000",
-        "logradouro": "Rua Pássaros",
-        "numero": "350",
-        "bairro": "Agronômica",
-        "cidade": "Florianópolis",
-        "estado": "SC",
-        "titulo": "Apartamento com Vista Panorâmica - Alto do Horizonte",
-        "descricao": "Apartamento amplo, iluminado e bem localizado, com vista panorâmica, ambientes confortáveis e acesso rápido aos principais serviços da região.",
-        "aluguel": "3600.00",
-        "quartos": 4,
-        "views_count": 156,
-        "quality_score": 8.5,
-    },
-    {
-        "key": "home-casa-rustica-serra",
-        "tipo": "CASA",
-        "area_m2": 65,
-        "cep": "88060000",
-        "logradouro": "Estrada das Palmeiras",
-        "numero": "KM 4, Lote 15",
-        "bairro": "Serra das Palmeiras",
-        "cidade": "Florianópolis",
-        "estado": "SC",
-        "titulo": "Casa Rústica - Serra das Palmeiras",
-        "descricao": "Casa rústica em ambiente tranquilo cercado pela natureza, ideal para quem busca conforto, privacidade e qualidade de vida.",
-        "aluguel": "2050.00",
-        "quartos": 2,
-        "views_count": 124,
-        "quality_score": 7.8,
-    },
-    {
-        "key": "home-casa-terrea-jardim-flores",
-        "tipo": "CASA",
-        "area_m2": 110,
-        "cep": "88070000",
-        "logradouro": "Rua do Encanto",
-        "numero": "128",
-        "bairro": "Jardim das Flores",
-        "cidade": "Florianópolis",
-        "estado": "SC",
-        "titulo": "Casa Térrea Aconchegante - Bairro Jardim das Flores",
-        "descricao": "Casa térrea aconchegante, com ambientes amplos, iluminação natural e localização residencial próxima a comércio e serviços.",
-        "aluguel": "2300.00",
-        "quartos": 3,
-        "views_count": 98,
-        "quality_score": 7.5,
-    },
+    {"key": "mock-apartamento-centro", "asset": "property_1.png", "tipo": "APARTAMENTO", "area_m2": 60, "cep": "83540000", "logradouro": "Rua Barão do Rio Branco", "numero": "476", "bairro": "Cidade Nova", "cidade": "Curitiba", "estado": "PR", "titulo": "Apartamento Moderno - Centro", "descricao": "Apartamento com dormitório, varanda, cozinha americana e área de serviço.", "aluguel": "1900.00", "quartos": 1, "views_count": 156, "quality_score": 8.5},
+    {"key": "mock-casa-serra", "asset": "property_2.png", "tipo": "CASA", "area_m2": 95, "cep": "88060000", "logradouro": "Estrada das Palmeiras", "numero": "15", "bairro": "Serra das Palmeiras", "cidade": "Florianópolis", "estado": "SC", "titulo": "Casa Rústica - Serra das Palmeiras", "descricao": "Casa tranquila cercada pela natureza, ideal para conforto e privacidade.", "aluguel": "2050.00", "quartos": 2, "views_count": 124, "quality_score": 7.8},
+    {"key": "mock-casa-jardim", "asset": "property_3.png", "tipo": "CASA", "area_m2": 110, "cep": "88070000", "logradouro": "Rua do Encanto", "numero": "128", "bairro": "Jardim das Flores", "cidade": "Florianópolis", "estado": "SC", "titulo": "Casa Térrea Aconchegante - Jardim das Flores", "descricao": "Casa térrea com ambientes amplos, iluminação natural e localização residencial.", "aluguel": "2300.00", "quartos": 3, "views_count": 98, "quality_score": 7.5},
 ]
 
 
 class Command(BaseCommand):
-    help = "Cria ou atualiza os imóveis e anúncios de demonstração do catálogo local."
+    help = "Cria usuários, imóveis e anúncios locais de demonstração."
 
     @transaction.atomic
     def handle(self, *args, **options):
-        owner = User.objects.filter(email=DEMO_OWNER_EMAIL).first()
-        if not owner:
-            owner = User.objects.create_user(
-                email=DEMO_OWNER_EMAIL,
-                nome="Proprietário Demo Aluguel360",
-                cpf="99999999999",
-                senha=DEMO_OWNER_PASSWORD,
-                telefone="48999999999",
-                role=UserRole.PROPRIETARIO,
-                email_verificado=True,
+        users = []
+        for data in DEMO_USERS:
+            user, created = User.objects.get_or_create(
+                email=data["email"],
+                defaults={"nome": data["nome"], "telefone": data["telefone"], "role": UserRole.PROPRIETARIO, "email_verificado": True},
             )
-            self.stdout.write(f"Usuário demo criado: {DEMO_OWNER_EMAIL}")
-        elif not owner.is_active:
-            raise CommandError(f"O usuário demo {DEMO_OWNER_EMAIL} existe, mas está inativo.")
+            if created:
+                user.set_password(DEMO_PASSWORD)
+                user.cpf_hash = User.hash_cpf(data["cpf"])
+                user.save(update_fields=["password", "cpf_hash"])
+            users.append(user)
 
         now = timezone.now()
         expires_at = now + timedelta(days=90)
         created_listings = 0
         updated_listings = 0
-        retired_legacy_listings = 0
-
-        for data in DEMO_PROPERTIES:
-            legacy_properties = Property.objects.filter(
-                features__demo_seed_key=data["key"],
-            ).exclude(owner=owner)
-            legacy_listings = Listing.objects.filter(
-                property__in=legacy_properties,
-                status=ListingStatus.PUBLICADO,
-            )
-            retired_legacy_listings += legacy_listings.update(status=ListingStatus.EXPIRADO)
-            legacy_properties.update(deleted_at=now, status=PropertyStatus.INATIVO)
-
-            property_obj = Property.objects.filter(
+        for index, data in enumerate(DEMO_PROPERTIES):
+            owner = users[index % len(users)]
+            prop, _ = Property.objects.update_or_create(
                 owner=owner,
                 features__demo_seed_key=data["key"],
-            ).first()
-            property_defaults = {
-                "tipo": data["tipo"],
-                "area_m2": data["area_m2"],
-                "cep": data["cep"],
-                "logradouro": data["logradouro"],
-                "numero": data["numero"],
-                "bairro": data["bairro"],
-                "cidade": data["cidade"],
-                "estado": data["estado"],
-                "status": PropertyStatus.ATIVO,
-                "features": {
-                    "demo_seed_key": data["key"],
-                    "mobiliado": False,
-                    "pets": True,
+                defaults={
+                    "tipo": data["tipo"], "area_m2": data["area_m2"], "cep": data["cep"], "logradouro": data["logradouro"],
+                    "numero": data["numero"], "bairro": data["bairro"], "cidade": data["cidade"], "estado": data["estado"],
+                    "status": PropertyStatus.ATIVO, "features": {"demo_seed_key": data["key"], "mobiliado": False, "pets": True},
                 },
-            }
-            if property_obj:
-                for field, value in property_defaults.items():
-                    setattr(property_obj, field, value)
-                property_obj.save()
-            else:
-                property_obj = Property.objects.create(owner=owner, **property_defaults)
-
-            PropertyRoom.objects.update_or_create(
-                property=property_obj,
-                tipo="quartos",
-                defaults={"quantidade": data["quartos"]},
             )
-
-            listing = Listing.objects.filter(property=property_obj, titulo=data["titulo"]).first()
-            listing_defaults = {
-                "owner": owner,
-                "descricao": data["descricao"],
-                "extra_info": "Dados locais de demonstração para validação do catálogo público.",
-                "aluguel": data["aluguel"],
-                "negociavel": False,
-                "status": ListingStatus.PUBLICADO,
-                "views_count": data["views_count"],
-                "quality_score": data["quality_score"],
-                "published_at": listing.published_at if listing and listing.published_at else now,
-                "expires_at": expires_at,
-            }
-            if listing:
-                for field, value in listing_defaults.items():
-                    setattr(listing, field, value)
-                listing.save()
-                updated_listings += 1
-            else:
-                Listing.objects.create(property=property_obj, titulo=data["titulo"], **listing_defaults)
-                created_listings += 1
-
-        self.stdout.write(
-            self.style.SUCCESS(
-                f"Catálogo demo pronto: {created_listings} anúncios criados, "
-                f"{updated_listings} anúncios atualizados, "
-                f"{retired_legacy_listings} anúncios legados retirados. "
-                f"Proprietário: {owner.email}"
+            PropertyRoom.objects.update_or_create(property=prop, tipo="quartos", defaults={"quantidade": data["quartos"]})
+            listing, created = Listing.objects.update_or_create(
+                property=prop,
+                titulo=data["titulo"],
+                defaults={
+                    "owner": owner, "descricao": data["descricao"], "extra_info": "Dados locais de demonstração baseados nos mocks do frontend.",
+                    "aluguel": data["aluguel"], "negociavel": False, "status": ListingStatus.PUBLICADO,
+                    "views_count": data["views_count"], "quality_score": data["quality_score"], "published_at": now, "expires_at": expires_at,
+                },
             )
-        )
+            media_name = data["asset"]
+            media_path = Path(settings.BASE_DIR) / "seed_media" / media_name
+            if media_path.exists() and not Media.objects.filter(listing=listing, nome=media_name).exists():
+                with media_path.open("rb") as media_file:
+                    stored = get_media_storage().save(File(media_file, name=media_name), user_id=str(owner.id), media_type=MediaType.FOTO)
+                Media.objects.create(
+                    user=owner, property=prop, listing=listing, tipo=MediaType.FOTO,
+                    url=stored.url, url_optimized=stored.url, thumbnail_url=stored.url,
+                    public_id=stored.public_id, nome=media_name, tamanho_mb=media_path.stat().st_size / (1024 * 1024),
+                    formato=media_path.suffix.lstrip(".").lower(), is_highlight=True,
+                )
+            created_listings += int(created)
+            updated_listings += int(not created)
+
+        self.stdout.write(self.style.SUCCESS(f"Dados demo carregados: {len(users)} usuários, {created_listings} anúncios criados, {updated_listings} atualizados."))

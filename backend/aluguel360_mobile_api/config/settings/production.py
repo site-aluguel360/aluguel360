@@ -24,16 +24,16 @@ CSRF_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SAMESITE = 'Lax'
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', cast=Csv(), default='')
 
-# Content Security Policy. Cloudinary is the only external media origin.
+# Content Security Policy. Media uses the same origin.
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     *MIDDLEWARE,
     'csp.middleware.CSPMiddleware',
 ]
 CSP_DEFAULT_SRC = ("'self'",)
-CSP_IMG_SRC = ("'self'", 'data:', 'https://res.cloudinary.com')
-CSP_MEDIA_SRC = ("'self'", 'https://res.cloudinary.com')
-CSP_CONNECT_SRC = ("'self'", 'https://api.cloudinary.com')
+CSP_IMG_SRC = ("'self'", 'data:')
+CSP_MEDIA_SRC = ("'self'",)
+CSP_CONNECT_SRC = ("'self'",)
 
 # PostgreSQL must use TLS outside the local Docker development network.
 DATABASES['default']['OPTIONS']['sslmode'] = config('DB_SSLMODE', default='require')

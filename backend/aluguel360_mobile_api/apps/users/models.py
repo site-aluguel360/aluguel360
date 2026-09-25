@@ -54,7 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     telefone = models.CharField(max_length=20, blank=True, null=True)
     data_nascimento = models.DateField(blank=True, null=True)
     avatar_url = models.URLField(blank=True, null=True)
-    avatar_public_id = models.CharField(max_length=200, blank=True, null=True)  # Cloudinary ID
+    avatar_public_id = models.CharField(max_length=200, blank=True, null=True)  # Identificador no storage local
     role = models.CharField(max_length=20, choices=UserRole.choices, default=UserRole.INQUILINO)
     email_verificado = models.BooleanField(default=False)
 

@@ -140,3 +140,43 @@ export function toListingPayload(form, propertyId) {
     garantia: guaranteeMap[form.guarantee] || "SEM_GARANTIA",
   };
 }
+
+export function adaptListingDetail(item) {
+  const address = item?.property_address || {};
+  const rooms = item?.property_rooms || [];
+  const roomValue = (type) => rooms.find((room) => room.tipo === type)?.quantidade || 0;
+  const medias = (item?.medias || []).map((media) => ({
+    tipo: media.tipo === "VIDEO" ? "video" : "foto",
+    thumb: media.thumbnail_url || media.url_optimized || media.url || "",
+    url: media.tipo === "VIDEO" ? (media.url_optimized || media.url || "") : "",
+  }));
+  const location = [address.logradouro, address.numero, address.bairro].filter(Boolean).join(", ");
+  return {
+    ...item,
+    id: item?.id,
+    titulo: item?.titulo || "Não informado",
+    nome: item?.titulo || "Não informado",
+    descricao: item?.descricao || "Não informado",
+    preco: Number(item?.aluguel || 0),
+    area: item?.property_address?.area_m2 || item?.area_m2 || 0,
+    quartos: roomValue("quartos"),
+    endereco: location || "Não informado",
+    cidade: [address.cidade, address.estado].filter(Boolean).join(" - ") || "Não informado",
+    midia: medias.length ? medias : [{ tipo: "foto", thumb: "", url: "" }],
+    fotoPrincipal: medias.find((media) => media.tipo === "foto")?.thumb || "",
+    despesas: {
+      iptu: item?.iptu_valor ?? "Não informado",
+      garantia: item?.garantia || "Não informado",
+      agua: "Não informado",
+      energia: "Não informado",
+      condominio: item?.condominio_valor ?? "Não informado",
+      manutencao: "Não informado",
+      seguroIncendio: "Não informado",
+    },
+    informacoesRelevantes: item?.extra_info || "Não informado",
+    avaliacaoMedia: 0,
+    totalAvaliacoes: 0,
+    distribuicaoEstrelas: { "1": 0, "2": 0, "3": 0, "4": 0, "5": 0 },
+    imoveisRelacionados: [],
+  };
+}
