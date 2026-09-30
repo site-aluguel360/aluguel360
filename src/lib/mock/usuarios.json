@@ -1,0 +1,50 @@
+{
+  "nome": "Carlos Alberto Silva",
+  "email": "carlos.silva@imobiliaria.com.br",
+  "telefone": "(86) 99812-3456",
+  "cpf": "123.***.**-10",
+  "creci": "CRECI-PI 12.345-F",
+  "dataCadastro": "01/02/2023",
+  "iniciais": "CA",
+  "cadastroCompleto": false,
+  "tipo": "Corretor Autônomo",
+  "enderecos": {
+    "total": 2,
+    "principal": {
+      "rua": "Rua Elias Oka, 1354 - Sala 3",
+      "bairro": "Irapuá",
+      "cidade": "Floriano",
+      "estado": "PI",
+      "cep": "64800-971"
+    }
+  },
+  "anuncios": {
+    "ativos": 8,
+    "pausados": 2,
+    "encerrados": 5,
+    "visualizacoesTotal": 1420,
+    "contatosRecebidos": 73,
+    "notaMedia": 8.5,
+    "notaMaxima": 10
+  },
+  "imoveis": {
+    "total": 15,
+    "alugados": 6,
+    "disponíveis": 7,
+    "rascunho": 2
+  },
+  "midias": {
+    "fotos": 94,
+    "videos": 11
+  },
+  "seguranca": {
+    "metodosVerificacao": 1,
+    "dispositivosVinculados": 0,
+    "alertas": 0,
+    "permissaoLocalizacao": true
+  },
+  "privacidade": {
+    "alertas": 0,
+    "permissaoLocalizacao": true
+  }
+}

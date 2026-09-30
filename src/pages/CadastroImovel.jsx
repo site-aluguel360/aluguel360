@@ -109,7 +109,7 @@ function TitleBlock({ title, subtitle }) {
       <h2 className="font-['Poppins'] text-[18px] font-semibold leading-tight text-secondary sm:text-[20px]">
         {title}
       </h2>
-      <p className="mt-1 font-['Inter'] text-[13px] leading-snug text-[#2d2d2d] sm:text-[14px]">
+      <p className="mt-1 font-['Inter'] text-[13px] leading-snug text-foreground sm:text-[14px]">
         {subtitle}
       </p>
     </div>
@@ -127,7 +127,7 @@ function TextField({ label, hint, className = "", ...props }) {
       <Input
 
 
-        className="mt-1 h-8 w-full min-w-0 rounded-[8px] border border-[#c9c9c9] bg-white px-2 font-['Inter'] text-[13px] text-[#333] shadow-none transition-colors duration-200 placeholder:text-[#999] focus-visible:border-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2c7e7b]"
+        className="mt-1 h-8 w-full min-w-0 rounded-[8px] border border-[#c9c9c9] bg-white px-2 font-['Inter'] text-[13px] text-[#333] shadow-none transition-colors duration-200 placeholder:text-[#999] focus-visible:border-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary"
         {...props}
       />
       {hint ? <p className="mt-1 font-['Inter'] text-[10px] text-[#555]">{hint}</p> : null}
@@ -140,7 +140,7 @@ function TextAreaField({ label, className = "", ...props }) {
     <label className={`block ${className}`}>
       <StepLabel>{label}</StepLabel>
       <Textarea
-        className="mt-1 min-h-[36px] rounded-[8px] border border-[#c9c9c9] bg-white px-2 py-1.5 font-['Inter'] text-[13px] text-[#333] shadow-none transition-colors duration-200 placeholder:text-[#999] focus-visible:border-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2c7e7b]"
+        className="mt-1 min-h-[36px] rounded-[8px] border border-[#c9c9c9] bg-white px-2 py-1.5 font-['Inter'] text-[13px] text-[#333] shadow-none transition-colors duration-200 placeholder:text-[#999] focus-visible:border-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary"
         {...props}
       />
     </label>
@@ -197,7 +197,7 @@ function FooterNav({ step, onBack, onNext }) {
         <Button
           type="button"
           onClick={onNext}
-          className="mt-1 h-[28px] rounded-[6px] bg-secondary px-4 font-['Poppins'] text-[14px] font-semibold text-white shadow-[0_1px_4px_rgba(0,0,0,0.18)] hover:bg-secondary-hover"
+          className="mt-1 h-[28px] rounded-[6px] bg-secondary px-4 font-['Poppins'] text-[14px] font-semibold text-white shadow-[0_1px_4px_rgba(0,0,0,0.18)] hover:bg-primary"
         >
           Próximo &gt;&gt;
         </Button>
@@ -362,7 +362,7 @@ function StepOnePanel({ form, setForm }) {
                 onChange={(event) =>
                   setForm((current) => ({ ...current, area: event.target.value }))
                 }
-                className="h-8 w-16 rounded-[8px] border-[#b9b9b9] px-2 text-center font-['Inter'] text-[16px] text-[#444] shadow-none focus-visible:ring-1 focus-visible:ring-[#2c7e7b]"
+                className="h-8 w-16 rounded-[8px] border-[#b9b9b9] px-2 text-center font-['Inter'] text-[16px] text-[#444] shadow-none focus-visible:ring-1 focus-visible:ring-secondary"
               />
             </div>
           </div>
@@ -414,13 +414,13 @@ function StepOnePanel({ form, setForm }) {
                     }
                   }}
                   autoFocus
-                  className="h-9 rounded-[10px] border border-[#c9c9c9] bg-white px-3 font-['Inter'] text-[14px] text-[#333] shadow-none focus-visible:border-secondary focus-visible:ring-[#2c7e7b]"
+                  className="h-9 rounded-[10px] border border-[#c9c9c9] bg-white px-3 font-['Inter'] text-[14px] text-[#333] shadow-none focus-visible:border-secondary focus-visible:ring-secondary"
                 />
                 <div className="flex gap-2">
                   <Button
                     type="button"
                     onClick={handleAddRoom}
-                    className="h-9 rounded-[10px] bg-secondary px-4 font-['Poppins'] text-[14px] font-semibold text-white hover:bg-secondary-hover"
+                    className="h-9 rounded-[10px] bg-secondary px-4 font-['Poppins'] text-[14px] font-semibold text-white hover:bg-primary"
                   >
                     Confirmar
                   </Button>
@@ -742,7 +742,7 @@ function StepTwoPanel({ form, setForm }) {
                 <Play className="h-7 w-7 fill-current" />
               </div>
             )}
-            <p className="max-w-full font-['Inter'] text-[14px] leading-tight text-[#2d2d2d] sm:max-w-[280px]">
+            <p className="max-w-full font-['Inter'] text-[14px] leading-tight text-foreground sm:max-w-[280px]">
               Envie um Vídeo curto de pelo menos <strong>1 minuto</strong> mostrando todo o imóvel.
             </p>
           </div>
@@ -750,7 +750,7 @@ function StepTwoPanel({ form, setForm }) {
             type="button"
             variant="outline"
             onClick={handleVideoClick}
-            className="mt-3 h-[38px] rounded-[10px] border-[1px] border-[#111] bg-[#9c9c9c] px-4 font-['Poppins'] text-[16px] font-semibold text-[#333] shadow-none hover:bg-[#8f8f8f]"
+            className="mt-3 h-[38px] rounded-[10px] border-[1px] border-[#111] bg-neutral px-4 font-['Poppins'] text-[16px] font-semibold text-[#333] shadow-none hover:bg-[#8f8f8f]"
           >
             {form.video ? "Trocar vídeo" : "Enviar vídeo"}
           </Button>
@@ -937,7 +937,7 @@ function StepFourPanel({ form, setForm }) {
                 value={form.rent}
                 onChange={(event) => setForm((current) => ({ ...current, rent: event.target.value }))}
               />
-              <label className="flex shrink-0 items-center gap-2 pb-0 font-['Inter'] text-[16px] text-[#2d2d2d] md:pb-2">
+              <label className="flex shrink-0 items-center gap-2 pb-0 font-['Inter'] text-[16px] text-foreground md:pb-2">
                 <input
                   type="checkbox"
                   checked={form.negotiable}
@@ -959,7 +959,7 @@ function StepFourPanel({ form, setForm }) {
                   setForm((current) => ({ ...current, condoFee: event.target.value }))
                 }
               />
-              <label className="flex shrink-0 items-center gap-2 pb-0 font-['Inter'] text-[16px] text-[#2d2d2d] md:pb-2">
+              <label className="flex shrink-0 items-center gap-2 pb-0 font-['Inter'] text-[16px] text-foreground md:pb-2">
                 <input
                   type="checkbox"
                   checked={form.condoIncluded}
@@ -981,7 +981,7 @@ function StepFourPanel({ form, setForm }) {
                   setForm((current) => ({ ...current, iptuFee: event.target.value }))
                 }
               />
-              <label className="flex items-center gap-2 whitespace-nowrap pb-0 font-['Inter'] text-[16px] text-[#2d2d2d] md:pb-2">
+              <label className="flex items-center gap-2 whitespace-nowrap pb-0 font-['Inter'] text-[16px] text-foreground md:pb-2">
                 <input
                   type="checkbox"
                   checked={form.iptuIncluded}
@@ -1003,7 +1003,7 @@ function StepFourPanel({ form, setForm }) {
                   setForm((current) => ({ ...current, otherFees: event.target.value }))
                 }
               />
-              <label className="flex shrink-0 items-center gap-2 pb-0 font-['Inter'] text-[16px] text-[#2d2d2d] md:pb-2">
+              <label className="flex shrink-0 items-center gap-2 pb-0 font-['Inter'] text-[16px] text-foreground md:pb-2">
                 <input
                   type="checkbox"
                   className="h-5 w-5 rounded border-secondary accent-secondary"
@@ -1019,7 +1019,7 @@ function StepFourPanel({ form, setForm }) {
                   {guaranteeOptions.map((option) => {
                     const active = form.guarantee === option;
                     return (
-                      <label key={option} className="flex items-center gap-3 font-['Inter'] text-[14px] text-[#2d2d2d]">
+                      <label key={option} className="flex items-center gap-3 font-['Inter'] text-[14px] text-foreground">
                         <span
                           className={`flex h-5 w-5 items-center justify-center rounded-[4px] border ${active
                             ? "border-secondary bg-secondary text-white"
@@ -1157,7 +1157,7 @@ function StepSixPanel({ setStep, form }) {
       <Shell className="p-2 sm:p-3">
         <StepLabel>Informações preenchidas</StepLabel>
         <div className="mt-2 rounded-[4px] border border-[#bfc7cb] p-3 pb-0 pt-2">
-          <div className="space-y-3 font-['Inter'] text-[15px] text-[#2d2d2d]">
+          <div className="space-y-3 font-['Inter'] text-[15px] text-foreground">
             {[
               "Informações básicas concluídas",
               "Localização Confirmada",
@@ -1314,7 +1314,7 @@ export function CadastroImovel() {
                     <Button
                       type="button"
                       onClick={goNext}
-                      className="mt-3 h-[42px] rounded-[10px] bg-secondary px-3 font-['Poppins'] text-[16px] font-semibold text-white shadow-[0_3px_8px_rgba(0,0,0,0.2)] hover:bg-secondary-hover"
+                      className="mt-3 h-[42px] rounded-[10px] bg-secondary px-3 font-['Poppins'] text-[16px] font-semibold text-white shadow-[0_3px_8px_rgba(0,0,0,0.2)] hover:bg-primary"
                     >
                       Quero anunciar <ChevronRight className="ml-1 h-5 w-5" />
                     </Button>
@@ -1407,7 +1407,7 @@ export function CadastroImovel() {
                   <div className="mb-6 flex justify-center">
                     <Button
                       type="button"
-                      className="mx-auto mt-2 flex h-9 lg:h-10 w-full max-w-xs sm:w-auto sm:min-w-[200px] items-center justify-center gap-2 rounded-[6px] bg-secondary px-6 font-['Poppins'] text-[15px] font-semibold text-white shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-colors hover:bg-secondary-hover"
+                      className="mx-auto mt-2 flex h-9 lg:h-10 w-full max-w-xs sm:w-auto sm:min-w-[200px] items-center justify-center gap-2 rounded-[6px] bg-secondary px-6 font-['Poppins'] text-[15px] font-semibold text-white shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-colors hover:bg-primary"
                     >
                       Publicar Anúncio
                     </Button>

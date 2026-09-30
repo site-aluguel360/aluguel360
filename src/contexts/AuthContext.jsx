@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from 'react';
 
-const AuthContext = createContext({});
+export const AuthContext = createContext({});
 
 export function AuthProvider({ children }) {
   // Estado global para controlar se o usuário está logado
@@ -14,8 +14,4 @@ export function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuth() {
-  return useContext(AuthContext);
 }

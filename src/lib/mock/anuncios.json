@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "titulo": "Casa Moderna no Centro",
+    "endereco": "Rua Elisa Oka, 123",
+    "preco": "2.300",
+    "status": "ativo",
+    "visualizacoes": 45,
+    "mensagens": 3,
+    "favoritos": 8
+  },
+  {
+    "id": 2,
+    "titulo": "Apartamento Aconchegante",
+    "endereco": "Avenida Getúlio Vargas, 456",
+    "preco": "1.800",
+    "status": "ativo",
+    "visualizacoes": 32,
+    "mensagens": 1,
+    "favoritos": 5
+  }
+]
