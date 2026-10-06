@@ -39,29 +39,32 @@ A proposta é reunir em uma única plataforma funcionalidades que normalmente s�
 
 ### Front-end
 
-* React
+* React 18 + Vite
 * Tailwind CSS
 * shadcn/ui
 
 ### Back-end
 
-* Node.js
-* Express
+* Django 5 (Python 3.12)
+* Django REST Framework (DRF)
+* Celery + Redis (Processamento Assíncrono)
+* Swagger/OpenAPI (drf-spectacular)
 
 ### Banco de Dados
 
-* PostgreSQL
+* PostgreSQL (com extensão PostGIS para geolocalização)
+* Redis (Cache e Broker)
 
 ## Arquitetura
 
 ```text
-Frontend (React)
+Frontend (React/Vite)
         │
         ▼
-API REST (Node.js)
+API REST (Django/DRF)
         │
         ▼
-PostgreSQL
+PostgreSQL + Redis
 ```
 
 ## Estrutura do Projeto
@@ -69,50 +72,64 @@ PostgreSQL
 ```text
 aluguel360/
 │
-├── frontend/
-│
-├── backend/
-│
-├── database/
-│
-└── docs/
+├── backend/aluguel360_mobile_api/   # API Django, Celery e Docker Compose
+├── public/                          # Assets estáticos do Frontend
+├── src/                             # Código fonte do Frontend (React)
+├── mds/                             # Documentação, Requisitos e Tarefas
+└── package.json                     # Dependências do Frontend
 ```
 
-## Como Executar
+## Como Executar (Configuração em um PC Novo)
 
-### Clonar o projeto
+### Pré-requisitos
+* **Node.js** (v18+)
+* **Python** (3.12+)
+* **Docker Desktop** instalado e em execução
+
+### 1. Clonar o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/aluguel360.git
+git clone https://github.com/site-aluguel360/aluguel360.git
+cd aluguel360
 ```
 
-### Instalar dependências
+### 2. Configurar e Executar o Backend (Django + Docker)
 
-Backend:
+O backend é totalmente containerizado utilizando Docker Compose, facilitando o processo.
 
 ```bash
-cd backend
+cd backend/aluguel360_mobile_api
+
+# Crie o arquivo de variáveis de ambiente a partir do exemplo
+cp .env.example .env
+# (Edite o .env se necessário, as configurações padrão funcionam localmente)
+
+# Suba os containers (Postgres, Redis, Django, Celery, Celery Beat)
+docker compose up -d --build
+
+# Execute as migrações do banco de dados
+docker compose exec django python manage.py migrate
+
+# Crie um superusuário para acessar o painel Admin
+docker compose exec django python manage.py createsuperuser
+```
+
+O Backend estará disponível em:
+* API e Swagger: [http://localhost:8000/api/docs/](http://localhost:8000/api/docs/)
+* Admin Django: [http://localhost:8000/admin/](http://localhost:8000/admin/)
+
+### 3. Configurar e Executar o Frontend (React/Vite)
+
+Volte para a raiz do projeto (onde o `package.json` está localizado):
+
+```bash
+cd ../../
+# ou abra um novo terminal na pasta raiz 'aluguel360'
+
+# Instale as dependências
 npm install
-```
 
-Frontend:
-
-```bash
-cd frontend
-npm install
-```
-
-### Executar aplicação
-
-Backend:
-
-```bash
-npm run dev
-```
-
-Frontend:
-
-```bash
+# Execute a aplicação
 npm run dev
 ```
 
