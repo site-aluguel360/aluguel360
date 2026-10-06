@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { BarraFiltros } from "../components/BarraFiltros";
 import { FiltroLateral } from "../components/FiltroLateral";
 import { FiltroPreco } from "../components/FiltroPreco";
@@ -32,7 +32,17 @@ function buildQuery(filters) {
 }
 
 export function ResultadosPesquisa() {
-  const [filters, setFilters] = useState(INITIAL_FILTERS);
+  const location = useLocation();
+  const [filters, setFilters] = useState(() => {
+    const p = new URLSearchParams(location.search);
+    return {
+      ...INITIAL_FILTERS,
+      tipo: p.get("tipo") || "",
+      mobiliado: p.get("mobiliado") === "true",
+      cidade: p.get("cidade") || "",
+      estado: p.get("estado") || "",
+    };
+  });
   const [pageUrl, setPageUrl] = useState("");
   const [page, setPage] = useState({ next: null, previous: null });
   const [imoveis, setImoveis] = useState([]);

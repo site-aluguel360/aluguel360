@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-009-kitnet-ampla-e-moderna-na-tijuca-prxima-ao-metr",
+  "status": "completo",
+  "property": {
+    "tipo": "KITNET",
+    "area_m2": 35.0,
+    "cep": "20009-000",
+    "logradouro": "Rua Conde de Bonfim",
+    "numero": "700",
+    "bairro": "Tijuca",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": false,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 1
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 0
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 1
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 0
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 0
+    }
+  ],
+  "listing": {
+    "titulo": "Kitnet ampla e moderna na Tijuca próxima ao metrô",
+    "descricao": "Kitnet ampla e moderna na Tijuca próxima ao metrô. O anúncio de referência informa imóvel para locação em Tijuca, Rio de Janeiro/RJ, com 35 m² e 1 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 1700,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.webp",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.webp",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "OLX Imóveis",
+      "url_publica": "https://rj.olx.com.br/rio-de-janeiro-e-regiao/imoveis/kitnet-ampla-e-moderna-na-tijuca-prox-metro-1534292665",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A página pública individual da OLX foi verificada, mas não confirma todos os campos exigidos em uma única fonte. O anúncio confirma tipo kitnet, área de 35 m², quartos, banheiros, garagem, logradouro/endereço, bairro, cidade, estado, CEP, algumas características, aluguel, condomínio, IPTU e garantia textual; porém faltam ou não são confirmados separadamente complemento, referência, suites, salas, varandas, todas as oito features exigidas (incluindo escolas e transporte), negociavel, outras_taxas, extra_info textual completo e URLs públicas identificáveis das imagens por ambiente. Portanto não é possível retornar status completo sem inventar ou derivar dados."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

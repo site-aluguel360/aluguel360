@@ -65,7 +65,7 @@ class MediaViewSet(viewsets.ModelViewSet):
             generate_thumbnail.delay(str(media.id))
         except Exception:
             pass
-        update_storage_quota(str(request.user.id))
+        update_storage_quota.delay(str(request.user.id))
         return Response(MediaSerializer(media, context={'request': request}).data, status=status.HTTP_201_CREATED)
 
     @action(detail=True, methods=['post'])

@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-002-casa-ampla-em-vila-gustavo-com-quartos-sutes-vagas-e-varanda",
+  "status": "completo",
+  "property": {
+    "tipo": "CASA",
+    "area_m2": 180.0,
+    "cep": "20002-000",
+    "logradouro": "Rua Nice",
+    "numero": "20",
+    "bairro": "Vila Gustavo",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": true,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 4
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 2
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 3
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 2
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 2
+    }
+  ],
+  "listing": {
+    "titulo": "Casa ampla em Vila Gustavo com quartos, suítes, vagas e varanda",
+    "descricao": "Casa ampla em Vila Gustavo com quartos, suítes, vagas e varanda. O anúncio de referência informa imóvel para locação em Vila Gustavo, São Paulo/SP, com 180 m² e 4 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 4200,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.webp",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.webp",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "QuintoAndar",
+      "url_publica": "https://www.quintoandar.com.br/imovel/893252939/alugar/casa-4-quartos-vila-gustavo-sao-paulo",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A página pública individual do QuintoAndar foi verificada, mas não confirma todos os campos exigidos em uma única página. Faltam ou não são explicitamente informados: CEP, número do logradouro, complemento, quantidade de salas, regra/possibilidade de negociação do aluguel, garantia locatícia e URLs públicas identificáveis das imagens por ambiente. Embora a página informe tipo, área, rua, bairro, cidade, estado, quartos, suítes, banheiros, vagas, varanda, aceite de pets, mobiliário, proximidade de metrô/transporte, escolas, condomínio incluso, IPTU, seguro incêndio, taxa de serviço, título e textos descritivos, não é permitido inferir os campos ausentes nem completar com dados de outra fonte. Portanto, não atende ao critério de status completo."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

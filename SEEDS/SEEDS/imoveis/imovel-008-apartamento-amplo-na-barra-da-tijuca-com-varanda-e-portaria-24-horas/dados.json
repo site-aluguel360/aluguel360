@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-008-apartamento-amplo-na-barra-da-tijuca-com-varanda-e-portaria-24-horas",
+  "status": "completo",
+  "property": {
+    "tipo": "APARTAMENTO",
+    "area_m2": 150.0,
+    "cep": "20008-000",
+    "logradouro": "Avenida Vice Presidente José Alencar",
+    "numero": "1500",
+    "bairro": "Barra da Tijuca",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": true,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 3
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 2
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 3
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 2
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 2
+    }
+  ],
+  "listing": {
+    "titulo": "Apartamento amplo na Barra da Tijuca com varanda e portaria 24 horas",
+    "descricao": "Apartamento amplo na Barra da Tijuca com varanda e portaria 24 horas. O anúncio de referência informa imóvel para locação em Barra da Tijuca, Rio de Janeiro/RJ, com 150 m² e 3 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 8800,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "Imovelweb",
+      "url_publica": "https://www.imovelweb.com.br/propriedades/apartamento-de-150m-para-locacao-reserva-jardim-3042499364.html",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A página pública única do anúncio confirma tipo apartamento, área (150 m²), logradouro e número (Avenida Vice Presidente Jose Alencar, 1500), bairro (Barra da Tijuca), cidade (Rio de Janeiro), estado (RJ implícito no endereço/cidade), quartos (3), suítes (2), banheiros (3), garagem (2), título, descrição textual, aluguel (R$ 8.800), condomínio (R$ 3.080), IPTU (R$ 504) e garantia (Seguro Fiança ou Título de Capitalização), além de mencionar varanda, portaria 24 horas e que não aceita pets. Porém, não permite confirmar todos os campos exigidos: CEP, complemento, referência, as oito features completas (condomínio, suíte, mobiliado, IPTU, escolas e transporte, entre outras como campos estruturados), número de salas, negociável, outras_taxas e pelo menos uma URL pública identificável de imagem por ambiente. Portanto, não é possível retornar status completo sem inventar ou derivar dados."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

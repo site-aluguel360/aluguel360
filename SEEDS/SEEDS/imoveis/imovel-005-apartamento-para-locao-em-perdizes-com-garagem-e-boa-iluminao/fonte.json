@@ -1,0 +1,54 @@
+{
+  "site": "Chaves na Mão",
+  "url_publica": "https://www.chavesnamao.com.br/imovel/apartamento-para-alugar-1-quarto-com-garagem-sp-sao-paulo-perdizes-42m2-RS3000/id-43474755/",
+  "coletado_em": "2026-10-05",
+  "imagem_fontes": [
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/eAThu5yfwYiavvZxV7DqSS.jpg",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/YgVHajZnu3YX3yUMv4HeHW.jpeg",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/pkp2pq6fwBRmzEe46DfpKi.jpeg"
+  ],
+  "observacao": "Imagens públicas localizadas em páginas de anúncios/listagens reais; uso restrito a seed local de desenvolvimento.",
+  "galeria": {
+    "capa": "midias/capa01.jpg",
+    "fachada": "midias/fachada01.jpg",
+    "ambientes": [
+      "sala",
+      "cozinha",
+      "quarto",
+      "banheiro"
+    ],
+    "quantidade": 6
+  },
+  "midias_consultadas": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "LdHRpllVrxMb.jpg"
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "categoria_visual": "fachada",
+      "arquivo_origem": "fQUDu0vnvoyF.jpg"
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "LdHRpllVrxMb.jpg"
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "categoria_visual": "cozinha",
+      "arquivo_origem": "Vw9ZENVCMYRC.jpeg"
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "categoria_visual": "quarto",
+      "arquivo_origem": "YWcVLZFfCNmk.jpg"
+    },
+    {
+      "arquivo": "midias/banheiro01.webp",
+      "categoria_visual": "banheiro",
+      "arquivo_origem": "JQ5s37B6gteQ.webp"
+    }
+  ]
+}

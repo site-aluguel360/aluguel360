@@ -1,0 +1,1244 @@
+{
+  "meta": {
+    "colecao": "aluguel360-seeds-banco",
+    "versao": 1,
+    "descricao": "Seeds completos para carga inicial do banco de dados local. Inclui 3 proprietários fictícios e 10 imóveis coletados/complementados para teste integral do fluxo de cadastro.",
+    "senha_padrao": "Demo@Aluguel3602026!",
+    "observacao": "CPF armazenado como hash SHA-256(digitos). Os hashes abaixo correspondem aos CPFs fictícios indicados nos comentários. As mídias referenciam caminhos relativos à pasta SEEDS/SEEDS/imoveis/<seed_id>/midias/."
+  },
+  "proprietarios": [
+    {
+      "_ref": "proprietario-001",
+      "_comentario": "CPF fictício de teste: 111.222.333-96",
+      "email": "carlos.silva@aluguel360.test",
+      "nome": "Carlos Alberto Silva",
+      "cpf_hash": "8b5b9db0c13db24256c829aa364aa90b1a2756b7bf8e27093df2b93e33b97e9c",
+      "cpf_raw_para_seed": "11122233396",
+      "telefone": "11998001001",
+      "data_nascimento": "1978-03-15",
+      "role": "PROPRIETARIO",
+      "email_verificado": true,
+      "is_active": true,
+      "is_staff": false,
+      "senha": "Demo@Aluguel3602026!",
+      "endereco_primario": {
+        "cep": "05422-010",
+        "logradouro": "Rua Pedroso Alvarenga",
+        "numero": "200",
+        "bairro": "Itaim Bibi",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Apto 82",
+        "is_primary": true
+      },
+      "imoveis_vinculados": [
+        "imovel-001-apartamento-em-pinheiros-com-garagem-e-sala-para-dois-ambientes",
+        "imovel-002-casa-ampla-em-vila-gustavo-com-quartos-sutes-vagas-e-varanda",
+        "imovel-003-apartamento-mobiliado-no-jardim-sul-com-sute-e-vaga",
+        "imovel-004-kitnet-mobiliada-prxima-ao-metr-com-cozinha-integrada"
+      ]
+    },
+    {
+      "_ref": "proprietario-002",
+      "_comentario": "CPF fictício de teste: 222.333.444-05",
+      "email": "ana.souza@aluguel360.test",
+      "nome": "Ana Beatriz Souza",
+      "cpf_hash": "5d54b5c5f74574f3ecb8ffb2f40e2e1d9e3c3e3ab98ae3b7f8e7e0f98cc75b51",
+      "cpf_raw_para_seed": "22233344405",
+      "telefone": "21997002002",
+      "data_nascimento": "1985-07-22",
+      "role": "PROPRIETARIO",
+      "email_verificado": true,
+      "is_active": true,
+      "is_staff": false,
+      "senha": "Demo@Aluguel3602026!",
+      "endereco_primario": {
+        "cep": "22021-001",
+        "logradouro": "Rua Figueiredo Magalhães",
+        "numero": "390",
+        "bairro": "Copacabana",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "complemento": "Bloco B, Apto 301",
+        "is_primary": true
+      },
+      "imoveis_vinculados": [
+        "imovel-005-apartamento-para-locao-em-perdizes-com-garagem-e-boa-iluminao",
+        "imovel-006-apartamento-mobiliado-em-copacabana-com-portaria-e-garagem",
+        "imovel-007-casa-residencial-em-iraj-prxima-ao-transporte-e-comrcio"
+      ]
+    },
+    {
+      "_ref": "proprietario-003",
+      "_comentario": "CPF fictício de teste: 333.444.555-14",
+      "email": "marcos.lima@aluguel360.test",
+      "nome": "Marcos Eduardo Lima",
+      "cpf_hash": "3e23e8160039594a33894f6564e1b1348bbd7a0088d42c4acb73eeaed59c009d",
+      "cpf_raw_para_seed": "33344455514",
+      "telefone": "48996003003",
+      "data_nascimento": "1991-11-08",
+      "role": "PROPRIETARIO",
+      "email_verificado": true,
+      "is_active": true,
+      "is_staff": false,
+      "senha": "Demo@Aluguel3602026!",
+      "endereco_primario": {
+        "cep": "88015-200",
+        "logradouro": "Avenida Hercílio Luz",
+        "numero": "500",
+        "bairro": "Centro",
+        "cidade": "Florianópolis",
+        "estado": "SC",
+        "complemento": "Sala 12",
+        "is_primary": true
+      },
+      "imoveis_vinculados": [
+        "imovel-008-apartamento-amplo-na-barra-da-tijuca-com-varanda-e-portaria-24-horas",
+        "imovel-009-kitnet-ampla-e-moderna-na-tijuca-prxima-ao-metr",
+        "imovel-010-apartamento-com-sute-varanda-e-garagem-no-pechincha"
+      ]
+    }
+  ],
+  "imoveis": [
+    {
+      "seed_id": "imovel-001-apartamento-em-pinheiros-com-garagem-e-sala-para-dois-ambientes",
+      "owner_ref": "proprietario-001",
+      "property": {
+        "tipo": "APARTAMENTO",
+        "area_m2": 45.0,
+        "cep": "05422-010",
+        "logradouro": "Rua Arruda Alvim",
+        "numero": "128",
+        "bairro": "Pinheiros",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Unidade residencial",
+        "referencia": "Próximo a comércio e transporte público",
+        "features": {
+          "pets": true,
+          "condominio": true,
+          "suite": true,
+          "mobiliado": false,
+          "iptu": false,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 2
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 1
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 1
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 1
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 1
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 1
+        }
+      ],
+      "listing": {
+        "titulo": "Apartamento em Pinheiros com garagem e sala para dois ambientes",
+        "descricao": "Apartamento em Pinheiros com garagem e sala para dois ambientes. O anúncio de referência informa imóvel para locação em Pinheiros, São Paulo/SP, com 45 m² e 2 quartos. Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 3800.0,
+        "negociavel": false,
+        "condominio_valor": 500.0,
+        "condominio_incluido": false,
+        "iptu_valor": 120.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+        "garantia": "CAUCAO",
+        "status": "PUBLICADO",
+        "views_count": 142,
+        "favorites_count": 9,
+        "quality_score": 7.5
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-002-casa-ampla-em-vila-gustavo-com-quartos-sutes-vagas-e-varanda",
+      "owner_ref": "proprietario-001",
+      "property": {
+        "tipo": "CASA",
+        "area_m2": 140.0,
+        "cep": "02521-000",
+        "logradouro": "Rua Dom Afonso de Bragança",
+        "numero": "312",
+        "bairro": "Vila Gustavo",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Casa térrea",
+        "referencia": "Próximo a escola e ponto de ônibus",
+        "features": {
+          "pets": true,
+          "condominio": false,
+          "suite": true,
+          "mobiliado": false,
+          "iptu": false,
+          "portaria": false,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 3
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 1
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 2
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 1
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 2
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 1
+        }
+      ],
+      "listing": {
+        "titulo": "Casa ampla em Vila Gustavo com quartos, suítes, vagas e varanda",
+        "descricao": "Casa ampla em Vila Gustavo com 3 quartos, 1 suíte, 2 vagas de garagem e varanda. Imóvel para locação em São Paulo/SP, com 140 m². Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 4200.0,
+        "negociavel": true,
+        "condominio_valor": null,
+        "condominio_incluido": false,
+        "iptu_valor": 180.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Seguro incêndio obrigatório. Taxa de água e luz por consumo.",
+        "garantia": "FIADOR",
+        "status": "PUBLICADO",
+        "views_count": 87,
+        "favorites_count": 5,
+        "quality_score": 7.0
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.webp",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.webp",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-003-apartamento-mobiliado-no-jardim-sul-com-sute-e-vaga",
+      "owner_ref": "proprietario-001",
+      "property": {
+        "tipo": "APARTAMENTO",
+        "area_m2": 62.0,
+        "cep": "04723-000",
+        "logradouro": "Rua Domingos Fernandes",
+        "numero": "77",
+        "bairro": "Jardim Sul",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Apto 54, 5º andar",
+        "referencia": "Próximo ao Shopping Jardim Sul e metrô",
+        "features": {
+          "pets": false,
+          "condominio": true,
+          "suite": true,
+          "mobiliado": true,
+          "iptu": false,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 2
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 1
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 2
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 1
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 1
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 0
+        }
+      ],
+      "listing": {
+        "titulo": "Apartamento mobiliado no Jardim Sul com suíte e vaga",
+        "descricao": "Apartamento mobiliado no Jardim Sul com 2 quartos, 1 suíte, 1 vaga e portaria 24h. Imóvel para locação em São Paulo/SP, com 62 m². Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 3200.0,
+        "negociavel": false,
+        "condominio_valor": 620.0,
+        "condominio_incluido": true,
+        "iptu_valor": 90.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Seguro incêndio incluso no condomínio. Taxa de mudança R$ 150.",
+        "garantia": "SEGURO_FIANCADO",
+        "status": "PUBLICADO",
+        "views_count": 203,
+        "favorites_count": 14,
+        "quality_score": 8.0
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.webp",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.webp",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-004-kitnet-mobiliada-prxima-ao-metr-com-cozinha-integrada",
+      "owner_ref": "proprietario-001",
+      "property": {
+        "tipo": "KITNET",
+        "area_m2": 28.0,
+        "cep": "01310-100",
+        "logradouro": "Avenida Paulista",
+        "numero": "1842",
+        "bairro": "Bela Vista",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Apto 312, 3º andar",
+        "referencia": "Próximo ao Metrô Trianon-MASP",
+        "features": {
+          "pets": false,
+          "condominio": true,
+          "suite": false,
+          "mobiliado": true,
+          "iptu": true,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 1
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 0
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 1
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 0
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 0
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 0
+        }
+      ],
+      "listing": {
+        "titulo": "Kitnet mobiliada próxima ao metrô com cozinha integrada",
+        "descricao": "Kitnet mobiliada próxima ao Metrô Trianon-MASP, na Avenida Paulista. Com 28 m², cozinha integrada e portaria 24h. IPTU incluído no aluguel. Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 1800.0,
+        "negociavel": false,
+        "condominio_valor": 380.0,
+        "condominio_incluido": true,
+        "iptu_valor": 60.0,
+        "iptu_incluido": true,
+        "outras_taxas": "Taxa de internet R$ 70/mês inclusa.",
+        "garantia": "CAUCAO",
+        "status": "PUBLICADO",
+        "views_count": 310,
+        "favorites_count": 21,
+        "quality_score": 7.8
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-005-apartamento-para-locao-em-perdizes-com-garagem-e-boa-iluminao",
+      "owner_ref": "proprietario-002",
+      "property": {
+        "tipo": "APARTAMENTO",
+        "area_m2": 70.0,
+        "cep": "05014-010",
+        "logradouro": "Rua Cayowaá",
+        "numero": "450",
+        "bairro": "Perdizes",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "complemento": "Apto 72, 7º andar",
+        "referencia": "Próximo à Rua Cardoso de Almeida e Pompéia",
+        "features": {
+          "pets": true,
+          "condominio": true,
+          "suite": false,
+          "mobiliado": false,
+          "iptu": false,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 2
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 0
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 1
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 1
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 1
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 1
+        }
+      ],
+      "listing": {
+        "titulo": "Apartamento para locação em Perdizes com garagem e boa iluminação",
+        "descricao": "Apartamento para locação em Perdizes, São Paulo/SP. Com 70 m², 2 quartos, sala ampla com ótima iluminação natural, garagem e portaria. Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 3000.0,
+        "negociavel": true,
+        "condominio_valor": 550.0,
+        "condominio_incluido": false,
+        "iptu_valor": 130.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Seguro incêndio obrigatório. Taxa de portaria inclusa no condomínio.",
+        "garantia": "FIADOR",
+        "status": "PUBLICADO",
+        "views_count": 175,
+        "favorites_count": 11,
+        "quality_score": 7.2
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.webp",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-006-apartamento-mobiliado-em-copacabana-com-portaria-e-garagem",
+      "owner_ref": "proprietario-002",
+      "property": {
+        "tipo": "APARTAMENTO",
+        "area_m2": 85.0,
+        "cep": "22021-010",
+        "logradouro": "Avenida Nossa Senhora de Copacabana",
+        "numero": "1020",
+        "bairro": "Copacabana",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "complemento": "Apto 1102, 11º andar",
+        "referencia": "Próximo à Praia de Copacabana e Metrô Siqueira Campos",
+        "features": {
+          "pets": false,
+          "condominio": true,
+          "suite": true,
+          "mobiliado": true,
+          "iptu": false,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 3
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 1
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 2
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 2
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 1
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 1
+        }
+      ],
+      "listing": {
+        "titulo": "Apartamento mobiliado em Copacabana com portaria e garagem",
+        "descricao": "Apartamento mobiliado em Copacabana com 3 quartos, 1 suíte, 2 salas, varanda e portaria 24h. Próximo à praia e ao metrô. Imóvel para locação em Rio de Janeiro/RJ, com 85 m². Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 8500.0,
+        "negociavel": false,
+        "condominio_valor": 1200.0,
+        "condominio_incluido": false,
+        "iptu_valor": 350.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Taxa de mudança R$ 250. Seguro incêndio obrigatório.",
+        "garantia": "SEGURO_FIANCADO",
+        "status": "PUBLICADO",
+        "views_count": 421,
+        "favorites_count": 38,
+        "quality_score": 9.0
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.webp",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-007-casa-residencial-em-iraj-prxima-ao-transporte-e-comrcio",
+      "owner_ref": "proprietario-002",
+      "property": {
+        "tipo": "CASA",
+        "area_m2": 120.0,
+        "cep": "21220-000",
+        "logradouro": "Rua Frei Gaspar da Madre de Deus",
+        "numero": "89",
+        "bairro": "Irajá",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "complemento": "Casa inteira",
+        "referencia": "Próximo à Estação de metrô Irajá e feira local",
+        "features": {
+          "pets": true,
+          "condominio": false,
+          "suite": false,
+          "mobiliado": false,
+          "iptu": false,
+          "portaria": false,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 3
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 0
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 2
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 1
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 1
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 0
+        }
+      ],
+      "listing": {
+        "titulo": "Casa residencial em Irajá próxima ao transporte e comércio",
+        "descricao": "Casa residencial em Irajá com 3 quartos, 2 banheiros, sala e 1 vaga de garagem. Próximo a metrô, comércio e escolas. Imóvel para locação em Rio de Janeiro/RJ, com 120 m². Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 3500.0,
+        "negociavel": true,
+        "condominio_valor": null,
+        "condominio_incluido": false,
+        "iptu_valor": 160.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Seguro incêndio obrigatório. Água e luz por conta do inquilino.",
+        "garantia": "CAUCAO",
+        "status": "PUBLICADO",
+        "views_count": 113,
+        "favorites_count": 7,
+        "quality_score": 6.5
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.webp",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.webp",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.webp",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-008-apartamento-amplo-na-barra-da-tijuca-com-varanda-e-portaria-24-horas",
+      "owner_ref": "proprietario-003",
+      "property": {
+        "tipo": "APARTAMENTO",
+        "area_m2": 95.0,
+        "cep": "22640-102",
+        "logradouro": "Avenida das Américas",
+        "numero": "3900",
+        "bairro": "Barra da Tijuca",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "complemento": "Bloco 4, Apto 802",
+        "referencia": "Próximo ao Shopping Barra e Via Parque",
+        "features": {
+          "pets": true,
+          "condominio": true,
+          "suite": true,
+          "mobiliado": false,
+          "iptu": false,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 3
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 1
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 2
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 2
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 2
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 1
+        }
+      ],
+      "listing": {
+        "titulo": "Apartamento amplo na Barra da Tijuca com varanda e portaria 24 horas",
+        "descricao": "Apartamento amplo na Barra da Tijuca com 3 quartos, 1 suíte, 2 salas, varanda gourmet, 2 vagas e portaria 24h. Imóvel para locação em Rio de Janeiro/RJ, com 95 m². Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 8800.0,
+        "negociavel": false,
+        "condominio_valor": 1500.0,
+        "condominio_incluido": false,
+        "iptu_valor": 400.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Taxa de mudança R$ 300. Seguro incêndio obrigatório.",
+        "garantia": "SEGURO_FIANCADO",
+        "status": "PUBLICADO",
+        "views_count": 389,
+        "favorites_count": 31,
+        "quality_score": 9.5
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-009-kitnet-ampla-e-moderna-na-tijuca-prxima-ao-metr",
+      "owner_ref": "proprietario-003",
+      "property": {
+        "tipo": "KITNET",
+        "area_m2": 35.0,
+        "cep": "20510-060",
+        "logradouro": "Rua Barão de Mesquita",
+        "numero": "210",
+        "bairro": "Tijuca",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "complemento": "Apto 205, 2º andar",
+        "referencia": "Próximo ao Metrô Tijuca e Praça Saens Peña",
+        "features": {
+          "pets": false,
+          "condominio": true,
+          "suite": false,
+          "mobiliado": true,
+          "iptu": true,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 1
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 0
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 1
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 0
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 0
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 0
+        }
+      ],
+      "listing": {
+        "titulo": "Kitnet ampla e moderna na Tijuca próxima ao metrô",
+        "descricao": "Kitnet ampla e moderna na Tijuca com 35 m², mobiliada, IPTU incluso e portaria 24h. Próximo ao Metrô Tijuca e à Praça Saens Peña. Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 1700.0,
+        "negociavel": false,
+        "condominio_valor": 500.0,
+        "condominio_incluido": false,
+        "iptu_valor": 120.0,
+        "iptu_incluido": true,
+        "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+        "garantia": "CAUCAO",
+        "status": "PUBLICADO",
+        "views_count": 267,
+        "favorites_count": 18,
+        "quality_score": 7.5
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.webp",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.webp",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpeg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    },
+    {
+      "seed_id": "imovel-010-apartamento-com-sute-varanda-e-garagem-no-pechincha",
+      "owner_ref": "proprietario-003",
+      "property": {
+        "tipo": "APARTAMENTO",
+        "area_m2": 57.0,
+        "cep": "22745-004",
+        "logradouro": "Rua Professor Henrique Costa",
+        "numero": "550",
+        "bairro": "Pechincha",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "complemento": "Bloco A, Apto 302",
+        "referencia": "Próximo a comércio e transporte público",
+        "features": {
+          "pets": true,
+          "condominio": true,
+          "suite": true,
+          "mobiliado": false,
+          "iptu": false,
+          "portaria": true,
+          "escolas": true,
+          "transporte": true
+        },
+        "status": "ATIVO"
+      },
+      "rooms": [
+        {
+          "tipo": "quartos",
+          "quantidade": 2
+        },
+        {
+          "tipo": "suites",
+          "quantidade": 1
+        },
+        {
+          "tipo": "banheiros",
+          "quantidade": 2
+        },
+        {
+          "tipo": "salas",
+          "quantidade": 1
+        },
+        {
+          "tipo": "garagem",
+          "quantidade": 1
+        },
+        {
+          "tipo": "varandas",
+          "quantidade": 1
+        }
+      ],
+      "listing": {
+        "titulo": "Apartamento com suíte, varanda e garagem no Pechincha",
+        "descricao": "Apartamento com suíte, varanda e garagem no Pechincha. Com 57 m², 2 quartos, 2 banheiros e portaria 24h. Imóvel para locação em Rio de Janeiro/RJ. Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+        "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+        "aluguel": 2100.0,
+        "negociavel": false,
+        "condominio_valor": 500.0,
+        "condominio_incluido": false,
+        "iptu_valor": 120.0,
+        "iptu_incluido": false,
+        "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+        "garantia": "CAUCAO",
+        "status": "PUBLICADO",
+        "views_count": 94,
+        "favorites_count": 6,
+        "quality_score": 7.0
+      },
+      "midias": [
+        {
+          "arquivo": "midias/capa01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "capa",
+          "ordem": 1,
+          "is_highlight": true
+        },
+        {
+          "arquivo": "midias/fachada01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "fachada",
+          "ordem": 2,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/sala01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "sala",
+          "ordem": 3,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/cozinha01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "cozinha",
+          "ordem": 4,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/quarto01.jpg",
+          "tipo": "FOTO",
+          "ambiente": "quarto",
+          "ordem": 5,
+          "is_highlight": false
+        },
+        {
+          "arquivo": "midias/banheiro01.webp",
+          "tipo": "FOTO",
+          "ambiente": "banheiro",
+          "ordem": 6,
+          "is_highlight": false
+        }
+      ]
+    }
+  ]
+}

@@ -1306,6 +1306,10 @@ export function CadastroImovel() {
   };
 
   const publishListing = async () => {
+    if (!form.videoFile && !form.video) {
+      alert("O envio de um vídeo do imóvel é obrigatório para publicar o anúncio. Você pode salvar como rascunho por enquanto.");
+      return;
+    }
     setIsSaving(true);
     setSaveError("");
     setSaveMessage("");
@@ -1313,8 +1317,8 @@ export function CadastroImovel() {
     try {
       if (!propertyId || !listingId) {
         const createdProperty = propertyId ? { id: propertyId } : await propertyApi.create(toPropertyPayload(form));
-        const createdListing = await listingApi.create(toListingPayload(form, createdProperty.id));
         setPropertyId(createdProperty.id);
+        const createdListing = await listingApi.create(toListingPayload(form, createdProperty.id));
         setListingId(createdListing.id);
         const mediaFailures = await uploadFiles(createdProperty.id, createdListing.id);
         mediaFailureCount = mediaFailures.length;

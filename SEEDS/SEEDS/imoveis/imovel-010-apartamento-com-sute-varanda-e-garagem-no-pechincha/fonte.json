@@ -1,0 +1,54 @@
+{
+  "site": "Chaves na Mão",
+  "url_publica": "https://www.chavesnamao.com.br/imovel/apartamento-para-alugar-2-quartos-com-garagem-rj-rio-de-janeiro-pechincha-57m2-RS2100/id-18310275/",
+  "coletado_em": "2026-10-05",
+  "imagem_fontes": [
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/PZ8dRcM3LYBYXf5657hC5E.jpg",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/NaYD8qcw5DmCh5htRmer6T.webp",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/jbMRCkcqtvGnvb5GsBGxoe.jpg"
+  ],
+  "observacao": "Imagens públicas localizadas em páginas de anúncios/listagens reais; uso restrito a seed local de desenvolvimento.",
+  "galeria": {
+    "capa": "midias/capa01.jpg",
+    "fachada": "midias/fachada01.jpg",
+    "ambientes": [
+      "sala",
+      "cozinha",
+      "quarto",
+      "banheiro"
+    ],
+    "quantidade": 6
+  },
+  "midias_consultadas": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "mELsbdUkEgsF.jpg"
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "categoria_visual": "fachada",
+      "arquivo_origem": "ZaZ1F5x6tNw9.jpg"
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "mELsbdUkEgsF.jpg"
+    },
+    {
+      "arquivo": "midias/cozinha01.jpg",
+      "categoria_visual": "cozinha",
+      "arquivo_origem": "KgY1HdscCrfE.jpg"
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "categoria_visual": "quarto",
+      "arquivo_origem": "wHc0v9Aff34R.jpg"
+    },
+    {
+      "arquivo": "midias/banheiro01.webp",
+      "categoria_visual": "banheiro",
+      "arquivo_origem": "HApy2T9tawFm.webp"
+    }
+  ]
+}

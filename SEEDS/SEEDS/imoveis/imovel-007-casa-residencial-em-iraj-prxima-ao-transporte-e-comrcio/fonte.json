@@ -1,0 +1,54 @@
+{
+  "site": "QuintoAndar",
+  "url_publica": "https://www.quintoandar.com.br/imovel/892882028/alugar/casa-2-quartos-iraja-rio-de-janeiro",
+  "coletado_em": "2026-10-05",
+  "imagem_fontes": [
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/pkp2pq6fwBRmzEe46DfpKi.jpeg",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/eLoocTAio5N7gkdWqeADt4.webp",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/2iEYVR3P4aPYHa9xvWaLr7.webp"
+  ],
+  "observacao": "Imagens públicas localizadas em páginas de anúncios/listagens reais; uso restrito a seed local de desenvolvimento.",
+  "galeria": {
+    "capa": "midias/capa01.webp",
+    "fachada": "midias/fachada01.jpg",
+    "ambientes": [
+      "sala",
+      "cozinha",
+      "quarto",
+      "banheiro"
+    ],
+    "quantidade": 6
+  },
+  "midias_consultadas": [
+    {
+      "arquivo": "midias/capa01.webp",
+      "categoria_visual": "sala",
+      "arquivo_origem": "bgV6Jtm4d20L.webp"
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "categoria_visual": "fachada",
+      "arquivo_origem": "mn8lnz1L7fzU.jpg"
+    },
+    {
+      "arquivo": "midias/sala01.webp",
+      "categoria_visual": "sala",
+      "arquivo_origem": "bgV6Jtm4d20L.webp"
+    },
+    {
+      "arquivo": "midias/cozinha01.jpg",
+      "categoria_visual": "cozinha",
+      "arquivo_origem": "HgEZw0Ro2NsJ.jpg"
+    },
+    {
+      "arquivo": "midias/quarto01.webp",
+      "categoria_visual": "quarto",
+      "arquivo_origem": "lnM5QXGhLOhw.webp"
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "categoria_visual": "banheiro",
+      "arquivo_origem": "Hz60NCIqjtsk.jpg"
+    }
+  ]
+}

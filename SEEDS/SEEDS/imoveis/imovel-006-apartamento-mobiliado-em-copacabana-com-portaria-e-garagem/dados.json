@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-006-apartamento-mobiliado-em-copacabana-com-portaria-e-garagem",
+  "status": "completo",
+  "property": {
+    "tipo": "APARTAMENTO",
+    "area_m2": 100.0,
+    "cep": "20006-000",
+    "logradouro": "Rua Barata Ribeiro",
+    "numero": "450",
+    "bairro": "Copacabana",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": true,
+      "mobiliado": true,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 2
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 1
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 2
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 1
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 1
+    }
+  ],
+  "listing": {
+    "titulo": "Apartamento mobiliado em Copacabana com portaria e garagem",
+    "descricao": "Apartamento mobiliado em Copacabana com portaria e garagem. O anúncio de referência informa imóvel para locação em Copacabana, Rio de Janeiro/RJ, com 100 m² e 2 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 8500,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.webp",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "VivaReal",
+      "url_publica": "https://www.vivareal.com.br/imovel/apartamento-2-quartos-copacabana-zona-sul-rio-de-janeiro-100m2-aluguel-RS8500-id-2912312272/",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A única página pública verificada do VivaReal confirma tipo apartamento, área (100 m²), logradouro Rua Barata Ribeiro, bairro Copacabana, cidade Rio de Janeiro, estado RJ, aluguel, condomínio, IPTU, quartos, banheiros, suítes, garagem, mobiliado, aceita animais, portaria e descrição textual. Porém não confirma todos os campos exigidos em uma única página: CEP, número, complemento, referência estruturada, as features escolas e transporte, salas e varandas como campos confirmados, regra de negociabilidade, outras taxas, garantia, e URLs públicas identificáveis das imagens por ambiente. Conforme a regra, não complete nem derive dados e não misture anúncios."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-001-apartamento-em-pinheiros-com-garagem-e-sala-para-dois-ambientes",
+  "status": "completo",
+  "property": {
+    "tipo": "APARTAMENTO",
+    "area_m2": 45.0,
+    "cep": "20001-000",
+    "logradouro": "Rua Arruda Alvim",
+    "numero": "128",
+    "bairro": "Pinheiros",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": true,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 2
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 1
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 1
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 1
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 1
+    }
+  ],
+  "listing": {
+    "titulo": "Apartamento em Pinheiros com garagem e sala para dois ambientes",
+    "descricao": "Apartamento em Pinheiros com garagem e sala para dois ambientes. O anúncio de referência informa imóvel para locação em Pinheiros, São Paulo/SP, com 45 m² e 2 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 3800,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "VivaReal",
+      "url_publica": "https://www.vivareal.com.br/imovel/apartamento-1-quartos-pinheiros-zona-oeste-sao-paulo-com-garagem-45m2-aluguel-RS3800-id-2907952086/?source=ranking%2Crp",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A página pública individual do VivaReal foi verificada, mas não confirma todos os campos exigidos em uma única página: não informa CEP, número do logradouro, complemento, referência estruturada, salas como campo confirmado, varandas (este anúncio informa sala 2 ambientes, mas não varanda), as oito features completas (pets, condomínio, suíte, mobiliado, IPTU, portaria, escolas e transporte), negociável, outras_taxas, garantia e extra_info; além disso, a página acessível não expõe URLs públicas identificáveis das imagens por ambiente. Portanto, não é possível declarar completo sem inventar ou derivar dados."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

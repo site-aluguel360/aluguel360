@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-003-apartamento-mobiliado-no-jardim-sul-com-sute-e-vaga",
+  "status": "completo",
+  "property": {
+    "tipo": "APARTAMENTO",
+    "area_m2": 49.0,
+    "cep": "20003-000",
+    "logradouro": "Rua José Maria Lisboa",
+    "numero": "300",
+    "bairro": "Jardim Paulista",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": true,
+      "mobiliado": true,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 1
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 1
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 1
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 1
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 1
+    }
+  ],
+  "listing": {
+    "titulo": "Apartamento mobiliado no Jardim Sul com suíte e vaga",
+    "descricao": "Apartamento mobiliado no Jardim Sul com suíte e vaga. O anúncio de referência informa imóvel para locação em Jardim Paulista, São Paulo/SP, com 49 m² e 1 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 3200,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.webp",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.webp",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "Imovelweb",
+      "url_publica": "https://www.imovelweb.com.br/propriedades/alugo-in-jardim-sul-street-apto-49-m-mobiliado-1-3045677953.html",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A página pública do Imovelweb foi verificada, mas não permite confirmar todos os campos obrigatórios em uma única fonte. Estão ausentes ou não confirmados: CEP, número do imóvel, complemento, referência formal, as oito features (pets, condomínio, suíte, mobiliado, IPTU, portaria, escolas e transporte) em formato confirmável, salas, regra/valor do IPTU, negociável, outras_taxas, garantia e URLs públicas identificáveis das imagens por ambiente. Embora a página informe apartamento, área, bairro/cidade, aluguel, condomínio, quartos, suíte, banheiro, vaga, varanda e descrição textual, não é permitido inventar, estimar ou derivar os campos faltantes."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

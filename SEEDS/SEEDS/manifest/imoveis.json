@@ -1,0 +1,19 @@
+{
+  "colecao": "aluguel360-seeds-imoveis",
+  "versao": 2,
+  "objetivo": "10 seeds baseados em anúncios reais com complementos sintéticos explicitamente identificados",
+  "quantidade_alvo": 10,
+  "regra": "campos reais preservados; lacunas complementadas somente para teste local",
+  "imoveis": [
+    "imovel-001-apartamento-em-pinheiros-com-garagem-e-sala-para-dois-ambientes",
+    "imovel-002-casa-ampla-em-vila-gustavo-com-quartos-sutes-vagas-e-varanda",
+    "imovel-003-apartamento-mobiliado-no-jardim-sul-com-sute-e-vaga",
+    "imovel-004-kitnet-mobiliada-prxima-ao-metr-com-cozinha-integrada",
+    "imovel-005-apartamento-para-locao-em-perdizes-com-garagem-e-boa-iluminao",
+    "imovel-006-apartamento-mobiliado-em-copacabana-com-portaria-e-garagem",
+    "imovel-007-casa-residencial-em-iraj-prxima-ao-transporte-e-comrcio",
+    "imovel-008-apartamento-amplo-na-barra-da-tijuca-com-varanda-e-portaria-24-horas",
+    "imovel-009-kitnet-ampla-e-moderna-na-tijuca-prxima-ao-metr",
+    "imovel-010-apartamento-com-sute-varanda-e-garagem-no-pechincha"
+  ]
+}

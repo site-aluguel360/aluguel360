@@ -116,6 +116,26 @@ Frontend:
 npm run dev
 ```
 
+### Popular Banco de Dados de Teste (Seeds)
+
+O projeto possui um conjunto de dados fakes (proprietários, anúncios e imagens) prontos para uso em desenvolvimento. Para limpar o banco atual e carregar esses dados iniciais, utilize os scripts de seed:
+
+**Rodando com Docker:**
+```bash
+# 1. Limpa o banco atual (preserva a conta admin@admin.com)
+docker exec aluguel360_mobile_api-django-1 python manage.py reset_demo_database
+
+# 2. Carrega proprietários, imóveis, anúncios e fotos
+docker exec aluguel360_mobile_api-django-1 python manage.py seed_imoveis
+```
+
+**Rodando localmente (Venv):**
+```bash
+cd backend/aluguel360_mobile_api
+python manage.py reset_demo_database
+python manage.py seed_imoveis
+```
+
 ## Fluxo Principal
 
 ```text

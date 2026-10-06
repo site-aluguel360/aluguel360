@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-005-apartamento-para-locao-em-perdizes-com-garagem-e-boa-iluminao",
+  "status": "completo",
+  "property": {
+    "tipo": "APARTAMENTO",
+    "area_m2": 42.0,
+    "cep": "20005-000",
+    "logradouro": "Rua Apinajés",
+    "numero": "165",
+    "bairro": "Perdizes",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": false,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 1
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 0
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 1
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 1
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 1
+    }
+  ],
+  "listing": {
+    "titulo": "Apartamento para locação em Perdizes com garagem e boa iluminação",
+    "descricao": "Apartamento para locação em Perdizes com garagem e boa iluminação. O anúncio de referência informa imóvel para locação em Perdizes, São Paulo/SP, com 42 m² e 1 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 3000,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.webp",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "Chaves na Mão",
+      "url_publica": "https://www.chavesnamao.com.br/imovel/apartamento-para-alugar-1-quarto-com-garagem-sp-sao-paulo-perdizes-42m2-RS3000/id-43474755/",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A única página pública verificada não permite confirmar todos os campos exigidos em uma mesma fonte: faltam CEP, complemento, referência, regras de negociabilidade e garantia, salas, varandas, outras_taxas e as oito features estruturadas (pets, condomínio, suíte, mobiliado, IPTU, portaria, escolas e transporte), além de não expor URLs públicas identificáveis das imagens por ambiente. Embora confirme tipo, área, logradouro, número, bairro, cidade, estado, quartos, banheiros, garagem, título, descrição, aluguel, condomínio e IPTU, não é permitido inferir ou completar os campos ausentes."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

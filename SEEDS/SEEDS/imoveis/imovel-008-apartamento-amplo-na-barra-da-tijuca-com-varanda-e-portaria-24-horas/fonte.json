@@ -1,0 +1,54 @@
+{
+  "site": "Imovelweb",
+  "url_publica": "https://www.imovelweb.com.br/propriedades/apartamento-de-150m-para-locacao-reserva-jardim-3042499364.html",
+  "coletado_em": "2026-10-05",
+  "imagem_fontes": [
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/eLoocTAio5N7gkdWqeADt4.webp",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/2iEYVR3P4aPYHa9xvWaLr7.webp",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/PZ8dRcM3LYBYXf5657hC5E.jpg"
+  ],
+  "observacao": "Imagens públicas localizadas em páginas de anúncios/listagens reais; uso restrito a seed local de desenvolvimento.",
+  "galeria": {
+    "capa": "midias/capa01.jpg",
+    "fachada": "midias/fachada01.jpg",
+    "ambientes": [
+      "sala",
+      "cozinha",
+      "quarto",
+      "banheiro"
+    ],
+    "quantidade": 6
+  },
+  "midias_consultadas": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "jdmtBZlio32p.jpg"
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "categoria_visual": "fachada",
+      "arquivo_origem": "qrNMbyNgos5b.jpg"
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "jdmtBZlio32p.jpg"
+    },
+    {
+      "arquivo": "midias/cozinha01.jpeg",
+      "categoria_visual": "cozinha",
+      "arquivo_origem": "VF8H35r2tKvm.jpeg"
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "categoria_visual": "quarto",
+      "arquivo_origem": "sziundl6diSQ.jpg"
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "categoria_visual": "banheiro",
+      "arquivo_origem": "PhIqm1lgJIdp.jpg"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "colecao": "aluguel360-seeds-imoveis",
+  "versao": 1,
+  "objetivo": "Dados de teste coletados de anúncios públicos, sem dados pessoais de anunciantes",
+  "quantidade_alvo": 50,
+  "regra_de_entrada": "Somente status completo após validação de todos os campos persistíveis",
+  "imoveis": []
+}

@@ -58,7 +58,7 @@ async function refreshAccessToken() {
   const response = await fetch(`${API_URL}/auth/token/refresh/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ refresh_token }),
+    body: JSON.stringify({ refresh: refresh_token }),
   });
   if (!response.ok) {
     clearTokens();

@@ -1,0 +1,1 @@
+Galeria com capa, fachada e ambientes distintos para o fluxo de cadastro.

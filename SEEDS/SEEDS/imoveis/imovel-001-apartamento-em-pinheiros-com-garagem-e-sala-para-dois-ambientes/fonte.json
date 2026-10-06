@@ -1,0 +1,54 @@
+{
+  "site": "VivaReal",
+  "url_publica": "https://www.vivareal.com.br/imovel/apartamento-1-quartos-pinheiros-zona-oeste-sao-paulo-com-garagem-45m2-aluguel-RS3800-id-2907952086/?source=ranking%2Crp",
+  "coletado_em": "2026-10-05",
+  "imagem_fontes": [
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/NaYD8qcw5DmCh5htRmer6T.webp",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/jbMRCkcqtvGnvb5GsBGxoe.jpg",
+    "https://files.manuscdn.com/search-media/310419663029033123/D02VATUU7aFQB340lOKHdq/nbttzcF6By25tqnZjJqKCk.jpg"
+  ],
+  "observacao": "Imagens públicas localizadas em páginas de anúncios/listagens reais; uso restrito a seed local de desenvolvimento.",
+  "galeria": {
+    "capa": "midias/capa01.jpg",
+    "fachada": "midias/fachada01.jpg",
+    "ambientes": [
+      "sala",
+      "cozinha",
+      "quarto",
+      "banheiro"
+    ],
+    "quantidade": 6
+  },
+  "midias_consultadas": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "jdmtBZlio32p.jpg"
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "categoria_visual": "fachada",
+      "arquivo_origem": "mn8lnz1L7fzU.jpg"
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "categoria_visual": "sala",
+      "arquivo_origem": "jdmtBZlio32p.jpg"
+    },
+    {
+      "arquivo": "midias/cozinha01.jpg",
+      "categoria_visual": "cozinha",
+      "arquivo_origem": "HgEZw0Ro2NsJ.jpg"
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "categoria_visual": "quarto",
+      "arquivo_origem": "YWcVLZFfCNmk.jpg"
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "categoria_visual": "banheiro",
+      "arquivo_origem": "PhIqm1lgJIdp.jpg"
+    }
+  ]
+}

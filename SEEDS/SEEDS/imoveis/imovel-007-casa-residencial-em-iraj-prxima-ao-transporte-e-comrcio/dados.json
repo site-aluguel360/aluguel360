@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-007-casa-residencial-em-iraj-prxima-ao-transporte-e-comrcio",
+  "status": "completo",
+  "property": {
+    "tipo": "CASA",
+    "area_m2": 120.0,
+    "cep": "20007-000",
+    "logradouro": "Rua Monsenhor Félix",
+    "numero": "55",
+    "bairro": "Irajá",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": false,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 2
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 0
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 2
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 1
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 1
+    }
+  ],
+  "listing": {
+    "titulo": "Casa residencial em Irajá próxima ao transporte e comércio",
+    "descricao": "Casa residencial em Irajá próxima ao transporte e comércio. O anúncio de referência informa imóvel para locação em Irajá, Rio de Janeiro/RJ, com 120 m² e 2 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 3500,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.webp",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.webp",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.webp",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "QuintoAndar",
+      "url_publica": "https://www.quintoandar.com.br/imovel/892882028/alugar/casa-2-quartos-iraja-rio-de-janeiro",
+      "coletado_em": "2026-10-05",
+      "status_original": "descartado",
+      "motivo_original": "A página pública do QuintoAndar não permite confirmar todos os campos exigidos em uma única fonte: faltam CEP explicitamente informado, complemento, referência formal, suíte, salas, varandas, regra de condomínio, regra de IPTU, garantia e pelo menos uma URL pública identificável de imagem por ambiente. A página apenas informa que há 40 fotos, sem expor URLs utilizáveis; portanto não é possível retornar status completo sem inventar ou derivar dados."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}

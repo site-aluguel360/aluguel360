@@ -1,0 +1,150 @@
+{
+  "seed_id": "imovel-004-kitnet-mobiliada-prxima-ao-metr-com-cozinha-integrada",
+  "status": "completo",
+  "property": {
+    "tipo": "KITNET",
+    "area_m2": 28.0,
+    "cep": "20004-000",
+    "logradouro": "Rua Augusta",
+    "numero": "900",
+    "bairro": "Consolação",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "complemento": "Unidade residencial",
+    "referencia": "Próximo a comércio e transporte público",
+    "features": {
+      "pets": true,
+      "condominio": true,
+      "suite": false,
+      "mobiliado": false,
+      "iptu": false,
+      "portaria": true,
+      "escolas": true,
+      "transporte": true
+    }
+  },
+  "rooms": [
+    {
+      "tipo": "quartos",
+      "quantidade": 1
+    },
+    {
+      "tipo": "suites",
+      "quantidade": 0
+    },
+    {
+      "tipo": "banheiros",
+      "quantidade": 1
+    },
+    {
+      "tipo": "salas",
+      "quantidade": 1
+    },
+    {
+      "tipo": "garagem",
+      "quantidade": 0
+    },
+    {
+      "tipo": "varandas",
+      "quantidade": 0
+    }
+  ],
+  "listing": {
+    "titulo": "Kitnet mobiliada próxima ao metrô com cozinha integrada",
+    "descricao": "Kitnet mobiliada próxima ao metrô com cozinha integrada. O anúncio de referência informa imóvel para locação em Consolação, São Paulo/SP, com 28 m² e 1 quarto(s). Dados complementares foram criados exclusivamente para teste local do fluxo de cadastro.",
+    "extra_info": "Complemento de seed: imóvel fictício para desenvolvimento local; confirmar informações antes de qualquer uso externo.",
+    "aluguel": 1800,
+    "negociavel": false,
+    "condominio_valor": 500.0,
+    "condominio_incluido": false,
+    "iptu_valor": 120.0,
+    "iptu_incluido": false,
+    "outras_taxas": "Seguro incêndio e taxa de serviço: valores complementares de teste local.",
+    "garantia": "CAUCAO"
+  },
+  "midias": [
+    {
+      "arquivo": "midias/capa01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "capa",
+      "ordem": 1,
+      "is_highlight": true
+    },
+    {
+      "arquivo": "midias/fachada01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "fachada",
+      "ordem": 2,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/sala01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "sala",
+      "ordem": 3,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/cozinha01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "cozinha",
+      "ordem": 4,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/quarto01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "quarto",
+      "ordem": 5,
+      "is_highlight": false
+    },
+    {
+      "arquivo": "midias/banheiro01.jpg",
+      "tipo": "FOTO",
+      "ambiente": "banheiro",
+      "ordem": 6,
+      "is_highlight": false
+    }
+  ],
+  "proveniencia": {
+    "anuncio_base": {
+      "site": "OLX Imóveis",
+      "url_publica": "https://sp.olx.com.br/sao-paulo-e-regiao/imoveis/kitnet-kit-suite-studio-flat-kitchenette-mobiliada-mobiliado-linda-segura-lado-do-metro-1089937911",
+      "coletado_em": "2026-10-05",
+      "status_original": "pendente",
+      "motivo_original": "A página pública única da OLX foi verificada, mas não confirma todos os campos exigidos: não informa logradouro completo e número, complemento, referência estruturada, salas, varandas, regra de negociabilidade, outras_taxas e URLs públicas identificáveis das imagens por ambiente; também não há confirmação completa das oito features exigidas (pets, condomínio, suíte, mobiliado, IPTU, portaria, escolas e transporte). O anúncio informa que o IPTU é por conta do proprietário, sem valor, e apresenta apenas localização aproximada por bairro/CEP. Portanto, não é possível retornar status completo sem inventar ou derivar dados."
+    },
+    "campos_reais_confirmados": [
+      "tipo",
+      "area_m2",
+      "logradouro",
+      "bairro",
+      "cidade",
+      "estado",
+      "aluguel",
+      "quartos",
+      "banheiros",
+      "garagem",
+      "descricao parcial"
+    ],
+    "campos_complementados_para_teste": [
+      "cep",
+      "numero",
+      "complemento",
+      "referencia",
+      "features",
+      "suites",
+      "salas",
+      "varandas",
+      "negociavel",
+      "condominio_valor",
+      "condominio_incluido",
+      "iptu_valor",
+      "iptu_incluido",
+      "outras_taxas",
+      "garantia",
+      "extra_info"
+    ],
+    "observacao": "Os complementos não são dados reais do anúncio; foram criados apenas para permitir o teste integral do cadastro local."
+  }
+}
